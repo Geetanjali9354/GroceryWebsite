@@ -23,7 +23,7 @@ import 'aos/dist/aos.css';
 function CircleCarousal() {
     useEffect(() => {
         AOS.init({
-            duration: 700,
+            duration: 1000,
             once: true,
         });
     }, []);

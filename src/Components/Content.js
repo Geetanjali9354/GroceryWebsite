@@ -10,8 +10,12 @@ function Content() {
                 <div className="container">
                     <div className="row align-items-center">
                         {/* Text Content (Left side) */}
-                        <div className="col-lg-6 col-md-12 text-content">
-                            <span className="fw-semibold text-success-600"style={{fontFamily:'quicksand'}}>
+                        <div className="col-lg-6 col-md-12 text-content"
+                            data-aos="fade-right"
+                            data-aos-duration="1000"
+                            data-aos-delay="100"
+                        >
+                            <span className="fw-semibold text-success-600" style={{ fontFamily: 'quicksand' }}>
                                 Save up to 50% off on your first order
                             </span>
                             <h2 className="banner-item__title max-w-700">
@@ -33,8 +37,12 @@ function Content() {
                         </div>
 
                         {/* Image (Right side) */}
-                        <div className="col-lg-6 col-md-12 image-container">
-                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div className="col-lg-6 col-md-12 image-container"
+                            data-aos="zoom-in"
+                            data-aos-duration="1000"
+                            data-aos-delay="100"
+                        >
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <img
                                     src={basket} // Replace with the correct path of your image
                                     alt="Grocery Basket"

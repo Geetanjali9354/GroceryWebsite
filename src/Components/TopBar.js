@@ -148,7 +148,7 @@ function TopBar() {
                         </div>
                         <div className="col-lg-7 d-none d-lg-block">
                             <div className="input-group">
-                                <select className="form-select" style={{ maxWidth: '20%' }}>
+                                <select className="form-select" style={{ maxWidth: '21%' }}>
                                     <option>All categories</option>
                                     <option>Electronics</option>
                                     <option>Fashion</option>
@@ -274,7 +274,7 @@ function TopBar() {
 
             <Content />
             <CircleCarousal />
-            <FlashSales/>
+            <FlashSales />
         </div>
     );
 }

@@ -2,11 +2,23 @@
 .special-offer-container {
   position: relative;
   width: 100%;
-  background-color: #e9ffff;
-  border-radius: 30px;
   padding: 20px;
+  border-radius: 30px;
+  /* Background layering */
+  background-color: #e9ffff; /* Light blue fallback */
+  background-image: url('../Images/bannerbACKGROUND.png'); /* Replace with actual path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
+/* Ensure content stays above background and overlay */
+.banner-item__content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
 /* Banner Content */
 .banner-item__content {
   color: white;
