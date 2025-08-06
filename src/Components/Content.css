@@ -1,0 +1,71 @@
+/* General Styling */
+.special-offer-container {
+  position: relative;
+  width: 100%;
+  background-color: #e9ffff;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+/* Banner Content */
+.banner-item__content {
+  color: white;
+}
+
+/* Text Content Styling */
+.text-success-600 {
+  color: #28a745;
+}
+
+.banner-item__title {
+  font-size: 36px;
+  /* Reduced for better responsiveness */
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: black;
+  font-family: 'quicksand';
+}
+
+.text-main-600 {
+  color: #1C799B;
+  /* Highlight color */
+}
+
+.gap-16 {
+  gap: 16px;
+}
+
+
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  .special-offer-container {
+    padding: 10px;
+    /* Reduce padding on mobile */
+  }
+}
+
+/* Extra small screens (portrait mobile) */
+@media (max-width: 480px) {
+  .banner-item__title {
+    font-size: 22px;
+    /* Further reduce the title size */
+  }
+
+  .btn-main {
+    font-size: 12px;
+  }
+
+  .image-style {
+    max-width: 80%;
+    /* Further reduce image width on very small screens */
+  }
+
+  .text-danger {
+    font-size: 14px;
+  }
+
+  .gap-16 {
+    gap: 8px;
+  }
+}

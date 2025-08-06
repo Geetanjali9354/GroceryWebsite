@@ -1,0 +1,88 @@
+/* ---------- FOUR BOX GRID ---------- */
+.four-box-grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 40px;
+    padding: 0 20px;
+    margin-bottom: 50px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.box {
+    padding: 30px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: white;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Responsive 4-column layout on large screens */
+@media (min-width: 1024px) {
+    .four-box-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ---------- CIRCLE CAROUSEL ---------- */
+.circle-carousel-container {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.circle-carousel-item {
+    text-align: center;
+}
+
+.circle-carousel-image {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.circle-carousel-image img {
+    height: 70%;
+    width: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease-in-out;
+}
+
+.circle-carousel-image:hover img {
+    transform: scale(1.2);
+    /* Zoom effect */
+}
+
+.circle-carousel-label {
+    font-size: 18px;
+    color: #333;
+    margin-top: 15px;
+}
+
+.circle-carousel-subtitle {
+    font-size: 14px;
+    color: #999;
+}
+
+/* ---------- BUTTON STYLE (can be reused) ---------- */
+.btn-main {
+    background-color: #1C799B !important;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
