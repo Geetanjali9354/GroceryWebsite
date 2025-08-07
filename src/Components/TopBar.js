@@ -21,6 +21,8 @@ import CircleCarousal from "./CircleCarousal";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import FlashSales from "./FlashSales";
+import CustomText from "./CustomText";
+import RecommendedSection from "./RecommendedSection";
 
 function TopBar() {
     const [timeLeft, setTimeLeft] = useState({
@@ -31,7 +33,6 @@ function TopBar() {
     });
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showCategories, setShowCategories] = useState(false);
-    const categoryRef = useRef(null);
     useEffect(() => {
         AOS.init({
             duration: 500,
@@ -86,8 +87,10 @@ function TopBar() {
             <div className="header-top">
                 <div className="header-top-wrapper d-flex flex-wrap align-items-center justify-content-between">
                     <div className="header-countdown d-flex align-items-center flex-wrap mb-2 mb-md-0">
-                        <span className="sale-text text-white d-none d-md-flex me-2">Until the end of the sale:</span>
-                        <span className="text-white d-xl-flex d-xl-none me-2">Sale end:</span>
+                        {/* <span className="sale-text text-white d-none d-md-flex me-2">Until the end of the sale:</span> */}
+                        <CustomText Text="Until the end of the sale:" className="sale-text text-white d-none d-md-flex me-2" />
+                        {/* <span className="text-white d-xl-flex d-xl-none me-2">Sale end:</span> */}
+                        <CustomText Text="Sale end:" className="text-white d-xl-flex d-xl-none me-2" />
                         <div className="countdown d-flex">
                             <div className="countdown-item">
                                 <strong>{timeLeft.days}</strong><span> Days</span>
@@ -104,17 +107,17 @@ function TopBar() {
                         </div>
                     </div>
                     <div className="header-offers d-none d-md-flex justify-content-center mb-2 mb-md-0">
-                        <p className="header-offers mb-0 text-white">
-                            Buy one get one free <span style={{ color: '#ffcc53' }}> first Order</span>
+                        <p className="header-offers mb-0 text-white"style={{ fontFamily: 'Quicksand'}}>
+                            Buy one get one free <span style={{ color: '#ffcc53',fontFamily:'Quicksand' }}> first Order</span>
                         </p>
                     </div>
                     <div className="me-5">
                         <ul className="header-links mb-0">
-                            <li><a href="#" className='d-none d-md-flex text-white'>Order Tracking</a></li>
-                            <li><a href="#" className='d-none d-md-flex text-white'>About Us</a></li>
+                            <li><a href="#" className='d-none d-md-flex text-white'style={{fontFamily: 'Quicksand'}}>Order Tracking</a></li>
+                            <li><a href="#" className='d-none d-md-flex text-white'style={{fontFamily: 'Quicksand'}}>About Us</a></li>
                             <li className="dropdown">
-                                <a href="#">Eng</a>
-                                <ul className="dropdown-menu">
+                                <a href="#"style={{fontFamily: 'Quicksand'}}>Eng</a>
+                                <ul className="dropdown-menu"style={{fontFamily: 'Quicksand'}}>
                                     <li>English</li>
                                     <li>Japanese</li>
                                     <li>French</li>
@@ -124,8 +127,8 @@ function TopBar() {
                                 </ul>
                             </li>
                             <li className="dropdown">
-                                <a href="#">USD</a>
-                                <ul className="dropdown-menu">
+                                <a href="#"style={{fontFamily: 'Quicksand'}}>USD</a>
+                                <ul className="dropdown-menu"style={{fontFamily: 'Quicksand'}}>
                                     <li>USD</li>
                                     <li>Yen</li>
                                     <li>Franc</li>
@@ -193,14 +196,21 @@ function TopBar() {
             <div className="border-top border-bottom py-3 position-relative">
                 <div className="container-fluid">
                     <div className="row align-items-center justify-content-between">
-                        <div className="col-auto">
+                        <div
+                            className="col-auto"
+                            onMouseEnter={() => setShowCategories(true)}
+                            onMouseLeave={() => setShowCategories(false)}
+                        >
                             <button
                                 className="d-flex align-items-center px-4 py-2 rounded"
-                                onClick={toggleCategories}
                                 style={{ backgroundColor: '#2ABC79', border: 'none', color: 'white' }}
                             >
                                 Browse Categories
-                                <BaselineKeyboardArrowDown height="20" width="20" className="ms-2 mt-1" />
+                                <BaselineKeyboardArrowDown
+                                    height="20"
+                                    width="20"
+                                    className={`ms-2 mt-1 transition-icon ${showCategories ? 'rotate-up' : ''}`}
+                                />
                             </button>
 
                             {showCategories && (
@@ -209,9 +219,9 @@ function TopBar() {
                                     data-aos="fade-up"
                                     data-aos-anchor-placement="top-bottom"
                                 >
-                                    <div className="row " >
+                                    <div className="row">
                                         {categories.map((item, index) => (
-                                            <div key={index} className="col-6 col-md-4 text-center ">
+                                            <div key={index} className="col-6 col-md-4 text-center">
                                                 <div className="category-card">
                                                     <img src={item.img} alt={item.name} className="img-fluid mb-2" style={{ height: '40px' }} />
                                                     <h6>{item.name}</h6>
@@ -222,6 +232,7 @@ function TopBar() {
                                 </div>
                             )}
                         </div>
+
 
                         <div className="col-auto d-md-none">
                             <button className="btn" onClick={toggleMobileMenu}>
@@ -275,6 +286,7 @@ function TopBar() {
             <Content />
             <CircleCarousal />
             <FlashSales />
+            <RecommendedSection/>
         </div>
     );
 }

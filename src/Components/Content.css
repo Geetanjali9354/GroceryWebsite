@@ -32,10 +32,9 @@
 .banner-item__title {
   font-size: 36px;
   /* Reduced for better responsiveness */
-  font-weight: bold;
+  /* font-weight: bold; */
   margin-bottom: 30px;
   color: black;
-  font-family: 'quicksand';
 }
 
 .text-main-600 {

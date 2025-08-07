@@ -15,57 +15,8 @@ import Banner2 from '../Images/Banner2.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-const products = [
-    {
-        price: 14.99,
-        originalPrice: 28.99,
-        rating: 4.8,
-        sold: "18/35",
-        name: "Taylor Farms Broccoli Florets Vegetables",
-        image: CarouselImage1,
-    },
-    {
-        price: 14.99,
-        originalPrice: 28.99,
-        rating: 4.8,
-        sold: "18/35",
-        name: "Taylor Farms Broccoli Florets Vegetables",
-        image: CarouselImage2,
-    },
-    {
-        price: 14.99,
-        originalPrice: 28.99,
-        rating: 4.8,
-        sold: "18/35",
-        name: "Taylor Farms Broccoli Florets Vegetables",
-        image: CarouselImage3,
-    },
-    {
-        price: 14.99,
-        originalPrice: 28.99,
-        rating: 4.8,
-        sold: "18/35",
-        name: "Taylor Farms Broccoli Florets Vegetables",
-        image: CarouselImage4,
-    },
-    {
-        price: 14.99,
-        originalPrice: 28.99,
-        rating: 4.8,
-        sold: "18/35",
-        name: "Taylor Farms Broccoli Florets Vegetables",
-        image: CarouselImage5,
-    },
-    {
-        price: 14.99,
-        originalPrice: 28.99,
-        rating: 4.8,
-        sold: "18/35",
-        name: "Taylor Farms Broccoli Florets Vegetables",
-        image: CarouselImage6,
-    },
-];
-
+import CategoryCollection from './CategoryCollection';
+import CustomText from './CustomText';
 const FlashSales = () => {
     const settings = {
         dots: false,
@@ -91,7 +42,20 @@ const FlashSales = () => {
             once: true,    // Only once animation
         });
     }, []);
-
+    const carouselImages = [
+        CarouselImage1,
+        CarouselImage2,
+        CarouselImage3,
+        CarouselImage4,
+        CarouselImage5,
+        CarouselImage6,
+    ];
+    const flashSaleProducts = CategoryCollection.flatMap(category =>
+        category.products?.filter(product => {
+            const images = product.image || product.images || []; // in some you used 'image', others 'images'
+            return images.some(img => carouselImages.includes(img));
+        }) || []
+    );
     return (
         // --------------------------------Flash Sales Section--------------------------------
         <div>
@@ -101,57 +65,76 @@ const FlashSales = () => {
                     <a href="#">View All Deals</a>
                 </div>
                 <Slider {...settings}>
-                    {products.map((product, idx) => (
+                    {flashSaleProducts.map((product, idx) => (
                         <div
-                            key={idx}
+                            key={product.id}
                             className="flash-sales-slide"
                             data-aos="fade-up"
                             data-aos-delay={idx * 100} // 100ms staggered delay
                         >
                             <div className="flash-sales-card">
                                 <div className="flash-sales-image-container">
-                                    <img
-                                        src={product.image}
-                                        alt={product.name}
-                                    />
+                                    <img src={(product.image?.[0] || product.images?.[0])} alt={product.name} />
+
                                 </div>
                                 <button className="flash-sales-add-button">
                                     Add
                                     <CartOutline height="20" width="20" />
                                 </button>
                                 <p className="flash-sales-price">
-                                    ${product.price} <span className="original-price">${product.originalPrice}</span> <span className="per-qty">/Qty</span>
+                                    {/* ${product.price} <span className="original-price">${product.originalPrice}</span> <span className="per-qty">/Qty</span> */}
+                                    <CustomText Text={`$${product.price}`} className='flash-sales-price' fontWeight='bold' />
                                 </p>
                                 <p className="flash-sales-rating">
                                     <strong>{product.rating}</strong> ⭐ (17k)
                                 </p>
-                                <p className="flash-sales-product-name">
+                                {/* <p className="flash-sales-product-name">
                                     {product.name}
-                                </p>
+                                </p> */}
+                                <CustomText Text={product.name} className='flash-sales-product-name' fontWeight='bold' />
                                 <div className="flash-sales-progress-bar">
                                     <div className="flash-sales-progress-bar-inner"></div>
                                 </div>
-                                <p className="flash-sales-sold-text">
+                                {/* <p className="flash-sales-sold-text">
                                     Sold: {product.sold}
-                                </p>
+                                </p> */}
+                                <CustomText Text={`Sold: ${product.sold}`} className='flash-sales-sold-text' fontWeight='bold' />
                             </div>
                         </div>
                     ))}
                 </Slider>
             </div>
+            {/* // -------------------------------- TWO RECTANGLE BANNER--------------------------------- */}
 
-            {/* <div className="container  my-4">
+            <div className="p-3 my-4">
                 <div className="row">
                     <div className="col-md-6">
                         <div
                             className="rectangle-box banner-box"
                             style={{
                                 backgroundImage: `url(${Banner1})`,
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                display: 'flex',
+                                justifyContent:'end',
                             }}
                         >
+                            <div className="banner-content">
+                                <CustomText Text="X-Connect Smart Television" fontWeight='bold' className='banner-contentText' />
+                                {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
+                                <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
+                                <div className="countdown1 ">
+                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>874</span > D</div>
+                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>16</span> H</div>
+                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>28</span> M</div>
+                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>17</span> S</div>
+                                </div>
+                                <button className="shop-now-btn-banner1">Shop Now →</button>
+                            </div>
                         </div>
-
                     </div>
+
                     <div className="col-md-6">
                         <div
                             className="rectangle-box banner-box"
@@ -159,16 +142,28 @@ const FlashSales = () => {
                                 backgroundImage: `url(${Banner2})`,
                             }}
                         >
+                            <div className="banner-content ">
+                                {/* <h2>Vegetables Combo Box</h2> */}
+                                <CustomText Text="Vegetables Combo Box" fontWeight='bold' className='banner-contentText' />
+                                {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
+                                <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
+                                <div className="countdown1 ">
+                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>874</span > D</div>
+                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>16</span> H</div>
+                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>28</span> M</div>
+                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>17</span> S</div>
+                                </div>
+                                <button className="shop-now-btn-banner2">Shop Now →</button>
+                            </div>
                         </div>
 
                     </div>
                 </div>
-            </div> */}
+            </div>
 
 
         </div>
 
-        // -------------------------------- TWO RECTANGLE BANNER---------------------------------
 
     );
 };

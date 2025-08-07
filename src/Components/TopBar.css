@@ -33,9 +33,9 @@
     font-size: 15px;
 }
 
-.dropdown {
+/* .dropdown {
     position: relative;
-}
+} */
 
 /* .dropdown-menu {
     display: none;
@@ -51,7 +51,7 @@
 } */
 
 .dropdown-menu li {
-    padding: 8px 16px;
+    padding: 0px 10px;
     cursor: pointer;
 }
 
@@ -155,4 +155,11 @@
     width: 100%;
     padding: 1rem;
   }
+}
+.transition-icon {
+    transition: transform 0.3s ease;
+}
+
+.rotate-up {
+    transform: rotate(180deg);
 }

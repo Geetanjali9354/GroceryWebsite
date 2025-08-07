@@ -2,16 +2,6 @@ import Slider from "react-slick";
 import { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AnimalFood from '../Images/AnimalFood.png';
-import DariyAndEggs from '../Images/DariyAndEggs.png';
-import Desserts from '../Images/Desserts.png';
-import DrinkAndJuice from '../Images/DrinkAndJuice.png';
-import FishAndMeat from '../Images/fishAndMeat.png';
-import FreshFruit from '../Images/FreshFruits.png';
-import FrozenFood from '../Images/FrozenFood.png';
-import YummyCandy from '../Images/YummyCandy.png'
-import Vegetables from '../Images/Vegetables1.png';
-import Snacks from '../Images/Snacks.png'
 import './CircleCarousal.css';
 import EverydayFreshMeat from '../Images/EverydayFreshMeat.jpeg';
 import EverdayFreshMilk from '../Images/EverydayFreshMilk.jpeg';
@@ -19,7 +9,8 @@ import EverydayFreshFruits from '../Images/EverydayFreshFruits.jpeg';
 import DailyFreshVegetables from '../Images/DailyFreshVegetables.jpeg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import CustomText from "./CustomText";
+import CategoryCollection from "./CategoryCollection";
 function CircleCarousal() {
     useEffect(() => {
         AOS.init({
@@ -50,19 +41,6 @@ function CircleCarousal() {
             }
         ]
     };
-
-    const items = [
-        { image: AnimalFood, label: "Animal Food", bgColor: "#FFCDD2", subtitle: "125+ Products" },
-        { image: DariyAndEggs, label: "Dairy & Eggs", bgColor: "#F8BBD0", subtitle: "125+ Products" },
-        { image: Desserts, label: "Desserts", bgColor: "#E1BEE7", subtitle: "125+ Products" },
-        { image: DrinkAndJuice, label: "Drinks", bgColor: "#D1C4E9", subtitle: "125+ Products" },
-        { image: FishAndMeat, label: "Fish & Meat", bgColor: "#BBDEFB", subtitle: "125+ Products" },
-        { image: FreshFruit, label: "Fruits", bgColor: "#C8E6C9", subtitle: "125+ Products" },
-        { image: FrozenFood, label: "Frozen Food", bgColor: "#FFECB3", subtitle: "125+ Products" },
-        { image: YummyCandy, label: "Yummy Candy", bgColor: "#FFE0B2", subtitle: "125+ Products" },
-        { image: Vegetables, label: "Vegetables", bgColor: "#C5E1A5", subtitle: "125+ Products" },
-        { image: Snacks, label: "Snacks", bgColor: "#FFAB91", subtitle: "125+ Products" }
-    ];
     const fourBoxItems = [
         {
             title: 'Everyday Fresh\nMeat',
@@ -86,8 +64,8 @@ function CircleCarousal() {
         <div>
             <div className="circle-carousel-container">
                 <Slider {...settings}>
-                    {items.map((item, index) => (
-                        <div key={index} className="circle-carousel-item">
+                    {CategoryCollection.map((item, index) => (
+                        <div key={item.id} className="circle-carousel-item">
                             <div
                                 className="circle-carousel-image"
                                 style={{ backgroundColor: item.bgColor }}
@@ -95,8 +73,8 @@ function CircleCarousal() {
                                 <img src={item.image} alt={item.label} />
                             </div>
                             <div>
-                                <h6 className="circle-carousel-label">{item.label}</h6>
-                                <span className="circle-carousel-subtitle">{item.subtitle}</span>
+                                <CustomText Text={item.label} className='circle-carousel-label mt-3' fontWeight='bold' />
+                                <CustomText Text={item.subtitle} className='circle-carousel-subtitle mt-2' fontWeight='normal' />
                             </div>
                         </div>
                     ))}
