@@ -1,0 +1,210 @@
+/* Container and header */
+.Shop-brand-header {
+    margin-bottom: 20px;
+}
+
+.Shop-brand-header h3 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #1a1a2e;
+}
+
+/* Product cards */
+.product-card {
+    min-height: 250px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+.product-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Banner container */
+.banner-container {
+    background-color: #f9f3ec;
+    /* aapke background color ke liye */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem;
+    /* thoda kam padding upar-left ke liye */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* upar align kare */
+    align-items: flex-start;
+    /* left align kare */
+    min-height: 400px;
+    /* min-height: 250px; */
+    position: relative;
+}
+
+.banner-content {
+    margin-top: 10px;
+    /* thoda upar ki taraf */
+    margin-left: 10px;
+    /* thoda left ki taraf */
+    max-width: 80%;
+    /* width control ke liye */
+}
+
+/* .logo-circle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-circle img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+} */
+
+.shop-now-btn-banner {
+    background-color: #2ABC79;
+    color: white;
+    padding: 7px 17px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.banner-content {
+    margin-top: 10px;
+    /* thoda upar ki taraf */
+    margin-left: 10px;
+    /* thoda left ki taraf */
+    max-width: 80%;
+    /* width control ke liye */
+}
+
+.expire-text {
+    margin-left: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.Add-To-Cart-Button-Daily {
+    border-radius: 20px;
+    background-color: #E3F4FA;
+    border: none;
+    padding: 10px 10px;
+    color: #1c799b;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.Add-To-Cart-Button-Daily:hover {
+    background-color: #1c799b;
+    color: white;
+}
+.timer{
+    background-color: #E3F4FA;
+}
+/* Logo circle */
+/* .logo-circle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-circle img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+} */
+
+/* Banner text */
+h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.expire-text {
+    margin-left: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Shop now button */
+
+.shop-now-btn-banner {
+    background-color: #2ABC79;
+    color: white;
+    padding: 7px 17px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.shop-now-btn-banner:hover {
+    background-color: #249c63;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .banner-container {
+        min-height: 200px;
+        text-align: center;
+        align-items: center !important;
+    }
+
+    .logo-circle {
+        margin: 0 auto 15px auto;
+    }
+}
+@media (max-width: 576px) {
+  .Add-To-Cart-Button-Daily {
+    width: 100%;
+  }
+}
+
+.newsletter-new h3 {
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+.Main {
+    background-color: #e6e6e6;
+    border-radius: 8px;
+}
+
+.Text h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.SubscribeButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #2ABC79;
+    color: white;
+    font-weight: 500;
+}
+
+.SubscribeButton:hover {
+    background-color: darkgreen;
+}

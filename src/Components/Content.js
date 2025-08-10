@@ -5,7 +5,7 @@ import { CartOutline } from "../Images/SvgImages";
 import CustomText from "./CustomText";
 function Content() {
     return (
-        <div className="special-offer-container">
+        <div className="special-offer-container ">
             {/* Banner Content */}
             <div className="banner-item__content" style={{ marginTop: '20px' }}>
                 <div className="container">

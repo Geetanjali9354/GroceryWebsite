@@ -3,12 +3,11 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
-import CarouselImage1 from '../Images/CarousalImg1.png';
-import CarouselImage2 from '../Images/CarousalImg2.png';
-import CarouselImage3 from '../Images/CarousalImg3.png';
-import CarouselImage4 from '../Images/CarousalImg4.png';
-import CarouselImage5 from '../Images/CarousalImg5.png';
-import CarouselImage6 from '../Images/CarousalImg6.png';
+import OrangeJuice from '../Images/OrangeJuice.png';
+import DogFood from '../Images/DogFood.png';
+import Milk from '../Images/Milk.png';
+import ChocoLava from '../Images/Chocolava.png';
+import GreenPeas from '../Images/GreenPeas.jpeg'
 import { CartOutline } from '../Images/SvgImages';
 import Banner1 from '../Images/Banner1.png';
 import Banner2 from '../Images/Banner2.png';
@@ -21,6 +20,7 @@ const FlashSales = () => {
     const settings = {
         dots: false,
         infinite: true,
+        arrows: false,
         speed: 600,
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -43,12 +43,12 @@ const FlashSales = () => {
         });
     }, []);
     const carouselImages = [
-        CarouselImage1,
-        CarouselImage2,
-        CarouselImage3,
-        CarouselImage4,
-        CarouselImage5,
-        CarouselImage6,
+        // CarouselImage1,
+        OrangeJuice,
+        DogFood,
+        Milk,
+        ChocoLava,
+        GreenPeas,
     ];
     const flashSaleProducts = CategoryCollection.flatMap(category =>
         category.products?.filter(product => {
@@ -82,8 +82,8 @@ const FlashSales = () => {
                                     <CartOutline height="20" width="20" />
                                 </button>
                                 <p className="flash-sales-price">
-                                    {/* ${product.price} <span className="original-price">${product.originalPrice}</span> <span className="per-qty">/Qty</span> */}
-                                    <CustomText Text={`$${product.price}`} className='flash-sales-price' fontWeight='bold' />
+                                    ${product.price} <span className="original-price">${product.originalPrice}</span> <span className="per-qty">/Qty</span>
+                                    {/* <CustomText Text={`$${product.price}`} className='flash-sales-price' fontWeight='bold' /> */}
                                 </p>
                                 <p className="flash-sales-rating">
                                     <strong>{product.rating}</strong> ⭐ (17k)
@@ -108,7 +108,11 @@ const FlashSales = () => {
 
             <div className="p-3 my-4">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        data-aos-anchor-placement="top-bottom"
+                    >
                         <div
                             className="rectangle-box banner-box"
                             style={{
@@ -117,7 +121,7 @@ const FlashSales = () => {
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                                 display: 'flex',
-                                justifyContent:'end',
+                                justifyContent: 'end',
                             }}
                         >
                             <div className="banner-content">
@@ -135,7 +139,11 @@ const FlashSales = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-anchor-placement="top-bottom"
+                    >
                         <div
                             className="rectangle-box banner-box"
                             style={{

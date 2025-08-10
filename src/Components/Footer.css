@@ -1,0 +1,99 @@
+/* Footer.css */
+.footer {
+    background-color: #f9f9f9;
+}
+
+.left-content p {
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+.left-content address {
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+.left-content address a:hover {
+    color: #1c799b;
+}
+
+.left-content a {
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.heading-column h4 {
+    font-size: 22px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.heading-column a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.heading-column a:hover {
+    color: #1c799b;
+}
+
+.heading-column ul li {
+    margin-bottom: 8px;
+}
+
+.text-muted {
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+.app-download-btn {
+    border-radius: 5px;
+}
+
+.app-download-btn:hover {
+    background-color: #1c799b;
+    color: white;
+}
+
+/* Make sure text inside the button also turns white */
+.app-download-btn:hover span {
+    color: white;
+}
+
+.footer-bottom {
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+.payment-methods img {
+    height: 40px;
+    width: 100%;
+    object-fit: contain;
+}
+.social-icons .icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  color: #1c799b;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.social-icons .icon-circle:hover {
+  background-color: #1c799b;
+  color: #ffffff;
+}

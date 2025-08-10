@@ -10,6 +10,10 @@
     margin-bottom: 40px;
 }
 
+.flash-sales-header-text {
+    font-size: 32px;
+}
+
 .flash-sales-header h3 {
     font-weight: 700;
     font-size: 30px;
@@ -35,6 +39,12 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    cursor: pointer;
+}
+
+.flash-sales-card:hover {
+    border: 1px solid #1c799b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .flash-sales-image-container {
@@ -58,12 +68,15 @@
     transform: scale(1.2);
     /* z-index: 10; */
 }
-
+.flash-sales-card:hover .flash-sales-image-container img {
+    transform: scale(1.2);  /* Zoom effect */
+    filter: brightness(1.1);  /* Optional: slightly increase brightness */
+}
 .flash-sales-add-button {
     position: absolute;
     top: 1px;
     right: 10px;
-    background-color: #e9ffff;
+    background-color: #E3F4FA;
     border: none;
     border-radius: 20px;
     padding: 5px 10px;
@@ -73,6 +86,12 @@
     display: flex;
     align-items: center;
     box-shadow: 0 1px 4px rgb(13 110 253 / 0.3);
+    transition: all 0.3s ease;
+}
+
+.flash-sales-add-button:hover {
+    background-color: #1c799b;
+    color: white;
 }
 
 .flash-sales-price {
@@ -107,7 +126,7 @@
     font-weight: 600;
     font-size: 15px;
     color: #1a2433;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 .flash-sales-progress-bar {
@@ -115,7 +134,7 @@
     background-color: #e9ecef;
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
 }
 
 .flash-sales-progress-bar-inner {
@@ -133,29 +152,13 @@
 /* ---------------------------------2 BANNER CSS START FROM NOW------------------ */
 
 .rectangle-box {
-    /* padding: 30px; */
     height: 250px;
     border-radius: 15px;
     color: white;
-    /* display: flex; */
     background-size: cover;
     background-position: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-/* 
-.banner-box {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    padding: 40px 30px;
-    border-radius: 12px;
-    color: #0e1538;
-    display: flex;
-    align-items: center;
-    height: 220px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-} */
 
 .banner-content {
     width: 70%;

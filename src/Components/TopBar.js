@@ -23,6 +23,9 @@ import 'aos/dist/aos.css';
 import FlashSales from "./FlashSales";
 import CustomText from "./CustomText";
 import RecommendedSection from "./RecommendedSection";
+import Footer from "./Footer";
+import ShopBrand from "./ShopBrand";
+import DailyBestSale from "./DailyBestSale";
 
 function TopBar() {
     const [timeLeft, setTimeLeft] = useState({
@@ -107,17 +110,17 @@ function TopBar() {
                         </div>
                     </div>
                     <div className="header-offers d-none d-md-flex justify-content-center mb-2 mb-md-0">
-                        <p className="header-offers mb-0 text-white"style={{ fontFamily: 'Quicksand'}}>
-                            Buy one get one free <span style={{ color: '#ffcc53',fontFamily:'Quicksand' }}> first Order</span>
+                        <p className="header-offers mb-0 text-white" style={{ fontFamily: 'Quicksand' }}>
+                            Buy one get one free <span style={{ color: '#ffcc53', fontFamily: 'Quicksand' }}> first Order</span>
                         </p>
                     </div>
                     <div className="me-5">
                         <ul className="header-links mb-0">
-                            <li><a href="#" className='d-none d-md-flex text-white'style={{fontFamily: 'Quicksand'}}>Order Tracking</a></li>
-                            <li><a href="#" className='d-none d-md-flex text-white'style={{fontFamily: 'Quicksand'}}>About Us</a></li>
+                            <li className="d-none d-md-flex"><a href="#" className='text-white' style={{ fontFamily: 'Quicksand' }}>Order Tracking</a></li>
+                            <li className="d-none d-md-flex"><a href="#" className='d-none d-md-flex text-white' style={{ fontFamily: 'Quicksand' }}>About Us</a></li>
                             <li className="dropdown">
-                                <a href="#"style={{fontFamily: 'Quicksand'}}>Eng</a>
-                                <ul className="dropdown-menu"style={{fontFamily: 'Quicksand'}}>
+                                <a href="#" style={{ fontFamily: 'Quicksand' }}>Eng</a>
+                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand' }}>
                                     <li>English</li>
                                     <li>Japanese</li>
                                     <li>French</li>
@@ -127,8 +130,8 @@ function TopBar() {
                                 </ul>
                             </li>
                             <li className="dropdown">
-                                <a href="#"style={{fontFamily: 'Quicksand'}}>USD</a>
-                                <ul className="dropdown-menu"style={{fontFamily: 'Quicksand'}}>
+                                <a href="#" style={{ fontFamily: 'Quicksand' }}>USD</a>
+                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand' }}>
                                     <li>USD</li>
                                     <li>Yen</li>
                                     <li>Franc</li>
@@ -286,7 +289,10 @@ function TopBar() {
             <Content />
             <CircleCarousal />
             <FlashSales />
-            <RecommendedSection/>
+            <RecommendedSection />
+            <ShopBrand/>
+            <DailyBestSale />
+            <Footer />
         </div>
     );
 }
