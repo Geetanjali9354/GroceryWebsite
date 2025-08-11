@@ -1,9 +1,8 @@
-import React from "react";
 import BestSaleOfferImage from '../Images/BestSaleOffer.png';
 import Banner34Logo from '../Images/Banner3&4Logo.png';
 import './DailyBestSale.css';
 import NewsletterImage from '../Images/NewsLetterImage.png';
-import desserts from '../Images/Desserts.png';
+import DailySectionImg1 from '../Images/DailySectionImg1.jpeg';
 import { CartOutline } from "../Images/SvgImages";
 const DailyBestSale = () => {
     const products = [
@@ -27,9 +26,9 @@ const DailyBestSale = () => {
                                 <div className="product-card p-3 rounded mb-4 shadow-sm bg-white">
                                     <div className="row align-items-center">
                                         {/* Left: Image */}
-                                        <div className="col-5 text-center">
+                                        <div className="col-6 ">
                                             <img
-                                                src={desserts}
+                                                src={DailySectionImg1}
                                                 alt="Product"
                                                 className="img-fluid"
                                                 style={{ maxHeight: "140px", objectFit: "contain" }}
@@ -37,7 +36,7 @@ const DailyBestSale = () => {
                                         </div>
 
                                         {/* Right: Text */}
-                                        <div className="col-7 ">
+                                        <div className="col-6 ">
                                             {/* Price */}
                                             <div className="d-flex align-items-center gap-2 ">
                                                 <span className="text-muted text-decoration-line-through">
@@ -72,9 +71,9 @@ const DailyBestSale = () => {
                                                         className="progress-bar bg-info"
                                                         role="progressbar"
                                                         style={{ width: "50%" }}
-                                                        aria-valuenow="18"
-                                                        aria-valuemin="0"
-                                                        aria-valuemax="35"
+                                                    // aria-valuenow="18"
+                                                    // aria-valuemin="0"
+                                                    // aria-valuemax="35"
                                                     ></div>
                                                 </div>
                                                 <small className="text-muted">Sold: 18/35</small>

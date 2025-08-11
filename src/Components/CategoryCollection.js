@@ -13,6 +13,10 @@ import DogFood from '../Images/DogFood.png';
 import Milk from '../Images/Milk.png';
 import ChocoLava from '../Images/Chocolava.png';
 import GreenPeas from '../Images/GreenPeas.jpeg'
+import ColaCan from '../Images/ColaCan.png';
+import BerrySmoothieBootle from '../Images/BerrySmoothieBottle.png';
+import VanillaIceCream from '../Images/VanillaIceCream.png';
+import FudgeBrowniePack from '../Images/FudgeBrowniePack.png';
 const CategoryCollection = [
     {
         id: "animal-food",
@@ -116,7 +120,7 @@ const CategoryCollection = [
                 originalPrice: 5.99,
                 rating: 4.6,
                 sold: "60/80",
-                // images: [CarouselImage2],
+                images: [VanillaIceCream],
                 description: "Classic vanilla ice cream, family pack.",
             },
             {
@@ -126,7 +130,7 @@ const CategoryCollection = [
                 originalPrice: 7.99,
                 rating: 4.7,
                 sold: "50/75",
-                // images: [CarouselImage3],
+                images: [FudgeBrowniePack],
                 description: "Rich and chewy chocolate brownies.",
             },
         ],
@@ -233,7 +237,7 @@ const CategoryCollection = [
                 originalPrice: 1.99,
                 rating: 4.6,
                 sold: "140/160",
-                // images: [CarouselImage5],
+                images: [ColaCan],
                 description: "Classic fizzy cola drink.",
             },
             {
@@ -243,7 +247,7 @@ const CategoryCollection = [
                 originalPrice: 4.99,
                 rating: 4.7,
                 sold: "85/100",
-                // images: [CarouselImage6],
+                images: [BerrySmoothieBootle],
                 description: "Mixed berry smoothie, chilled.",
             },
         ],

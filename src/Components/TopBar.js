@@ -16,16 +16,9 @@ import Snacks from '../Images/Snacks.png';
 import Juice from '../Images/juice.png';
 import Fruit from '../Images/fruits.png';
 import TeaAndCoffee from '../Images/Tea and Coffee.png';
-import Content from "./Content";
-import CircleCarousal from "./CircleCarousal";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import FlashSales from "./FlashSales";
 import CustomText from "./CustomText";
-import RecommendedSection from "./RecommendedSection";
-import Footer from "./Footer";
-import ShopBrand from "./ShopBrand";
-import DailyBestSale from "./DailyBestSale";
 
 function TopBar() {
     const [timeLeft, setTimeLeft] = useState({
@@ -285,14 +278,6 @@ function TopBar() {
                     </div>
                 </div>
             </div>
-
-            <Content />
-            <CircleCarousal />
-            <FlashSales />
-            <RecommendedSection />
-            <ShopBrand/>
-            <DailyBestSale />
-            <Footer />
         </div>
     );
 }

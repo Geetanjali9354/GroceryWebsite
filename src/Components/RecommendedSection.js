@@ -117,10 +117,10 @@ function RecommendedSection() {
     return (
         <div>
             <div className="Recommended-header ">
-                    <h3>Recommended For You</h3>
-                </div>
+                <h3>Recommended For You</h3>
+            </div>
             <div className="four-box-grid-recommended">
-                
+
                 {fourBoxItems.map((item, index) => (
                     <div
                         key={index}
