@@ -128,6 +128,9 @@
     color: #1a2433;
     /* flex-grow: 1; */
 }
+.flash-sales-product-name:hover {
+    color: #1c799b;
+}
 
 .flash-sales-progress-bar {
     height: 4px;

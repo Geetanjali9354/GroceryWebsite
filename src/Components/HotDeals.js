@@ -8,6 +8,11 @@ import "./HotDeals.css";
 import CustomText from "./CustomText";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import EverydayFreshMeat from '../Images/EverydayFreshMeat.jpeg';
+import EverdayFreshMilk from '../Images/EverydayFreshMilk.jpeg';
+import EverydayFreshFruits from '../Images/EverydayFreshFruits.jpeg';
+import DailyFreshVegetables from '../Images/DailyFreshVegetables.jpeg';
+import dogFood from '../Images/DogFood.png';
 import CategoryCollection from "./CategoryCollection";
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
 const selectedCategoryIds = ["drinks", "desserts"];
@@ -40,7 +45,24 @@ function HotDeals() {
             { breakpoint: 480, settings: { slidesToShow: 1 } },
         ],
     };
-
+    const fourBoxItems = [
+        {
+            title: 'Everyday Fresh\nMeat',
+            image: EverydayFreshMeat,
+        },
+        {
+            title: 'Daily Fresh\nVegetables',
+            image: DailyFreshVegetables,
+        },
+        {
+            title: 'Everyday Fresh\nMilk',
+            image: EverdayFreshMilk,
+        },
+        {
+            title: 'Everyday Fresh\nFruits',
+            image: EverydayFreshFruits,
+        },
+    ];
     return (
         <div>
             <div className="container-fluid ">
@@ -94,7 +116,7 @@ function HotDeals() {
                                 {products.map((product, idx) => (
                                     <div
                                         key={product.id}
-                                        className="hotdeals-slide"
+                                        className="hotdeals-slide "
                                         data-aos="fade-up"
                                         data-aos-delay={idx * 100}
                                     >
@@ -166,19 +188,145 @@ function HotDeals() {
                     </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-3 p-3" style={{ backgroundColor: '#f8d7da' }}>
-                    {/* Content or empty */}
-                </div>
-                <div className="col-3 p-3" style={{ backgroundColor: '#d1ecf1' }}>
-                    {/* Content or empty */}
-                </div>
-                <div className="col-3 p-3" style={{ backgroundColor: '#d4edda' }}>
-                    {/* Content or empty */}
-                </div>
-                <div className="col-3 p-3" style={{ backgroundColor: '#fff3cd' }}>
-                    {/* Content or empty */}
-                </div>
+
+            {/* -----------------------------FEATURED PRODUCTS/ TOP SELLING PRODUCTS/ON-SALE PRODUCTS----------- */}
+
+
+
+            <div className="four-box-grid-Hot">
+                {[...Array(4)].map((_, index) => {
+                    const titles = ["Featured Products", "Top Selling Products", "On-sale Products"];
+                    const category = CategoryCollection[index]; // get the category for first 3 boxes
+
+                    return (
+                        <div
+                            key={index}
+                            className="box-Hot"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
+                            data-aos-anchor-placement="top-bottom"
+                        >
+                            {/* Header only for first 3 boxes */}
+                            {index < 3 && (
+                                <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px', color: 'black' }}>
+                                    <CustomText
+                                        Text={titles[index]}
+                                        fontSize="25px"
+                                        fontWeight="bold"
+                                        className="px-4 pt-3"
+                                    />
+                                    <div className="px-4 pb-3 ">
+                                        <div style={{
+                                            height: '2px',
+                                            backgroundColor: 'white',
+                                            borderRadius: '10px',
+                                            overflow: 'hidden',
+                                            width: '70%',
+                                            marginTop: '6px'
+                                        }}>
+                                            <div style={{
+                                                width: '40%',
+                                                backgroundColor: '#1c799b',
+                                                height: '100%',
+                                                borderRadius: '10px'
+                                            }}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Product list only for first 3 boxes */}
+                            {/* Product list only for first 3 boxes */}
+                            {index < 3 && (
+                                <div
+                                    style={{
+                                        backgroundColor: "green", // light blue background
+                                        borderRadius: "15px",
+                                        padding: "10px",
+                                        marginTop: "10px",
+                                    }}
+                                >
+                                    {category?.products?.slice(0, 3).map((product, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="row"
+                                            style={{
+                                                backgroundColor: "white",
+                                                borderRadius: "10px",
+                                                padding: "5px",
+                                                marginBottom: "10px",
+                                            }}
+                                        >
+                                            {/* Image Column */}
+                                            <div className="col-4">
+                                                <div
+                                                    style={{
+                                                        backgroundColor: "#f8f9fa",
+                                                        height: "90px",
+                                                        borderRadius: "10px",
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        justifyContent: "center",
+                                                        border: "1px solid #dee2e6",
+                                                        width: "100px",
+                                                    }}
+                                                >
+                                                    <img src={product.images?.[0]} alt="Product" height="70" />
+                                                </div>
+                                            </div>
+
+                                            {/* Text Column */}
+                                            <div className="col-8">
+                                                <div style={{ display: "flex", alignItems: "center" }}>
+                                                    <span
+                                                        style={{
+                                                            color: "grey",
+                                                            fontSize: "15px",
+                                                            fontFamily: "Quicksand",
+                                                        }}
+                                                    >
+                                                        {product.rating || "4.8"}
+                                                        <span
+                                                            style={{
+                                                                color: "#ffc107",
+                                                                marginLeft: "5px",
+                                                                fontSize: "15px",
+                                                            }}
+                                                        >
+                                                            ★
+                                                        </span>{" "}
+                                                        ({product.sold?.split("/")?.[0]})
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    style={{
+                                                        fontFamily: "Quicksand",
+                                                        margin: "2px 0",
+                                                        color: "black",
+                                                    }}
+                                                >
+                                                    {product.name}
+                                                </div>
+                                                <div>
+                                                    <span
+                                                        style={{
+                                                            fontWeight: "bold",
+                                                            fontFamily: "Quicksand",
+                                                            color: "black",
+                                                        }}
+                                                    >
+                                                        ${product.price}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

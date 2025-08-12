@@ -17,6 +17,12 @@ import ColaCan from '../Images/ColaCan.png';
 import BerrySmoothieBootle from '../Images/BerrySmoothieBottle.png';
 import VanillaIceCream from '../Images/VanillaIceCream.png';
 import FudgeBrowniePack from '../Images/FudgeBrowniePack.png';
+import GrainfreeCatFood from '../Images/GrainFreeCatFood.png';
+import ParrotSeedMix from '../Images/ParrotSeedMix.png';
+import FarmFreshEggs from '../Images/FarmFreshEggs.png';
+import CheddarCheeseBlock from '../Images/CheddarCheeseBlock.png';
+import FrenchFries from '../Images/FrenchFries.png';
+import FrozenPizza from '../Images/FrozenPizza.png';
 const CategoryCollection = [
     {
         id: "animal-food",
@@ -42,7 +48,7 @@ const CategoryCollection = [
                 originalPrice: 19.99,
                 rating: 4.5,
                 sold: "20/40",
-                // images: [CarouselImage2],
+                images: [GrainfreeCatFood],
                 description: "Tasty and healthy cat food with tuna flavor.",
             },
             {
@@ -52,7 +58,7 @@ const CategoryCollection = [
                 originalPrice: 12.99,
                 rating: 4.6,
                 sold: "12/30",
-                // images: [CarouselImage3],
+                images: [ParrotSeedMix],
                 description: "Special seed blend for tropical birds.",
             },
         ],
@@ -76,22 +82,22 @@ const CategoryCollection = [
             },
             {
                 id: "eggs-1",
-                name: "Farm Fresh Eggs (12pc)",
+                name: "Farm Fresh Eggs",
                 price: 2.99,
                 originalPrice: 3.49,
                 rating: 4.7,
                 sold: "90/100",
-                // images: [CarouselImage2],
+                images: [FarmFreshEggs],
                 description: "Cage-free large brown eggs.",
             },
             {
                 id: "cheese-1",
-                name: "Cheddar Cheese Block",
+                name: "Cheese Block",
                 price: 5.99,
                 originalPrice: 7.99,
                 rating: 4.9,
                 sold: "40/60",
-                // images: [CarouselImage3],
+                images: [CheddarCheeseBlock],
                 description: "Rich and aged cheddar cheese.",
             },
         ],
@@ -105,7 +111,7 @@ const CategoryCollection = [
         products: [
             {
                 id: "cake-1",
-                name: "Chocolate Lava Cake",
+                name: "Choco Lava Cake",
                 price: 6.99,
                 originalPrice: 9.99,
                 rating: 4.9,
@@ -115,7 +121,7 @@ const CategoryCollection = [
             },
             {
                 id: "ice-cream-1",
-                name: "Vanilla Ice Cream Tub",
+                name: "Vanilla Ice Cream ",
                 price: 4.49,
                 originalPrice: 5.99,
                 rating: 4.6,
@@ -125,7 +131,7 @@ const CategoryCollection = [
             },
             {
                 id: "brownie-1",
-                name: "Fudge Brownie Pack (4pcs)",
+                name: "Fudge Brownie Pack",
                 price: 5.99,
                 originalPrice: 7.99,
                 rating: 4.7,
@@ -159,7 +165,7 @@ const CategoryCollection = [
                 originalPrice: 7.49,
                 rating: 4.5,
                 sold: "65/90",
-                // images: [CarouselImage5],
+                images: [FrozenPizza],
                 description: "Microwaveable cheese pizza, 12 inch.",
             },
             {
@@ -169,7 +175,7 @@ const CategoryCollection = [
                 originalPrice: 5.49,
                 rating: 4.6,
                 sold: "70/100",
-                // images: [CarouselImage6],
+                images: [FrenchFries],
                 description: "Crispy cut fries ready to fry.",
             },
         ],

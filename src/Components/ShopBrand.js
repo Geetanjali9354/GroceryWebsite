@@ -74,8 +74,8 @@ function ShopBrand() {
         ]
     };
     return (
-        <div className="circle-carousel-container-shop">
-            <div className="Shop-brand-header">
+        <div className="circle-carousel-container-shop ">
+            <div className="Shop-brand-header mt-5">
                 <h3>Shop By Brands</h3>
                 <a href="#">View All Deals</a>
             </div>

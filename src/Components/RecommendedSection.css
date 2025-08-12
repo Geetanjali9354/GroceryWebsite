@@ -127,12 +127,13 @@
 
 .Add-To-Cart-Button {
     border-radius: 20px;
-    background-color: #e9ffff;
+    background-color: #e3f4fa;
     border: none;
     padding: 5px 10px;
     color: #1c799b;
     margin-top: 10px;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .Add-To-Cart-Button:hover {
@@ -153,14 +154,13 @@
     padding: 0 10px;
 }
 
-.box {
-    padding: 30px;
+.box-Recommended{
+    padding: 20px;
     border-radius: 15px;
-    font-weight: bold;
     font-size: 18px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: white;
-    height: 250px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -168,6 +168,10 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    cursor: pointer;
+}
+.box-Recommended:hover {
+    border: 1px solid #2086A3;
 }
 
 /* Responsive 4-column layout on large screens */
@@ -176,3 +180,69 @@
         grid-template-columns: repeat(6, 1fr);
     }
 }
+
+.Recommended-image-container {
+    height: '100%';
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.Recommended-image-container img {
+    height: 140px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* Hover effect for image */
+.Recommended-image-container:hover img {
+    transform: scale(1.2);
+    /* z-index: 10; */
+}
+.box-Recommended:hover .Recommended-image-container img {
+    transform: scale(1.2);  /* Zoom effect */
+}
+
+.Recommended-price {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #1a2433;
+    font-family: 'Quicksand';
+}
+
+.Recommended-price span {
+    margin-left: 6px;
+}
+
+.Recommended-price .original-price {
+    text-decoration: line-through;
+    color: gray;
+    font-weight: 600;
+}
+
+.Recommended-price .per-qty {
+    color: gray;
+    font-weight: 600;
+}
+
+.Recommended-rating {
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+.Recommended-product-name {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1a2433;
+    /* flex-grow: 1; */
+}
+.Recommended-product-name:hover {
+    color: #2086A3;
+}
+

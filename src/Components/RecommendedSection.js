@@ -23,56 +23,10 @@ import CategoryCollection from './CategoryCollection';
 function RecommendedSection() {
     const [activeCategory, setActiveCategory] = useState("All");
     const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
-    const fourBoxItems = [
-        {
-            title: 'Everyday Fresh\nMeat',
-            image: EverydayFreshMeat,
-        },
-        {
-            title: 'Daily Fresh\nVegetables',
-            image: DailyFreshVegetables,
-        },
-        {
-            title: 'Everyday Fresh\nMilk',
-            image: EverdayFreshMilk,
-        },
-        {
-            title: 'Everyday Fresh\nFruits',
-            image: EverydayFreshFruits,
-        },
-        {
-            title: 'Everyday Fresh\nMeat',
-            image: EverydayFreshMeat,
-        },
-        {
-            title: 'Daily Fresh\nVegetables',
-            image: DailyFreshVegetables,
-        },
-        {
-            title: 'Everyday Fresh\nMilk',
-            image: EverdayFreshMilk,
-        },
-        {
-            title: 'Everyday Fresh\nFruits',
-            image: EverydayFreshFruits,
-        },
-        {
-            title: 'Everyday Fresh\nFruits',
-            image: EverydayFreshFruits,
-        },
-        {
-            title: 'Everyday Fresh\nFruits',
-            image: EverydayFreshFruits,
-        },
-        {
-            title: 'Everyday Fresh\nFruits',
-            image: EverydayFreshFruits,
-        },
-        {
-            title: 'Everyday Fresh\nFruits',
-            image: EverydayFreshFruits,
-        },
-    ];
+    const selectedCategoryIds = ["animal-food", "desserts", "drinks", "frozen-food"];
+    const recommendedProducts = CategoryCollection
+        .filter(category => selectedCategoryIds.includes(category.id))
+        .flatMap(category => category.products);
     const settings = {
         dots: false,
         infinite: true,
@@ -94,57 +48,41 @@ function RecommendedSection() {
             once: true,    // Only once animation
         });
     }, []);
-    const carouselImages = [
-        // CarouselImage1,
-        OrangeJuice,
-        DogFood,
-        Milk,
-        ChocoLava,
-        GreenPeas,
-    ];
     useEffect(() => {
         AOS.init({
             duration: 700,
             once: true,
         });
     }, []);
-    const flashSaleProducts = CategoryCollection.flatMap(category =>
-        category.products?.filter(product => {
-            const images = product.image || product.images || []; // in some you used 'image', others 'images'
-            return images.some(img => carouselImages.includes(img));
-        }) || []
-    );
     return (
         <div>
             <div className="Recommended-header ">
                 <h3>Recommended For You</h3>
             </div>
             <div className="four-box-grid-recommended">
-
-                {fourBoxItems.map((item, index) => (
+                {recommendedProducts.map((item, index) => (
                     <div
                         key={index}
-                        className="box"
+                        className="box-Recommended"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         data-aos-anchor-placement="top-bottom"
-                        style={{ backgroundColor: 'pink' }}
+                    // style={{ backgroundColor: 'pink' }}
                     >
-                        <h3 style={{
-                            fontSize: '22px',
-                            margin: 0,
-                            lineHeight: '1.1',
-                            color: 'black',
-                            fontFamily: 'inherit',
-                            whiteSpace: 'pre-line'
-                        }}>
-                            {item.title}
-                        </h3>
 
-                        <div className="d-flex align-items-end gap-1">
-                            <span style={{ color: 'grey' }}>Starting at </span>
-                            <h6 className="text-danger mb-0" style={{ fontSize: '18px' }}>$60.99</h6>
+                        <div className="Recommended-image-container">
+                            <img src={item.images?.[0]} alt={item.name} />
                         </div>
+                        <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='18px' />
+
+                        <p className="Recommended-price">
+                            ${item.price} <span className="per-qty">/Qty</span><span className="original-price">${item.originalPrice}</span>
+                            {/* <CustomText Text={`$${product.price}`} className='flash-sales-price' fontWeight='bold' /> */}
+                        </p>
+                        <p className="Recommended-rating">
+                            <strong>{item.rating}</strong> ⭐ (17k)
+                        </p>
+
                         <button className="Add-To-Cart-Button">
                             Add To Cart
                             <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />

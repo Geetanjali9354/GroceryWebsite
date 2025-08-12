@@ -18,14 +18,12 @@ const DailyBestSale = () => {
                 <h3>Daily Best Sells</h3>
             </div>
             <div className="row g-3">
-                {/* Products Grid */}
                 <div className="col-12 col-lg-8">
-                    <div className="row g-3">
+                    <div className="row g-3 bg-danger">
                         {products.map((prod) => (
                             <div key={prod.id} className="col-12 col-md-6">
-                                <div className="product-card p-3 rounded mb-4 shadow-sm bg-white">
+                                <div className="product-card p-3 rounded mb-4 shadow-sm bg-success">
                                     <div className="row align-items-center">
-                                        {/* Left: Image */}
                                         <div className="col-6 ">
                                             <img
                                                 src={DailySectionImg1}
@@ -35,9 +33,7 @@ const DailyBestSale = () => {
                                             />
                                         </div>
 
-                                        {/* Right: Text */}
                                         <div className="col-6 ">
-                                            {/* Price */}
                                             <div className="d-flex align-items-center gap-2 ">
                                                 <span className="text-muted text-decoration-line-through">
                                                     $28.99
@@ -46,40 +42,33 @@ const DailyBestSale = () => {
                                                 <span className="text-muted">/Qty</span>
                                             </div>
 
-                                            {/* Rating */}
                                             <div className="d-flex align-items-center gap-1 mb-1">
                                                 <span className="text-dark fw-bold">4.8</span>
                                                 <i className="bi bi-star-fill text-warning"></i>
                                                 <span className="text-muted">(17k)</span>
                                             </div>
 
-                                            {/* Title */}
                                             <h6 className="fw-semibold text-dark mb-1" style={{ fontSize: "15px" }}>
                                                 Taylor Farms Broccoli Florets Vegetables
                                             </h6>
 
-                                            {/* Store */}
                                             <div className="d-flex align-items-center gap-1 text-muted mb-1" style={{ fontSize: "12px" }}>
                                                 <i className="bi bi-shop"></i>
                                                 <span>By Lucky Supermarket</span>
                                             </div>
 
-                                            {/* Progress Bar + Sold Count */}
                                             <div className="mb-2">
                                                 <div className="progress" style={{ height: "5px" }}>
                                                     <div
                                                         className="progress-bar bg-info"
                                                         role="progressbar"
                                                         style={{ width: "50%" }}
-                                                    // aria-valuenow="18"
-                                                    // aria-valuemin="0"
-                                                    // aria-valuemax="35"
+                                                 
                                                     ></div>
                                                 </div>
                                                 <small className="text-muted">Sold: 18/35</small>
                                             </div>
 
-                                            {/* Button */}
                                             <button className="Add-To-Cart-Button-Daily w-75" >
                                                 Add To Cart
                                                 <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
@@ -87,13 +76,12 @@ const DailyBestSale = () => {
                                         </div>
                                     </div>
 
-                                    {/* Optional: Countdown timer (below full card) */}
-                                    {/* <div className="d-flex">
+                                    <div className="d-flex">
                                         <div className="badge  text-dark timer">835 Days </div>:
                                         <div className="badge  text-dark timer">20 Hours</div>:
                                         <div className="badge  text-dark timer">15 Min</div>:
                                         <div className="badge  text-dark timer">30 Sec</div>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                         ))}
