@@ -4,104 +4,118 @@ import './DailyBestSale.css';
 import NewsletterImage from '../Images/NewsLetterImage.png';
 import DailySectionImg1 from '../Images/DailySectionImg1.jpeg';
 import { CartOutline } from "../Images/SvgImages";
+import CustomText from './CustomText';
+import CategoryCollection from './CategoryCollection';
 const DailyBestSale = () => {
-    const products = [
-        { id: 1, title: "Product 1", bgColor: "#e6f0ff" },
-        { id: 2, title: "Product 2", bgColor: "#fff6e6" },
-        { id: 3, title: "Product 3", bgColor: "#f0f0f0" },
-        { id: 4, title: "Product 4", bgColor: "#e6ffe6" },
-    ];
+    const selectedProductIds = [
+        "cat-food-1",
+        "pizza-1",
+        "milk-1",
+        "cheese-1"
+    ]
+    const AllProducts = CategoryCollection.flatMap(category => category.products);
+    const selectedProducts = AllProducts.filter(product => selectedProductIds.includes(product.id));
 
     return (
         <div className="container-fluid my-4">
             <div className="Shop-brand-header">
                 <h3>Daily Best Sells</h3>
             </div>
-            <div className="row g-3">
+            <div className="row g-3 ">
                 <div className="col-12 col-lg-8">
-                    <div className="row g-3 bg-danger">
-                        {products.map((prod) => (
-                            <div key={prod.id} className="col-12 col-md-6">
-                                <div className="product-card p-3 rounded mb-4 shadow-sm bg-success">
-                                    <div className="row align-items-center">
-                                        <div className="col-6 ">
+                    <div className="row g-3">
+                        {selectedProducts.map((prod) => (
+                            <div key={prod.id} className="col-12 col-md-6"
+                                data-aos="fade-up"
+                                data-aos-delay="100"
+                                data-aos-anchor-placement="top-bottom"
+                            >
+                                <div className="product-card p-3 rounded shadow-sm border">
+                                    <div className="row">
+                                        {/* LEFT SIDE: IMAGE + TIMER */}
+                                        <div className="col-6 d-flex flex-column align-items-center justify-content-between Daily-image-container">
                                             <img
-                                                src={DailySectionImg1}
-                                                alt="Product"
-                                                className="img-fluid"
-                                                style={{ maxHeight: "140px", objectFit: "contain" }}
+                                                src={prod.images?.[0]}
+                                                alt={prod.name}
+                                                className="img-fluid mb-3"
+                                                style={{ maxHeight: "150px", objectFit: "contain" }}
                                             />
+                                            <div className="d-flex gap-2 flex-wrap justify-content-center">
+                                                <div className="timer">835 d</div>
+                                                <div className="timer">20 h</div>
+                                                <div className="timer">15 m</div>
+                                                <div className="timer">30 s</div>
+                                            </div>
                                         </div>
 
-                                        <div className="col-6 ">
-                                            <div className="d-flex align-items-center gap-2 ">
-                                                <span className="text-muted text-decoration-line-through">
-                                                    $28.99
-                                                </span>
-                                                <span className="fw-bold text-dark">$14.99</span>
-                                                <span className="text-muted">/Qty</span>
-                                            </div>
-
-                                            <div className="d-flex align-items-center gap-1 mb-1">
-                                                <span className="text-dark fw-bold">4.8</span>
-                                                <i className="bi bi-star-fill text-warning"></i>
-                                                <span className="text-muted">(17k)</span>
-                                            </div>
-
-                                            <h6 className="fw-semibold text-dark mb-1" style={{ fontSize: "15px" }}>
-                                                Taylor Farms Broccoli Florets Vegetables
-                                            </h6>
-
-                                            <div className="d-flex align-items-center gap-1 text-muted mb-1" style={{ fontSize: "12px" }}>
-                                                <i className="bi bi-shop"></i>
-                                                <span>By Lucky Supermarket</span>
-                                            </div>
-
-                                            <div className="mb-2">
-                                                <div className="progress" style={{ height: "5px" }}>
-                                                    <div
-                                                        className="progress-bar bg-info"
-                                                        role="progressbar"
-                                                        style={{ width: "50%" }}
-                                                 
-                                                    ></div>
+                                        {/* RIGHT SIDE: TEXT + ADD TO CART */}
+                                        <div className="col-6 d-flex flex-column justify-content-between">
+                                            <div className='ProductDetails'>
+                                                <div className="d-flex align-items-center gap-2 mb-2 price">
+                                                    <span className="text-muted text-decoration-line-through">${prod.originalPrice?.toFixed(2)}</span>
+                                                    <span className="fw-bold text-dark">${prod.price?.toFixed(2)}</span>
+                                                    <span className="text-muted">/Qty</span>
                                                 </div>
-                                                <small className="text-muted">Sold: 18/35</small>
+
+                                                <div className="d-flex align-items-center gap-1 mb-1">
+                                                    <p className="hotdeals-rating">
+                                                        <strong>{prod.rating}</strong> ⭐
+                                                    </p>
+                                                    <span className="text-muted">({prod.sold || "1k"})</span>
+                                                </div>
+
+                                                <p className=" text-dark mb-1 " >
+                                                    {prod.name}
+                                                </p>
+
+                                                <div className="d-flex align-items-center gap-1 text-muted mb-1" style={{ fontSize: "12px" }}>
+                                                    {/* <i className="bi bi-shop"></i> */}
+                                                    <span>By Supermarket</span>
+                                                </div>
+
+                                                <div className="mb-2">
+                                                    <div className="progress" style={{ height: "3px" }}>
+                                                        <div className="progress-bar bg-info" style={{ width: "50%" }}></div>
+                                                    </div>
+                                                    <small className="text-muted">Sold: {prod.sold}</small>
+                                                </div>
                                             </div>
 
-                                            <button className="Add-To-Cart-Button-Daily w-75" >
-                                                Add To Cart
-                                                <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
-                                            </button>
+                                            <div>
+                                                <button className="Add-To-Cart-Button-Daily">
+                                                    Add To Cart
+                                                    <CartOutline height="20" width="20" style={{ marginLeft: '6px', marginBottom: '2px' }} />
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div className="d-flex">
-                                        <div className="badge  text-dark timer">835 Days </div>:
-                                        <div className="badge  text-dark timer">20 Hours</div>:
-                                        <div className="badge  text-dark timer">15 Min</div>:
-                                        <div className="badge  text-dark timer">30 Sec</div>
                                     </div>
                                 </div>
                             </div>
                         ))}
-                    </div>
 
+                    </div>
                 </div>
+
+
 
 
                 {/* Banner */}
                 <div
-                    className="col-12 col-lg-4 banner-container d-flex flex-column justify-content-center align-items-start p-4"
+                    className="col-12 col-lg-4 banner-container d-flex flex-column bg-danger"
+                    data-aos="zoom-in"
+                    data-aos-duration="800"
+                    data-aos-delay="100"
                     style={{
                         backgroundImage: `url(${BestSaleOfferImage})`,
+                        // backgroundSize: 'contain',
+                        borderRadius: '20px'
                     }}
                 >
-                    <div className="banner-content">
+                    <div className="banner-content mt-5">
                         <div className="logo-circle">
                             <img src={Banner34Logo} alt="Logo" />
                         </div>
-                        <h2>$5 off your first order</h2>
+                        <CustomText Text="$5 off your first order" fontSize="30px" fontWeight="bold" />
                         <p>Delivery by 6:15am <span className="expire-text">Expire Aug 5</span></p>
                         <button className="shop-now-btn-banner">Shop Now →</button>
                     </div>
