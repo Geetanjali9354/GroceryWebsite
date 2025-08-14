@@ -11,7 +11,7 @@ import HotDeals from "./HotDeals";
 
 function MainPage() {
   return (
-    <div>
+    <div >
       <TopBar />
       <Content />
       <CircleCarousal />

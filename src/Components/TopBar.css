@@ -13,15 +13,21 @@
     /* gap: 10px; */
     flex-wrap: wrap;
 }
+
 .countdown-item {
-  min-width: 70px;  /* Set a minimum width to prevent shifting */
-  text-align: center; /* Center the numbers */
+    min-width: 70px;
+    /* Set a minimum width to prevent shifting */
+    text-align: center;
+    /* Center the numbers */
 }
+
 @media (max-width: 767px) {
-  .countdown-item {
-    min-width: 50px;  /* Adjust for smaller screens */
-  }
+    .countdown-item {
+        min-width: 50px;
+        /* Adjust for smaller screens */
+    }
 }
+
 .sale-text {
     font-size: 16px;
     /* margin-left: 20px; */
@@ -31,40 +37,6 @@
     color: white;
     text-decoration: none;
     font-size: 15px;
-}
-
-/* .dropdown {
-    position: relative;
-} */
-
-/* .dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-    color: black;
-    list-style: none;
-    top: 100%;
-    left: 0;
-    min-width: 150px;
-    border: 1px solid #ccc;
-    z-index: 10;
-} */
-
-.dropdown-menu li {
-    padding: 0px 10px;
-    cursor: pointer;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.header-top-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    /* gap: 10px; */
 }
 
 
@@ -89,73 +61,104 @@
     color: white;
     /* margin-right: 30px; */
 }
-.NavigationMenu a{
+
+.NavigationMenu a {
     text-decoration-line: none;
 }
+
 /* Custom Positioning for Modal */
 .modal.fade .modal-dialog {
     position: absolute;
-    top: 200px; /* Adjust to position below Browse Categories */
+    top: 200px;
+    /* Adjust to position below Browse Categories */
     left: 1%;
     transform: translateX(-50%);
-}
-.nav-link.dropdown {
-    position: relative;
-}
-
-.dropdown-menu li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #f0f0f0;
 }
 
 
 /* Styling the dropdown-toggle links */
+.offcanvas .nav-link {
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+}
+
+.offcanvas .nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.offcanvas .dropdown-toggle::after {
+    float: right;
+    margin-top: 6px;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
 .nav-link a {
     text-decoration: none;
     color: #333;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     padding: 10px;
     transition: color 0.3s ease;
+    font-family: 'Quicksand';
 }
 
 .nav-link a:hover {
-    color: #1C799B; /* Highlight color on hover */
-}
-.ModalSize{
-    height: 50%;
-    width: 50%;
-}
-/* Browse Categories Dropdown Responsive */
-.category-dropdown {
-  z-index: 1000;
-  left: 0;
-  width: 30%;
+    color: #1C799B;
+    /* Highlight color on hover */
 }
 
+
+/* Browse Categories Dropdown Responsive */
+.category-dropdown {
+    z-index: 1000;
+    left: 10;
+    width: 30%;
+    cursor: pointer;
+}
+.HelpText span{
+    font-size: 18px;
+    font-family: 'Quicksand';
+    font-weight: 600;
+}
+.ProfileDiv{
+    cursor: pointer;
+}
+.ProfileDiv span{
+    font-size: 18px;
+    font-family: 'Quicksand';
+    font-weight: 500;
+}
+.browse-button span{
+    font-size: 18px;
+    font-family: 'Quicksand';
+    font-weight: 500;
+}
 @media (max-width: 992px) {
-  .category-dropdown {
-    width: 50%;
-  }
+    .category-dropdown {
+        width: 50%;
+    }
 }
 
 @media (max-width: 768px) {
-  .category-dropdown {
-    width: 75%;
-  }
+    .category-dropdown {
+        width: 75%;
+    }
 }
 
 @media (max-width: 576px) {
-  .category-dropdown {
-    width: 100%;
-    padding: 1rem;
-  }
+    .category-dropdown {
+        width: 100%;
+        padding: 1rem;
+    }
 }
+
 .transition-icon {
     transition: transform 0.3s ease;
 }

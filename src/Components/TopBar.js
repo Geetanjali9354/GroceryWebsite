@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState, useEffect } from "react";
 import './TopBar.css';
 import Logo from '../Images/MarketPro Logo.png';
 import Search from '../Images/search.png';
@@ -7,18 +7,10 @@ import Wishlist from '../Images/wishlist.png';
 import Cart from '../Images/trolley.png';
 import SearchBlack from '../Images/searchBlack.png';
 import { BaselineKeyboardArrowDown, HamburgerMd } from "../Images/SvgImages";
-import Vegetable from '../Images/Vegetables.png';
-import MilkAndCake from '../Images/Milk and Cake.png';
-import Grocery from '../Images/Grocery.png';
-import Beauty from '../Images/beauty.png';
-import winesAndDrinks from '../Images/wines and drinks.png';
-import Snacks from '../Images/Snacks.png';
-import Juice from '../Images/juice.png';
-import Fruit from '../Images/fruits.png';
-import TeaAndCoffee from '../Images/Tea and Coffee.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
+import CategoryCollection from "./CategoryCollection";
 
 function TopBar() {
     const [timeLeft, setTimeLeft] = useState({
@@ -27,21 +19,12 @@ function TopBar() {
         minutes: 29,
         seconds: 34,
     });
-    const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showCategories, setShowCategories] = useState(false);
-    useEffect(() => {
-        AOS.init({
-            duration: 500,
-            once: true,
-        });
-    }, []);
-    const toggleMobileMenu = () => {
-        setShowMobileMenu(!showMobileMenu);
-    };
 
-    const toggleCategories = () => {
-        setShowCategories(!showCategories);
-    };
+    useEffect(() => {
+        AOS.init({ duration: 500, once: true });
+    }, []);
+
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
@@ -65,17 +48,6 @@ function TopBar() {
         return () => clearInterval(timer);
     }, []);
 
-    const categories = [
-        { img: Vegetable, name: "Vegetables" },
-        { img: MilkAndCake, name: "Milk & Cake" },
-        { img: Grocery, name: "Grocery" },
-        { img: Beauty, name: "Beauty" },
-        { img: winesAndDrinks, name: "Wines & Drinks" },
-        { img: Snacks, name: "Snacks" },
-        { img: Juice, name: "Juice" },
-        { img: Fruit, name: "Fruits" },
-        { img: TeaAndCoffee, name: "Tea & Coffee" },
-    ];
 
     return (
         <div>
@@ -83,9 +55,7 @@ function TopBar() {
             <div className="header-top">
                 <div className="header-top-wrapper d-flex flex-wrap align-items-center justify-content-between">
                     <div className="header-countdown d-flex align-items-center flex-wrap mb-2 mb-md-0">
-                        {/* <span className="sale-text text-white d-none d-md-flex me-2">Until the end of the sale:</span> */}
                         <CustomText Text="Until the end of the sale:" className="sale-text text-white d-none d-md-flex me-2" />
-                        {/* <span className="text-white d-xl-flex d-xl-none me-2">Sale end:</span> */}
                         <CustomText Text="Sale end:" className="text-white d-xl-flex d-xl-none me-2" />
                         <div className="countdown d-flex">
                             <div className="countdown-item">
@@ -167,11 +137,11 @@ function TopBar() {
                                 </button>
                             </div>
                         </div>
-                        <div className="col-6 col-md-10 col-lg-3 d-flex justify-content-end align-items-center gap-3 pe-3">
+                        <div className="col-6 col-md-10 col-lg-3 d-flex justify-content-end align-items-center gap-3 pe-3 ProfileDiv">
                             <div className="d-lg-none cursor-pointer">
                                 <img src={SearchBlack} style={{ height: '20px', width: '20px' }} />
                             </div>
-                            <div className="d-flex align-items-center gap-1 cursor-pointer">
+                            <div className="d-flex align-items-center gap-1 cursor-pointer ">
                                 <img src={User} style={{ height: '20px', width: '20px' }} />
                                 <span className="d-none d-sm-inline">Profile</span>
                             </div>
@@ -198,10 +168,10 @@ function TopBar() {
                             onMouseLeave={() => setShowCategories(false)}
                         >
                             <button
-                                className="d-flex align-items-center px-4 py-2 rounded"
+                                className="d-flex align-items-center px-5 py-3 rounded browse-button"
                                 style={{ backgroundColor: '#2ABC79', border: 'none', color: 'white' }}
                             >
-                                Browse Categories
+                                <span className="">Browse Categories</span>
                                 <BaselineKeyboardArrowDown
                                     height="20"
                                     width="20"
@@ -216,11 +186,11 @@ function TopBar() {
                                     data-aos-anchor-placement="top-bottom"
                                 >
                                     <div className="row">
-                                        {categories.map((item, index) => (
+                                        {CategoryCollection.map((item, index) => (
                                             <div key={index} className="col-6 col-md-4 text-center">
                                                 <div className="category-card">
-                                                    <img src={item.img} alt={item.name} className="img-fluid mb-2" style={{ height: '40px' }} />
-                                                    <h6>{item.name}</h6>
+                                                    <img src={item.image} alt={item.label} className="img-fluid mb-2" style={{ height: '40px' }} />
+                                                    <h6>{item.label}</h6>
                                                 </div>
                                             </div>
                                         ))}
@@ -229,49 +199,129 @@ function TopBar() {
                             )}
                         </div>
 
-
-                        <div className="col-auto d-md-none">
-                            <button className="btn" onClick={toggleMobileMenu}>
+                        {/* HAMBURGER BUTTON - show only on small & medium */}
+                        <div className="col-auto d-lg-none">
+                            <button
+                                className="btn"
+                                type="button"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#mobileNavMenu"
+                                aria-controls="mobileNavMenu"
+                            >
                                 <HamburgerMd height="40" width="40" />
                             </button>
                         </div>
 
-                        <div className={`NavigationMenu col d-md-flex gap-2 ${showMobileMenu ? 'd-block' : 'd-none'}`}>
+                        {/* OFFCANVAS MENU for small & medium */}
+                        <div
+                            className="offcanvas offcanvas-start d-lg-none w-75"
+                            tabIndex="-1"
+                            id="mobileNavMenu"
+                            aria-labelledby="mobileNavMenuLabel"
+                        >
+                            <div className="offcanvas-header">
+                                <img className='img-fluid' src={Logo} alt="MarketPro Logo" style={{ height: '50px' }} />
+                                <button
+                                    type="button"
+                                    className="btn-close"
+                                    data-bs-dismiss="offcanvas"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+
+                            <div className="offcanvas-body">
+                                <ul className="nav flex-column">
+                                    {/* HOME */}
+                                    <li className="nav-item dropdown border-bottom py-2">
+                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                            Home
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#">Home Page</a></li>
+                                            <li><a className="dropdown-item" href="#">Grocery</a></li>
+                                        </ul>
+                                    </li>
+
+                                    {/* SHOP with NEW badge */}
+                                    <li className="nav-item dropdown border-bottom py-2">
+                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                            Shop
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#">Shop 1</a></li>
+                                            <li><a className="dropdown-item" href="#">Shop 2</a></li>
+                                        </ul>
+                                    </li>
+
+                                    {/* PAGES with NEW badge */}
+                                    <li className="nav-item dropdown border-bottom py-2">
+                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                            Pages
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#">About Us</a></li>
+                                            <li><a className="dropdown-item" href="#">Contact</a></li>
+                                        </ul>
+                                    </li>
+
+                                    {/* VENDORS */}
+                                    <li className="nav-item dropdown border-bottom py-2">
+                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                            Vendors
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#">Vendor 1</a></li>
+                                            <li><a className="dropdown-item" href="#">Vendor 2</a></li>
+                                        </ul>
+                                    </li>
+
+                                    {/* CONTACT */}
+                                    <li className="nav-item py-2">
+                                        <a href="#" className="nav-link">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        {/* DESKTOP NAV - only visible on large+ */}
+                        <div className="col d-none d-lg-flex gap-3 align-items-center">
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle">Home</a>
+                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Home</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">Home Page</a></li>
-                                    <li><a href="#">Grocery</a></li>
+                                    <li><a className="dropdown-item" href="#">Home Page</a></li>
+                                    <li><a className="dropdown-item" href="#">Grocery</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle">Shop</a>
+                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Shop</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">Shop 1</a></li>
-                                    <li><a href="#">Shop 2</a></li>
+                                    <li><a className="dropdown-item" href="#">Shop 1</a></li>
+                                    <li><a className="dropdown-item" href="#">Shop 2</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle">Pages</a>
+                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a className="dropdown-item" href="#">About Us</a></li>
+                                    <li><a className="dropdown-item" href="#">Contact</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle">Vendors</a>
+                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Vendors</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">Vendor 1</a></li>
-                                    <li><a href="#">Vendor 2</a></li>
+                                    <li><a className="dropdown-item" href="#">Vendor 1</a></li>
+                                    <li><a className="dropdown-item" href="#">Vendor 2</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link">
                                 <a href="#" className="text-dark">Contact Us</a>
                             </div>
                         </div>
-                        <div className="col-auto  d-none d-lg-flex align-items-center gap-2">
-                            <div className="d-flex flex-column">
-                                <span className="text-dark small">Need any Help! call Us</span>
+
+                        <div className="col-auto d-none d-lg-flex align-items-center gap-2">
+                            <div className="d-flex flex-column HelpText">
+                                <span className="text-dark ">Need any Help! call Us</span>
                                 <span className="fw-bold " style={{ color: '#1C799B' }}>+(2) 871 382 023</span>
                             </div>
                         </div>

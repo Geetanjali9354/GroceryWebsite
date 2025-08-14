@@ -172,8 +172,6 @@ function HotDeals() {
 
             {/* -----------------------------FEATURED PRODUCTS/ TOP SELLING PRODUCTS/ON-SALE PRODUCTS----------- */}
 
-
-
             <div className="four-box-grid-Hot row  container-fluid p-3 m-0">
                 {/* Featured Products */}
                 <div className="col-12 col-lg-3 mb-4 ">
@@ -205,79 +203,30 @@ function HotDeals() {
                             </div>
                         </div>
 
-                        <div className="p-3">
-                            {/* Product 1 */}
-                            <div className="row bg-white rounded p-2 mb-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[0]?.products[0]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
+                        {/* <Slider {...settings}> */}
+                        {[0, 1, 2].map((index) => {
+                            const product = CategoryCollection[0]?.products[index];
+                            return (
+                                <div key={index}>
+                                    <div className="row bg-white rounded p-2 mb-2">
+                                        <div className="col-4">
+                                            <div className="d-flex align-items-center justify-content-center border rounded" style={{ backgroundColor: '#f8f9fa', height: '90px' }}>
+                                                <img src={product?.images?.[0]} alt="Product" height="70" />
+                                            </div>
+                                        </div>
+                                        <div className="col-8 product-details">
+                                            <div className="text-muted product-rating">
+                                                {product?.rating || '4.8'} ★ ({product?.sold?.split('/')?.[0]})
+                                            </div>
+                                            <div className="product-name">{product?.name}</div>
+                                            <div className="product-price">${product?.price}</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating">
-                                        {CategoryCollection[0]?.products[0]?.rating || '4.8'} ★ (
-                                        {CategoryCollection[0]?.products[0]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className=" product-name">{CategoryCollection[0]?.products[0]?.name}</div>
-                                    <div className="product-price">${CategoryCollection[0]?.products[0]?.price}</div>
-                                </div>
-                            </div>
+                            );
+                        })}
+                        {/* </Slider> */}
 
-                            {/* Product 2 */}
-                            <div className="row bg-white rounded p-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[0]?.products[1]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating">
-                                        {CategoryCollection[0]?.products[1]?.rating || '4.8'} ★ (
-                                        {CategoryCollection[0]?.products[1]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className="product-name">{CategoryCollection[0]?.products[1]?.name}</div>
-                                    <div className=" product-price">${CategoryCollection[0]?.products[1]?.price}</div>
-                                </div>
-                            </div>
-
-                            {/* Product 3 */}
-                            <div className="row bg-white rounded p-2 mb-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[0]?.products[2]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating">
-                                        {CategoryCollection[0]?.products[2]?.rating || '4.8'} ★ (
-                                        {CategoryCollection[0]?.products[2]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className=" product-name">{CategoryCollection[0]?.products[2]?.name}</div>
-                                    <div className="product-price">${CategoryCollection[0]?.products[2]?.price}</div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -298,78 +247,27 @@ function HotDeals() {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-3">
-                            {/* Product 1 */}
-                            <div className="row bg-white rounded p-2 mb-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[1]?.products[0]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
+                        {[0, 1, 2].map((index) => {
+                            const product = CategoryCollection[1]?.products[index];
+                            return (
+                                <div key={index}>
+                                    <div className="row bg-white rounded p-2 mb-2">
+                                        <div className="col-4">
+                                            <div className="d-flex align-items-center justify-content-center border rounded" style={{ backgroundColor: '#f8f9fa', height: '90px' }}>
+                                                <img src={product?.images?.[0]} alt="Product" height="70" />
+                                            </div>
+                                        </div>
+                                        <div className="col-8 product-details">
+                                            <div className="text-muted product-rating">
+                                                {product?.rating || '4.8'} ★ ({product?.sold?.split('/')?.[0]})
+                                            </div>
+                                            <div className="product-name">{product?.name}</div>
+                                            <div className="product-price">${product?.price}</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating">
-                                        {CategoryCollection[1]?.products[0]?.rating || "4.8"} ★ (
-                                        {CategoryCollection[1]?.products[0]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className="product-name">{CategoryCollection[1]?.products[0]?.name}</div>
-                                    <div className="product-price">${CategoryCollection[1]?.products[0]?.price}</div>
-                                </div>
-                            </div>
-
-                            {/* Product 2 */}
-                            <div className="row bg-white rounded p-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[1]?.products[1]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating">
-                                        {CategoryCollection[1]?.products[1]?.rating || "4.8"} ★ (
-                                        {CategoryCollection[1]?.products[1]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className=" product-name">{CategoryCollection[1]?.products[1]?.name}</div>
-                                    <div className=" product-price">${CategoryCollection[1]?.products[1]?.price}</div>
-                                </div>
-                            </div>
-                            {/* Product 3 */}
-                            <div className="row bg-white rounded p-2 mb-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[1]?.products[2]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating">
-                                        {CategoryCollection[1]?.products[2]?.rating || "4.8"} ★ (
-                                        {CategoryCollection[1]?.products[2]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className="product-name">{CategoryCollection[1]?.products[2]?.name}</div>
-                                    <div className="product-price">${CategoryCollection[1]?.products[2]?.price}</div>
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
 
@@ -404,133 +302,82 @@ function HotDeals() {
                             </div>
                         </div>
 
-                        <div className="p-3">
-                            {/* Product 1 */}
-                            <div className="row bg-white rounded p-2 mb-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[2]?.products[0]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
+                        {[0, 1, 2].map((index) => {
+                            const product = CategoryCollection[2]?.products[index];
+                            return (
+                                <div key={index}>
+                                    <div className="row bg-white rounded p-2 mb-2">
+                                        <div className="col-4">
+                                            <div className="d-flex align-items-center justify-content-center border rounded" style={{ backgroundColor: '#f8f9fa', height: '90px' }}>
+                                                <img src={product?.images?.[0]} alt="Product" height="70" />
+                                            </div>
+                                        </div>
+                                        <div className="col-8 product-details">
+                                            <div className="text-muted product-rating">
+                                                {product?.rating || '4.8'} ★ ({product?.sold?.split('/')?.[0]})
+                                            </div>
+                                            <div className="product-name">{product?.name}</div>
+                                            <div className="product-price">${product?.price}</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating" >
-                                        {CategoryCollection[2]?.products[0]?.rating || '4.8'} ★ (
-                                        {CategoryCollection[2]?.products[0]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className=" product-name">{CategoryCollection[2]?.products[0]?.name}</div>
-                                    <div className=" product-price">${CategoryCollection[2]?.products[0]?.price}</div>
-                                </div>
-                            </div>
-
-                            {/* Product 2 */}
-                            <div className="row bg-white rounded p-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[2]?.products[1]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating" >
-                                        {CategoryCollection[2]?.products[1]?.rating || '4.8'} ★ (
-                                        {CategoryCollection[2]?.products[1]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className=" product-name">{CategoryCollection[2]?.products[1]?.name}</div>
-                                    <div className="product-price">${CategoryCollection[2]?.products[1]?.price}</div>
-                                </div>
-                            </div>
-
-                            {/* Product 3 */}
-                            <div className="row bg-white rounded p-2 mb-2">
-                                <div className="col-4">
-                                    <div
-                                        className="d-flex align-items-center justify-content-center border rounded"
-                                        style={{ backgroundColor: '#f8f9fa', height: '90px' }}
-                                    >
-                                        <img
-                                            src={CategoryCollection[2]?.products[2]?.images?.[0]}
-                                            alt="Product"
-                                            height="70"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-8 product-details">
-                                    <div className="text-muted product-rating" >
-                                        {CategoryCollection[2]?.products[2]?.rating || '4.8'} ★ (
-                                        {CategoryCollection[2]?.products[2]?.sold?.split('/')?.[0]})
-                                    </div>
-                                    <div className=" product-name">{CategoryCollection[2]?.products[2]?.name}</div>
-                                    <div className=" product-price">${CategoryCollection[2]?.products[2]?.price}</div>
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
 
 
                 {/* Fourth Box (Optional / Custom) */}
-                <div className="col-12 col-lg-3 mb-4">
-                    <div className="box-Hot">
-                        <div className="p-3 h-100 d-flex flex-column justify-content-between border rounded shadow-sm" style={{ backgroundColor: '#fff', borderRadius: '15px' }}>
+                <div className="col-12 col-lg-3 mb-4 ">
+                    <div className="box-Hot-4">
+                        <div className="p-3  h-100 d-flex flex-column justify-content-between border rounded shadow-sm" style={{ backgroundColor: '#fff', borderRadius: '15px' }}>
                             {/* Title and Countdown */}
                             <div>
-                                <h5 className="fw-bold mb-3">Deals of the week</h5>
+                                <CustomText Text="Deals of the week" className="fw-bold mb-3" fontSize="25px" fontWeight="bold" />
                                 <div className="d-flex gap-2 mb-2 flex-wrap">
                                     <div className=" text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>823 D</div>
                                     <div className=" text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>5 H</div>
                                     <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>34 M</div>
                                     <div className=" text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>27 S</div>
                                 </div>
-                                <p className="text-muted small mb-3">Don't miss this opportunity at a special</p>
+                                <CustomText Text="Don't miss this opportunity at a special" className="text-muted small mb-3" fontSize="14px" />
                             </div>
 
                             {/* Product Image */}
-                            <div className="text-center my-3">
-                                <img src={CategoryCollection[3]?.products[0]?.images?.[0]} alt="Product" className="img-fluid" style={{ maxHeight: '150px', objectFit: 'contain' }} />
+                            <div className="text-center my-3 image-container">
+                                <img src={CategoryCollection[3]?.products[0]?.images?.[0]} alt="Product" className="img-fluid" style={{ maxHeight: '130px', objectFit: 'contain' }} />
                             </div>
 
                             {/* Rating and Info */}
                             <div>
-                                <div className="text-warning mb-1 small">
+                                <div className="text-warning mb-1 small" style={{ fontSize: '16px', fontFamily: 'Quicksand', fontWeight: 'bold' }}>
                                     ★★★★☆ ({CategoryCollection[3]?.products[0]?.sold?.split('/')?.[0] || '3'})
                                 </div>
 
                                 <div className="mb-1">
-                                    <span className="text-danger fw-bold me-2">${CategoryCollection[3]?.products[0]?.price || '60.99'}</span>
-                                    <span className="text-muted text-decoration-line-through small">$79.99</span>
+                                    <span className="text-danger fw-bold me-2" style={{ fontFamily: 'Quicksand', fontSize: '20px' }}>${CategoryCollection[3]?.products[0]?.price || '60.99'}</span>
+                                    <span className="text-muted text-decoration-line-through small" style={{ fontFamily: 'Quicksand', fontSize: '18px' }}>$79.99</span>
                                 </div>
 
-                                <div className="fw-bold small mb-2">
-                                    {CategoryCollection[3]?.products[0]?.name || 'Perfectly Packed Meat Combos for Delicious and Flavorful Meals Every Day'}
+                                <div className="fw-bold small mb-2" style={{ fontFamily: 'Quicksand', fontSize: '18px', fontWeight: 'bold' }}>
+                                    {CategoryCollection[3]?.products[0]?.name}
                                 </div>
 
-                                <div className="text-muted small mb-2">This product is about to run out</div>
 
                                 {/* Stock progress bar */}
-                                <div className="progress mb-1" style={{ height: '6px' }}>
+                                <div className="progress mb-1" style={{ height: '5px' }}>
                                     <div className="progress-bar bg-success" style={{ width: '60%' }}></div>
                                 </div>
 
-                                <div className="text-muted small mb-3">Available only: <span className="text-danger fw-bold">${CategoryCollection[3]?.products[0]?.price || '60.99'}</span></div>
+                                {/* <div className="text-muted small mb-3">Available only: <span className="text-danger fw-bold">${CategoryCollection[3]?.products[0]?.price || '60.99'}</span></div> */}
                             </div>
 
                             {/* Add to Cart Button */}
-                            <div className="mt-auto">
-                                <button className="btn btn-success w-100 fw-bold">
-                                    Add To Cart <i className="bi bi-cart-fill ms-2"></i>
+                            <div className="mt-3">
+                                <button className="btn  w-100 fw-bold text-white" style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}>
+                                    {/* <CustomText Text="Add To Cart" className="text-white" fontSize="18px" fontWeight="bold" /> */}
+                                    Add To Cart
+                                    <CartOutline height="20" width="20" className="text-white ms-2" />
                                 </button>
                             </div>
                         </div>
