@@ -11,8 +11,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
 import CategoryCollection from "./CategoryCollection";
+import { useNavigate } from 'react-router-dom';
+
 
 function TopBar() {
+    const navigate = useNavigate();
+    const handleCategoryClick = (id) => {
+        navigate(`/category/${id}`);
+    };
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
         hours: 8,
@@ -109,7 +115,7 @@ function TopBar() {
             </div>
 
             {/* NAVBAR */}
-            <header style={{ height: '100px', display: 'flex', alignItems: 'center', borderBottom: '1px solid grey' }}>
+            <header style={{ height: '100px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #DBDBDB' }}>
                 <div className='container-fluid'>
                     <div className='row align-items-center'>
                         <div className='col-6 col-md-2 text-start'>
@@ -187,7 +193,9 @@ function TopBar() {
                                 >
                                     <div className="row">
                                         {CategoryCollection.map((item, index) => (
-                                            <div key={index} className="col-6 col-md-4 text-center">
+                                            <div key={index} className="col-6 col-md-4 text-center"
+                                                onClick={() => handleCategoryClick(item.id)}
+                                            >
                                                 <div className="category-card">
                                                     <img src={item.image} alt={item.label} className="img-fluid mb-2" style={{ height: '40px' }} />
                                                     <h6>{item.label}</h6>

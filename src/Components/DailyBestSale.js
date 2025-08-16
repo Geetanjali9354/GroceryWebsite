@@ -2,11 +2,16 @@ import BestSaleOfferImage from '../Images/BestSaleOffer.png';
 import Banner34Logo from '../Images/Banner3&4Logo.png';
 import './DailyBestSale.css';
 import NewsletterImage from '../Images/NewsLetterImage.png';
-import DailySectionImg1 from '../Images/DailySectionImg1.jpeg';
 import { CartOutline } from "../Images/SvgImages";
 import CustomText from './CustomText';
 import CategoryCollection from './CategoryCollection';
+import { useNavigate } from 'react-router-dom';
+
 const DailyBestSale = () => {
+    const navigate = useNavigate();
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
     const selectedProductIds = [
         "cat-food-1",
         "pizza-1",
@@ -30,7 +35,9 @@ const DailyBestSale = () => {
                                 data-aos-delay="100"
                                 data-aos-anchor-placement="top-bottom"
                             >
-                                <div className="product-card p-3 rounded shadow-sm border">
+                                <div className="product-card p-3 rounded shadow-sm border"
+                                    onClick={() => handleProductClick(prod.id)}
+                                >
                                     <div className="row">
                                         {/* LEFT SIDE: IMAGE + TIMER */}
                                         <div className="col-6 d-flex flex-column align-items-center justify-content-between Daily-image-container">

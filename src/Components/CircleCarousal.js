@@ -11,7 +11,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
 import CategoryCollection from "./CategoryCollection";
+import { useNavigate } from 'react-router-dom';
+
 function CircleCarousal() {
+    const navigate = useNavigate();
+    const handleCategoryClick = (id) => {
+        navigate(`/category/${id}`);
+    };
+
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -66,7 +73,9 @@ function CircleCarousal() {
             <div className="circle-carousel-container">
                 <Slider {...settings}>
                     {CategoryCollection.map((item, index) => (
-                        <div key={item.id} className="circle-carousel-item">
+                        <div key={item.id} className="circle-carousel-item"
+                            onClick={() => handleCategoryClick(item.id)}
+                        >
                             <div
                                 className="circle-carousel-image"
                                 style={{ backgroundColor: item.bgColor }}

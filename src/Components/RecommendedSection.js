@@ -9,18 +9,15 @@ import 'aos/dist/aos.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
-import OrangeJuice from '../Images/OrangeJuice.png';
-import DogFood from '../Images/DogFood.png';
-import Milk from '../Images/Milk.png';
-import ChocoLava from '../Images/Chocolava.png';
-import GreenPeas from '../Images/GreenPeas.jpeg'
 import { CartOutline } from '../Images/SvgImages';
-import EverydayFreshMeat from '../Images/EverydayFreshMeat.jpeg';
-import EverdayFreshMilk from '../Images/EverydayFreshMilk.jpeg';
-import EverydayFreshFruits from '../Images/EverydayFreshFruits.jpeg';
-import DailyFreshVegetables from '../Images/DailyFreshVegetables.jpeg';
 import CategoryCollection from './CategoryCollection';
+import { useNavigate } from 'react-router-dom';
+
 function RecommendedSection() {
+    const navigate = useNavigate();
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
     const [activeCategory, setActiveCategory] = useState("All");
     const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
     const selectedCategoryIds = ["animal-food", "desserts", "drinks", "frozen-food"];
@@ -70,7 +67,9 @@ function RecommendedSection() {
                     // style={{ backgroundColor: 'pink' }}
                     >
 
-                        <div className="Recommended-image-container">
+                        <div className="Recommended-image-container"
+                            onClick={() => handleProductClick(item.id)}
+                        >
                             <img src={item.images?.[0]} alt={item.name} />
                         </div>
                         <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='18px' />

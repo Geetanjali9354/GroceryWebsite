@@ -8,6 +8,7 @@ import ShopBrand from "./ShopBrand";
 import DailyBestSale from "./DailyBestSale";
 import Footer from "./Footer";
 import HotDeals from "./HotDeals";
+import OfferBanner from "./OfferBanner";
 
 function MainPage() {
   return (
@@ -16,6 +17,7 @@ function MainPage() {
       <Content />
       <CircleCarousal />
       <FlashSales />
+      <OfferBanner/>
       <RecommendedSection />
       <HotDeals />
       <ShopBrand />

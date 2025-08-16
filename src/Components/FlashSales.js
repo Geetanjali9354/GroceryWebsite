@@ -16,7 +16,13 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import CategoryCollection from './CategoryCollection';
 import CustomText from './CustomText';
-const FlashSales = () => {
+import { useNavigate } from 'react-router-dom';
+const FlashSales = ({title = "Flash Sales Today", linkText = "View All Deals"}) => {
+    const navigate = useNavigate();
+
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
     const settings = {
         dots: false,
         infinite: true,
@@ -61,8 +67,8 @@ const FlashSales = () => {
         <div>
             <div className="flash-sales-container">
                 <div className="flash-sales-header">
-                    <h3>Flash Sales Today</h3>
-                    <a href="#">View All Deals</a>
+                    <h3>{title}</h3>
+                    <a href="#">{linkText}</a>
                 </div>
                 <Slider {...settings}>
                     {flashSaleProducts.map((product, idx) => (
@@ -72,7 +78,9 @@ const FlashSales = () => {
                             data-aos="fade-up"
                             data-aos-delay={idx * 100} // 100ms staggered delay
                         >
-                            <div className="flash-sales-card">
+                            <div className="flash-sales-card"
+                                onClick={() => handleProductClick(product.id)}
+                            >
                                 <div className="flash-sales-image-container">
                                     <img src={(product.image?.[0] || product.images?.[0])} alt={product.name} />
 
@@ -105,71 +113,6 @@ const FlashSales = () => {
                 </Slider>
             </div>
             {/* // -------------------------------- TWO RECTANGLE BANNER--------------------------------- */}
-
-            <div className="p-3 my-4">
-                <div className="row">
-                    <div className="col-md-6"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        data-aos-anchor-placement="top-bottom"
-                    >
-                        <div
-                            className="rectangle-box banner-box"
-                            style={{
-                                backgroundImage: `url(${Banner1})`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                display: 'flex',
-                                justifyContent: 'end',
-                            }}
-                        >
-                            <div className="banner-content">
-                                <CustomText Text="X-Connect Smart Television" fontWeight='bold' className='banner-contentText' />
-                                {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
-                                <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
-                                <div className="countdown1 ">
-                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>874</span > D</div>
-                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>16</span> H</div>
-                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>28</span> M</div>
-                                    <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>17</span> S</div>
-                                </div>
-                                <button className="shop-now-btn-banner1">Shop Now →</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-md-6"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                        data-aos-anchor-placement="top-bottom"
-                    >
-                        <div
-                            className="rectangle-box banner-box"
-                            style={{
-                                backgroundImage: `url(${Banner2})`,
-                            }}
-                        >
-                            <div className="banner-content ">
-                                {/* <h2>Vegetables Combo Box</h2> */}
-                                <CustomText Text="Vegetables Combo Box" fontWeight='bold' className='banner-contentText' />
-                                {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
-                                <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
-                                <div className="countdown1 ">
-                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>874</span > D</div>
-                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>16</span> H</div>
-                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>28</span> M</div>
-                                    <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>17</span> S</div>
-                                </div>
-                                <button className="shop-now-btn-banner2">Shop Now →</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
         </div>
 
 

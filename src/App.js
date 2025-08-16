@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import TopBar from './Components/TopBar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './Components/MainPage';
+import CategoryProducts from './Components/CategoryProducts'; // Create this file as shown earlier
+import ProductsDetail from './Components/ProductsDetail';
 function App() {
   return (
-    <div className="App">
-      <MainPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/category/:id" element={<CategoryProducts />} />
+        <Route path="/product/:id" element={<ProductsDetail />} />
+        {/* Add other routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 

@@ -9,18 +9,23 @@ import CustomText from "./CustomText";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CategoryCollection from "./CategoryCollection";
+import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
-const selectedCategoryIds = ["drinks", "desserts"];
-const products = CategoryCollection
-    .filter(cat => selectedCategoryIds.includes(cat.id))
-    .flatMap(cat => cat.products || []);
 
-const copyCode = () => {
-    navigator.clipboard.writeText("FREE25BAC");
-    alert("Code copied to clipboard!");
-};
 function HotDeals() {
+    const navigate = useNavigate();
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
+    const selectedCategoryIds = ["drinks", "desserts"];
+    const products = CategoryCollection
+        .filter(cat => selectedCategoryIds.includes(cat.id))
+        .flatMap(cat => cat.products || []);
 
+    const copyCode = () => {
+        navigator.clipboard.writeText("FREE25BAC");
+        alert("Code copied to clipboard!");
+    };
     useEffect(() => {
         AOS.init({ duration: 700, once: true });
     }, []);
@@ -101,7 +106,9 @@ function HotDeals() {
                                         data-aos="fade-up"
                                         data-aos-delay={idx * 100}
                                     >
-                                        <div className="hotdeals-card ">
+                                        <div className="hotdeals-card "
+                                        onClick={() => handleProductClick(product.id)}
+                                        >
                                             <div className="hotdeals-image-container mt-5">
                                                 <img src={product.images?.[0]} alt={product.name} />
 
