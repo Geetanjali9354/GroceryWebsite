@@ -17,12 +17,17 @@ import { useEffect } from 'react';
 import CategoryCollection from './CategoryCollection';
 import CustomText from './CustomText';
 import { useNavigate } from 'react-router-dom';
-const FlashSales = ({title = "Flash Sales Today", linkText = "View All Deals"}) => {
+import { addToCart } from './cartUtils';
+const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
     const navigate = useNavigate();
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        alert(`${product.name} has been added to your cart!`);
+    })
     const settings = {
         dots: false,
         infinite: true,
@@ -85,7 +90,7 @@ const FlashSales = ({title = "Flash Sales Today", linkText = "View All Deals"}) 
                                     <img src={(product.image?.[0] || product.images?.[0])} alt={product.name} />
 
                                 </div>
-                                <button className="flash-sales-add-button">
+                                <button className="flash-sales-add-button" onClick={() => HandleAddToCart(product)}>
                                     Add
                                     <CartOutline height="20" width="20" />
                                 </button>
@@ -96,23 +101,16 @@ const FlashSales = ({title = "Flash Sales Today", linkText = "View All Deals"}) 
                                 <p className="flash-sales-rating">
                                     <strong>{product.rating}</strong> ⭐ (17k)
                                 </p>
-                                {/* <p className="flash-sales-product-name">
-                                    {product.name}
-                                </p> */}
                                 <CustomText Text={product.name} className='flash-sales-product-name' fontWeight='bold' />
                                 <div className="flash-sales-progress-bar">
                                     <div className="flash-sales-progress-bar-inner"></div>
                                 </div>
-                                {/* <p className="flash-sales-sold-text">
-                                    Sold: {product.sold}
-                                </p> */}
                                 <CustomText Text={`Sold: ${product.sold}`} className='flash-sales-sold-text' fontWeight='bold' />
                             </div>
                         </div>
                     ))}
                 </Slider>
             </div>
-            {/* // -------------------------------- TWO RECTANGLE BANNER--------------------------------- */}
         </div>
 
 

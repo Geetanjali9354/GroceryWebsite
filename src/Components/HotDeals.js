@@ -11,6 +11,7 @@ import 'aos/dist/aos.css';
 import CategoryCollection from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
+import { addToCart } from './cartUtils';
 
 function HotDeals() {
     const navigate = useNavigate();
@@ -26,6 +27,10 @@ function HotDeals() {
         navigator.clipboard.writeText("FREE25BAC");
         alert("Code copied to clipboard!");
     };
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        alert(`${product.name} has been added to your cart!`);
+    })
     useEffect(() => {
         AOS.init({ duration: 700, once: true });
     }, []);
@@ -107,14 +112,14 @@ function HotDeals() {
                                         data-aos-delay={idx * 100}
                                     >
                                         <div className="hotdeals-card "
-                                        onClick={() => handleProductClick(product.id)}
+                                            onClick={() => handleProductClick(product.id)}
                                         >
                                             <div className="hotdeals-image-container mt-5">
                                                 <img src={product.images?.[0]} alt={product.name} />
 
                                             </div>
 
-                                            <button className="hotdeals-add-button">
+                                            <button className="hotdeals-add-button" onClick={() => HandleAddToCart(product)}>
                                                 Add
                                                 <CartOutline height="20" width="20" />
                                             </button>
@@ -381,7 +386,9 @@ function HotDeals() {
 
                             {/* Add to Cart Button */}
                             <div className="mt-3">
-                                <button className="btn  w-100 fw-bold text-white" style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}>
+                                <button className="btn  w-100 fw-bold text-white" style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}
+                                    onClick={() => HandleAddToCart(CategoryCollection[3]?.products[0])}
+                                >
                                     {/* <CustomText Text="Add To Cart" className="text-white" fontSize="18px" fontWeight="bold" /> */}
                                     Add To Cart
                                     <CartOutline height="20" width="20" className="text-white ms-2" />

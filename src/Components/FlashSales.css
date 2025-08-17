@@ -36,7 +36,7 @@
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
-    height: 400px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,7 +57,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .flash-sales-image-container img {
@@ -82,14 +82,15 @@
     background-color: #E3F4FA;
     border: none;
     border-radius: 20px;
-    padding: 10px 30px;
-    font-size: 14px;
+    padding: 8px 20px;
+    font-size: 16px;
     color: #1C799B;
     cursor: pointer;
     display: flex;
     align-items: center;
-    box-shadow: 0 1px 4px rgb(13 110 253 / 0.3);
     transition: all 0.3s ease;
+    font-family: 'Quicksand';
+    font-weight: 600;
 }
 
 .flash-sales-add-button:hover {
@@ -99,7 +100,7 @@
 
 .flash-sales-price {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 5px;
     color: #1a2433;
 }
@@ -120,14 +121,14 @@
 }
 
 .flash-sales-rating {
-    font-size: 14px;
+    font-size: 16px;
     color: #495057;
     margin-bottom: 10px;
 }
 
 .flash-sales-product-name {
     font-weight: 600;
-    font-size: 15px;
+    font-size: 18px;
     color: #1a2433;
     /* flex-grow: 1; */
 }
@@ -150,7 +151,7 @@
 }
 
 .flash-sales-sold-text {
-    font-size: 13px;
+    font-size: 15px;
     color: #6c757d;
     margin-bottom: 0;
 }

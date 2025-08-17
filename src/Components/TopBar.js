@@ -19,6 +19,15 @@ function TopBar() {
     const handleCategoryClick = (id) => {
         navigate(`/category/${id}`);
     };
+    const handleCartClick = () => {
+        navigate(`/cart`);
+    };
+    const handleShopClick = () => {
+        navigate(`/shop`);
+    };
+    const handleWishlistClick = () => {
+        navigate(`/wishlist`);
+    };
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
         hours: 8,
@@ -151,11 +160,15 @@ function TopBar() {
                                 <img src={User} style={{ height: '20px', width: '20px' }} />
                                 <span className="d-none d-sm-inline">Profile</span>
                             </div>
-                            <div className="d-flex align-items-center gap-1 cursor-pointer position-relative">
+                            <div className="d-flex align-items-center gap-1 cursor-pointer position-relative"
+                                onClick={handleWishlistClick}
+                            >
                                 <img src={Wishlist} style={{ height: '20px', width: '20px' }} />
                                 <span className="d-none d-sm-inline">Wishlist</span>
                             </div>
-                            <div className="d-flex align-items-center gap-1 cursor-pointer position-relative">
+                            <div className="d-flex align-items-center gap-1 cursor-pointer position-relative"
+                                onClick={handleCartClick}
+                            >
                                 <img src={Cart} style={{ height: '20px', width: '20px' }} />
                                 <span className="d-none d-sm-inline">Cart</span>
                             </div>
@@ -256,7 +269,7 @@ function TopBar() {
                                             Shop
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Shop 1</a></li>
+                                            <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
                                             <li><a className="dropdown-item" href="#">Shop 2</a></li>
                                         </ul>
                                     </li>
@@ -267,7 +280,7 @@ function TopBar() {
                                             Pages
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">About Us</a></li>
+                                            <li><a className="dropdown-item" href="#">Cart</a></li>
                                             <li><a className="dropdown-item" href="#">Contact</a></li>
                                         </ul>
                                     </li>
@@ -304,14 +317,14 @@ function TopBar() {
                             <div className="nav-link dropdown">
                                 <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Shop</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Shop 1</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
                                     <li><a className="dropdown-item" href="#">Shop 2</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
                                 <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">About Us</a></li>
+                                    <li><a className="dropdown-item" href="#">Cart</a></li>
                                     <li><a className="dropdown-item" href="#">Contact</a></li>
                                 </ul>
                             </div>

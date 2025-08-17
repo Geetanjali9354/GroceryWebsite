@@ -12,18 +12,49 @@ import './FlashSales.css';
 import { CartOutline } from '../Images/SvgImages';
 import CategoryCollection from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from './cartUtils';
+import { HeartOutline } from "../Images/SvgImages";
 
 function RecommendedSection() {
+    const [wishlist, setWishlist] = useState([]);
     const navigate = useNavigate();
+
+    // Load wishlist from localStorage on page load
+    useEffect(() => {
+        const savedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        setWishlist(savedWishlist);
+    }, []);
+
+    // Add product to wishlist
+    const addToWishlist = (product) => {
+        // Check if product is already in the wishlist
+        const updatedWishlist = [...wishlist];
+        if (!updatedWishlist.some(item => item.id === product.id)) {
+            updatedWishlist.push(product);
+            setWishlist(updatedWishlist);
+            // Save to localStorage
+            localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+        }
+    };
+
+    // Navigate to the Wishlist page
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        alert(`${product.name} has been added to your cart!`);
+    })
+
     const [activeCategory, setActiveCategory] = useState("All");
     const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
     const selectedCategoryIds = ["animal-food", "desserts", "drinks", "frozen-food"];
     const recommendedProducts = CategoryCollection
         .filter(category => selectedCategoryIds.includes(category.id))
         .flatMap(category => category.products);
+    const handleCategoryClick = (category) => {
+        setActiveCategory(category);
+    };
     const settings = {
         dots: false,
         infinite: true,
@@ -56,6 +87,8 @@ function RecommendedSection() {
             <div className="Recommended-header ">
                 <h3>Recommended For You</h3>
             </div>
+
+
             <div className="four-box-grid-recommended">
                 {recommendedProducts.map((item, index) => (
                     <div
@@ -64,15 +97,18 @@ function RecommendedSection() {
                         data-aos="fade-up"
                         data-aos-delay="100"
                         data-aos-anchor-placement="top-bottom"
+                        onClick={() => handleProductClick(item.id)}
                     // style={{ backgroundColor: 'pink' }}
                     >
 
                         <div className="Recommended-image-container"
-                            onClick={() => handleProductClick(item.id)}
                         >
                             <img src={item.images?.[0]} alt={item.name} />
                         </div>
-                        <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='18px' />
+                        <div className="wishlist-icon" onClick={() => addToWishlist(item)}>
+                            <HeartOutline height="25" width="25" />
+                        </div>
+                        <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='20px' />
 
                         <p className="Recommended-price">
                             ${item.price} <span className="per-qty">/Qty</span><span className="original-price">${item.originalPrice}</span>
@@ -82,7 +118,7 @@ function RecommendedSection() {
                             <strong>{item.rating}</strong> ⭐ (17k)
                         </p>
 
-                        <button className="Add-To-Cart-Button">
+                        <button className="Add-To-Cart-Button" onClick={() => HandleAddToCart(item)}>
                             Add To Cart
                             <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
                         </button>

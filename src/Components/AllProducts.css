@@ -1,0 +1,178 @@
+/* src/components/AllProducts.css */
+
+.all-products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.all-products-card-wrapper {
+    width: calc(20% - 20px);
+}
+
+@media (max-width: 1200px) {
+    .all-products-card-wrapper {
+        width: calc(33.33% - 20px);
+    }
+}
+@media (max-width: 768px) {
+    .all-products-card-wrapper {
+        width: calc(50% - 20px);
+    }
+}
+@media (max-width: 480px) {
+    .all-products-card-wrapper {
+        width: 100%;
+    }
+}
+
+.all-products-card {
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.all-products-card:hover {
+    border: 1px solid #1c799b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.all-products-image-container {
+    height: 160px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.all-products-image-container img {
+    height: 130px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.all-products-card:hover .all-products-image-container img {
+    transform: scale(1.2);
+    filter: brightness(1.1);
+}
+
+.all-products-add-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #E3F4FA;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 16px;
+    color: #1C799B;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: 'Quicksand';
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.all-products-add-button:hover {
+    background-color: #1c799b;
+    color: white;
+}
+
+.all-products-price {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #1a2433;
+}
+
+.all-products-price .original-price {
+    text-decoration: line-through;
+    color: #adb5bd;
+    font-weight: 400;
+    margin-left: 6px;
+}
+
+.all-products-price .per-qty {
+    color: #6c757d;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.all-products-rating {
+    font-size: 16px;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+.all-products-name {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1a2433;
+}
+
+.all-products-name:hover {
+    color: #1c799b;
+}
+
+.all-products-progress-bar {
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.all-products-progress-bar-inner {
+    width: 50%;
+    height: 100%;
+    background-color: #1c799b;
+}
+
+.all-products-sold {
+    font-size: 15px;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+.wishlist-icon-all {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #DBDBDB;
+    /* Circle background */
+    border-radius: 50%;
+    /* Make the container circular */
+    padding: 8px;
+    /* Space around the heart */
+    font-size: 20px;
+    /* Icon size */
+    color: #2c3e50;
+    /* Default color for the heart */
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    /* Smooth transitions */
+    /* Optional: Shadow to make it stand out */
+}
+
+/* When the user hovers over the product box, show the heart icon */
+.box-Recommended:hover .wishlist-icon-all {
+    opacity: 1;
+    /* Make the heart visible */
+    color: black;
+
+    /* Change color to red on hover */
+    transform: scale(1.1);
+    /* Slightly scale up the heart on hover */
+}

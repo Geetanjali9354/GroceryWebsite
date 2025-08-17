@@ -6,12 +6,17 @@ import { CartOutline } from "../Images/SvgImages";
 import CustomText from './CustomText';
 import CategoryCollection from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from './cartUtils';
 
 const DailyBestSale = () => {
     const navigate = useNavigate();
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        alert(`${product.name} has been added to your cart!`);
+    })
     const selectedProductIds = [
         "cat-food-1",
         "pizza-1",
@@ -89,7 +94,7 @@ const DailyBestSale = () => {
                                             </div>
 
                                             <div>
-                                                <button className="Add-To-Cart-Button-Daily">
+                                                <button className="Add-To-Cart-Button-Daily" onClick={() => HandleAddToCart(prod)}>
                                                     Add To Cart
                                                     <CartOutline height="20" width="20" style={{ marginLeft: '6px', marginBottom: '2px' }} />
                                                 </button>
