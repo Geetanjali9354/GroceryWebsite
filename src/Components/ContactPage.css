@@ -1,0 +1,56 @@
+.MainLeftDiv {
+    border: 1px solid #DBDBDB;
+    border-radius: 15px;
+}
+
+.Font {
+    font-family: 'Quicksand';
+}
+
+.input-Text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.input-box {
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+
+.Quote-btn {
+    background-color: #1C799B;
+    color: white;
+    font-weight: 600;
+}
+
+.Quote-btn:hover {
+    background-color: #16607c;
+    color: white;
+}
+
+.contact-details span {
+    font-size: 18px;
+    font-family: 'Quicksand';
+    font-weight: 500;
+    color: #1A1A1A;
+    margin-bottom: 10px;
+}
+
+.button-div .contact-btn {
+    background-color: #121535;
+    color: white;
+    height: 50px;
+    justify-content: center;
+}
+
+.contact-btn span {
+    font-weight: 600;
+    font-family: 'Quicksand';
+    font-size: 18px;
+}
+
+.button-div .contact-btn:hover {
+    background-color: #1C799B;
+    color: white;
+}

@@ -33,7 +33,7 @@ const CategoryProducts = () => {
                 <h4 className="m-0 fw-bold" style={{ fontFamily: 'Quicksand' }}>{category.label}</h4>
                 <div className="d-flex align-items-center text-muted" style={{ fontSize: '14px', fontFamily: 'Quicksand' }}>
                     <BaselineHome height="18px" width="18px" className="me-2" />
-                    <span className="me-1">Home</span>
+                    <a className="me-1" href="/" style={{ textDecoration: 'none' }}>Home</a>
                     <span className="mx-1">{'>'}</span>
                     <span className="text-primary">{category.label}</span>
                 </div>

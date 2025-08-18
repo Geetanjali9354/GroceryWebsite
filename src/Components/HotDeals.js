@@ -119,7 +119,10 @@ function HotDeals() {
 
                                             </div>
 
-                                            <button className="hotdeals-add-button" onClick={() => HandleAddToCart(product)}>
+                                            <button className="hotdeals-add-button" onClick={(e) => {
+                                                e.stopPropagation(); // Prevent bubbling
+                                                HandleAddToCart(product);
+                                            }}>
                                                 Add
                                                 <CartOutline height="20" width="20" />
                                             </button>

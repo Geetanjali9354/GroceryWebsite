@@ -94,7 +94,10 @@ const DailyBestSale = () => {
                                             </div>
 
                                             <div>
-                                                <button className="Add-To-Cart-Button-Daily" onClick={() => HandleAddToCart(prod)}>
+                                                <button className="Add-To-Cart-Button-Daily" onClick={(e) => {
+                                                    e.stopPropagation(); // Prevent bubbling
+                                                    HandleAddToCart(prod);
+                                                }}>
                                                     Add To Cart
                                                     <CartOutline height="20" width="20" style={{ marginLeft: '6px', marginBottom: '2px' }} />
                                                 </button>

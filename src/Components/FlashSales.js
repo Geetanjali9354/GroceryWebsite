@@ -90,7 +90,10 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                     <img src={(product.image?.[0] || product.images?.[0])} alt={product.name} />
 
                                 </div>
-                                <button className="flash-sales-add-button" onClick={() => HandleAddToCart(product)}>
+                                <button className="flash-sales-add-button" onClick={(e) => {
+                                    e.stopPropagation(); // Prevent bubbling
+                                    HandleAddToCart(product);
+                                }}>
                                     Add
                                     <CartOutline height="20" width="20" />
                                 </button>

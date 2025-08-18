@@ -10,10 +10,9 @@ import { CartOutline } from '../Images/SvgImages';
 import { HeartOutline } from '../Images/SvgImages';
 import { ShuffleOutline } from '../Images/SvgImages';
 import { ShareAndroid } from '../Images/SvgImages';
-import NewsletterImage from '../Images/NewsLetterImage.png';
-
 import { FaTruck, FaUndo, FaStore, FaCheck, FaCreditCard, FaShieldAlt, FaBox } from 'react-icons/fa';
 import FlashSales from './FlashSales';
+import BannerImage from './BannerImage';
 // #121535
 const ProductsDetail = () => {
     const { id } = useParams();
@@ -201,33 +200,7 @@ const ProductsDetail = () => {
             <ServiceHighlights />
 
             {/* ----------------NewsLETTER IMAGE SECTION--------- */}
-            <div>
-                <section className="newsletter-proDetail mt-5 p-3">
-                    <div className="container-fluid container-fluid-lg Main-proDetail">
-                        <div className="py-5 px-4 px-md-5  rounded-4 d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap gap-4">
-                            <div className="max-w-700 Text-proDetail">
-                                <h3 className="">Don't Miss Out on   <br />Grocery Deals</h3>
-                                <h4 className="mb-5">SIGN UP FOR THE UPDATE NEWSLETTER</h4>
-
-                                <form action="#" className="subscribe-box d-flex align-items-center">
-                                    <input
-                                        type="email"
-                                        placeholder="Your email address..."
-                                        className="form-control border-0 shadow-none bg-transparent flex-grow-1 text-white"
-                                    />
-                                    <button type="submit" className="   subscribe-btn">
-                                        Subscribe
-                                    </button>
-                                </form>
-
-                            </div>
-                            <div className="d-none d-lg-block">
-                                <img src={NewsletterImage} alt="Thumbnail" className="img-fluid" />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <BannerImage/>
             <Footer />
         </>
     );

@@ -37,7 +37,7 @@ const Wishlist = () => {
                 <h4 className="m-0 fw-bold" style={{ fontFamily: 'Quicksand' }}>Wishlist</h4>
                 <div className="d-flex align-items-center text-muted" style={{ fontSize: '14px', fontFamily: 'Quicksand' }}>
                     <BaselineHome height="18px" width="18px" className="me-2" />
-                    <span className="me-1">Home</span>
+                    <a className="me-1" href="/" style={{ textDecoration: 'none' }}>Home</a>
                     <span className="mx-1">{'>'}</span>
                     <span className="text-primary">Wishlist</span>
                 </div>
@@ -47,12 +47,12 @@ const Wishlist = () => {
             <div className="wishlist-items mt-4">
                 {wishlist.length > 0 ? (
                     wishlist.map((item) => (
-                        <div key={item.id} className="wishlist-item" onClick={() => handleProductClick(item.id)}
+                        <div key={item.id} className="wishlist-item"
                         >
-                            <div className="wishlist-item-image">
+                            <div className="wishlist-item-image" onClick={() => handleProductClick(item.id)}>
                                 <img src={item.images[0]} alt={item.name} />
                             </div>
-                            <div className="wishlist-item-info">
+                            <div className="wishlist-item-info" onClick={() => handleProductClick(item.id)}>
                                 <CustomText Text={item.name} fontWeight="500" fontSize="20px" />
                                 <p className="wishlist-item-price">${item.price}</p>
                             </div>
@@ -64,7 +64,7 @@ const Wishlist = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Your wishlist is empty. Explore products to add to your wishlist!</p>
+                    <p style={{ fontSize: '25px', fontFamily: 'Quicksand', padding: '10px' }}>Your wishlist is empty. Explore products to add to your wishlist!</p>
                 )}
             </div>
 

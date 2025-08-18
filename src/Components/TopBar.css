@@ -66,17 +66,6 @@
     text-decoration-line: none;
 }
 
-/* Custom Positioning for Modal */
-.modal.fade .modal-dialog {
-    position: absolute;
-    top: 200px;
-    /* Adjust to position below Browse Categories */
-    left: 1%;
-    transform: translateX(-50%);
-}
-
-
-/* Styling the dropdown-toggle links */
 .offcanvas .nav-link {
     font-weight: 500;
     font-size: 18px;
@@ -104,7 +93,7 @@
     color: #333;
     font-size: 18px;
     font-weight: 600;
-    padding: 10px;
+    padding: 10px 15px;
     transition: color 0.3s ease;
     font-family: 'Quicksand';
 }
@@ -114,6 +103,22 @@
     /* Highlight color on hover */
 }
 
+/* Show dropdown on hover */
+
+
+/* Smooth open animation (optional) */
+.dropdown-menu {
+    transition: all 0.3s ease;
+}
+
+.nav-link.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    /* Optional: remove gap */
+}
+.dropdown-menu .dropdown-item{}
+
+
 
 /* Browse Categories Dropdown Responsive */
 .category-dropdown {
@@ -122,24 +127,29 @@
     width: 30%;
     cursor: pointer;
 }
-.HelpText span{
+
+.HelpText span {
     font-size: 18px;
     font-family: 'Quicksand';
     font-weight: 600;
 }
-.ProfileDiv{
+
+.ProfileDiv {
     cursor: pointer;
 }
-.ProfileDiv span{
+
+.ProfileDiv span {
     font-size: 18px;
     font-family: 'Quicksand';
     font-weight: 500;
 }
-.browse-button span{
+
+.browse-button span {
     font-size: 18px;
     font-family: 'Quicksand';
     font-weight: 500;
 }
+
 @media (max-width: 992px) {
     .category-dropdown {
         width: 50%;

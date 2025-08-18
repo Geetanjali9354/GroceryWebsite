@@ -10,6 +10,7 @@ function Cart() {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCartItems(storedCart);
     }, []);
+
     const handleRemoveItem = (id) => {
         const updatedCart = cartItems.filter(item => item.id !== id);
         setCartItems(updatedCart);
@@ -38,7 +39,7 @@ function Cart() {
     return (
         <div className="container-fluid g-0">
             <TopBar />
-           
+
             <div className="d-flex justify-content-between align-items-center" style={{
                 height: '80px',
                 backgroundColor: '#E9EEFB',
@@ -47,7 +48,7 @@ function Cart() {
                 <h4 className="m-0 fw-bold" style={{ fontFamily: 'Quicksand' }}>Cart</h4>
                 <div className="d-flex align-items-center text-muted" style={{ fontSize: '14px', fontFamily: 'Quicksand' }}>
                     <BaselineHome height="18px" width="18px" className="me-2" />
-                    <span className="me-1">Home</span>
+                    <a className="me-1" href="/" style={{ textDecoration: 'none' }}>Home</a>
                     <span className="mx-1">{'>'}</span>
                     <span className="text-primary">Cart</span>
                 </div>

@@ -11,7 +11,6 @@ import { addToCart } from './cartUtils';
 import TopBar from './TopBar';
 import ServiceHighlights from './ServiceHighlights';
 import Footer from './Footer';
-import { ImOpt } from 'react-icons/im';
 import { BaselineHome } from '../Images/SvgImages';
 const AllProducts = () => {
     const navigate = useNavigate();
@@ -78,7 +77,10 @@ const AllProducts = () => {
                                 <div className="all-products-progress-bar-inner"></div>
                             </div>
                             <CustomText Text={`Sold: ${product.sold}`} className='all-products-sold' fontWeight='bold' />
-                            <button className="Add-To-Cart-Button" onClick={() =>handleAddToCart(product)}>
+                            <button className="Add-To-Cart-Button" onClick={(e) => {
+                                e.stopPropagation(); // Prevent bubbling
+                                handleAddToCart(product);
+                            }}>
                                 Add To Cart
                                 <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
                             </button>

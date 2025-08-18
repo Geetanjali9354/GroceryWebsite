@@ -64,7 +64,6 @@
 
 .all-products-card:hover .all-products-image-container img {
     transform: scale(1.2);
-    filter: brightness(1.1);
 }
 
 .all-products-add-button {
@@ -143,36 +142,4 @@
     font-size: 15px;
     color: #6c757d;
     margin-bottom: 0;
-}
-.wishlist-icon-all {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: white;
-    border: 1px solid #DBDBDB;
-    /* Circle background */
-    border-radius: 50%;
-    /* Make the container circular */
-    padding: 8px;
-    /* Space around the heart */
-    font-size: 20px;
-    /* Icon size */
-    color: #2c3e50;
-    /* Default color for the heart */
-    opacity: 0;
-    /* Initially hidden */
-    transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    /* Smooth transitions */
-    /* Optional: Shadow to make it stand out */
-}
-
-/* When the user hovers over the product box, show the heart icon */
-.box-Recommended:hover .wishlist-icon-all {
-    opacity: 1;
-    /* Make the heart visible */
-    color: black;
-
-    /* Change color to red on hover */
-    transform: scale(1.1);
-    /* Slightly scale up the heart on hover */
 }

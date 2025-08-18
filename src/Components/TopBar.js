@@ -28,6 +28,12 @@ function TopBar() {
     const handleWishlistClick = () => {
         navigate(`/wishlist`);
     };
+    const handleContactClick = () => {
+        navigate(`/contact`);
+    };
+    const handleProfileClick = () => {
+        navigate(`/profile`);
+    };
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
         hours: 8,
@@ -35,6 +41,7 @@ function TopBar() {
         seconds: 34,
     });
     const [showCategories, setShowCategories] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     useEffect(() => {
         AOS.init({ duration: 500, once: true });
@@ -156,7 +163,7 @@ function TopBar() {
                             <div className="d-lg-none cursor-pointer">
                                 <img src={SearchBlack} style={{ height: '20px', width: '20px' }} />
                             </div>
-                            <div className="d-flex align-items-center gap-1 cursor-pointer ">
+                            <div className="d-flex align-items-center gap-1 cursor-pointer" onClick={handleProfileClick}>
                                 <img src={User} style={{ height: '20px', width: '20px' }} />
                                 <span className="d-none d-sm-inline">Profile</span>
                             </div>
@@ -239,6 +246,8 @@ function TopBar() {
                             tabIndex="-1"
                             id="mobileNavMenu"
                             aria-labelledby="mobileNavMenuLabel"
+                            onMouseEnter={() => setShowMenu(true)}
+                            onMouseLeave={() => setShowMenu(false)}
                         >
                             <div className="offcanvas-header">
                                 <img className='img-fluid' src={Logo} alt="MarketPro Logo" style={{ height: '50px' }} />
@@ -258,7 +267,7 @@ function TopBar() {
                                             Home
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Home Page</a></li>
+                                            <li><a className="dropdown-item" href="/">Home Page</a></li>
                                             <li><a className="dropdown-item" href="#">Grocery</a></li>
                                         </ul>
                                     </li>
@@ -266,7 +275,7 @@ function TopBar() {
                                     {/* SHOP with NEW badge */}
                                     <li className="nav-item dropdown border-bottom py-2">
                                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                            Shop
+                                            shop
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
@@ -280,8 +289,8 @@ function TopBar() {
                                             Pages
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Cart</a></li>
-                                            <li><a className="dropdown-item" href="#">Contact</a></li>
+                                            <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
+                                            <li><a className="dropdown-item" href="#" >Contact</a></li>
                                         </ul>
                                     </li>
 
@@ -298,7 +307,7 @@ function TopBar() {
 
                                     {/* CONTACT */}
                                     <li className="nav-item py-2">
-                                        <a href="#" className="nav-link">Contact Us</a>
+                                        <a href="#" className="nav-link" onClick={handleContactClick}>Contact Us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -306,39 +315,62 @@ function TopBar() {
 
 
                         {/* DESKTOP NAV - only visible on large+ */}
-                        <div className="col d-none d-lg-flex gap-3 align-items-center">
-                            <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Home</a>
+                        <div className="col d-none d-lg-flex gap-3 align-items-center"
+
+                        >
+                            <div className="nav-link dropdown"
+                            >
+                                <a href="#" className="text-dark "> <span className="">Home</span>
+                                    <BaselineKeyboardArrowDown
+                                        height="20"
+                                        width="20"
+                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
+                                    /></a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Home Page</a></li>
+                                    <li><a className="dropdown-item" href="/">Home Page</a></li>
                                     <li><a className="dropdown-item" href="#">Grocery</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Shop</a>
-                                <ul className="dropdown-menu">
+                                <a href="#" className="text-dark "> <span className="">shop</span>
+                                    <BaselineKeyboardArrowDown
+                                        height="20"
+                                        width="20"
+                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
+                                    /></a>                                <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
                                     <li><a className="dropdown-item" href="#">Shop 2</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                <a href="#" className="text-dark "> <span className="">Pages</span>
+                                    <BaselineKeyboardArrowDown
+                                        height="20"
+                                        width="20"
+                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
+                                    /></a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Cart</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
                                     <li><a className="dropdown-item" href="#">Contact</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown">
-                                <a href="#" className="text-dark dropdown-toggle" data-bs-toggle="dropdown">Vendors</a>
+                                <a href="#" className="text-dark "> <span className="">Vendors</span>
+                                    <BaselineKeyboardArrowDown
+                                        height="20"
+                                        width="20"
+                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
+                                    /></a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#">Vendor 1</a></li>
                                     <li><a className="dropdown-item" href="#">Vendor 2</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link">
-                                <a href="#" className="text-dark">Contact Us</a>
+                                <a href="#" className="text-dark" onClick={handleContactClick}>Contact Us</a>
                             </div>
                         </div>
+
 
                         <div className="col-auto d-none d-lg-flex align-items-center gap-2">
                             <div className="d-flex flex-column HelpText">
