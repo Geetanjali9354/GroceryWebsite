@@ -45,12 +45,50 @@ const ProductsDetail = () => {
             <div className="container-fluid my-5">
                 <div className="row gy-4 p-3 ">
                     {/* Left - Product Image */}
-                    <div className="col-md-4 text-center Image d-flex align-items-center justify-content-center">
-                        <img
-                            src={product.images?.[0]}
-                            alt={product.name}
-                            className="img-fluid product-detail-img h-75 w-75"
-                        />
+                    <div className="col-md-4 text-center h-100 ">
+                        <div className='row g-0 p-0 m-0 imagediv d-flex align-items-center justify-content-center'>
+                            <img
+                                src={product.images?.[0]}
+                                alt={product.name}
+                                className="img-fluid product-detail-img h-75 w-75"
+                            />
+                        </div>
+                        <div className='row mt-4' >
+                            <div className='col-3'>
+                                <div className=' Small-image-div'>
+                                    <img
+                                        src={product.images?.[0]}
+                                        alt={product.name}
+                                        className="img-fluid  h-100 w-100"
+                                    />
+                                </div>
+                            </div>
+                            <div className='col-3 '>
+                                <div className=' Small-image-div'>
+                                    <img
+                                        src={product.images?.[1]}
+                                        alt={product.name}
+                                        className="img-fluid  h-100 w-100"
+                                    />
+                                </div>                        </div>
+                            <div className='col-3 '>
+                                <div className=' Small-image-div'>
+                                    <img
+                                        src={product.images?.[2]}
+                                        alt={product.name}
+                                        className="img-fluid  h-100 w-100"
+                                    />
+                                </div>                            </div>
+                            <div className='col-3 '>
+                                <div className=' Small-image-div'>
+                                    <img
+                                        src={product.images?.[3]}
+                                        alt={product.name}
+                                        className="img-fluid  h-100 w-100"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -200,7 +238,7 @@ const ProductsDetail = () => {
             <ServiceHighlights />
 
             {/* ----------------NewsLETTER IMAGE SECTION--------- */}
-            <BannerImage/>
+            <BannerImage />
             <Footer />
         </>
     );

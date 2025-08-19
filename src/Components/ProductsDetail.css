@@ -3,10 +3,18 @@
     object-fit: cover;
 }
 
-.Image {
+
+
+.imagediv {
     border: 1px solid #DBDBDB;
-    height: 600px;
+    height: 500px;
     border-radius: 20px;
+}
+
+.Small-image-div {
+    border: 1px solid #DBDBDB;
+    border-radius: 15px;
+    height: 100px;
 }
 
 .Product-name {
@@ -254,7 +262,7 @@
 
 .product-qty-box {
     border-bottom: 1px solid #DBDBDB;
-    
+
 }
 
 .qty-input-group {
@@ -274,4 +282,3 @@
     font-size: 18px;
     font-weight: bold;
 }
-

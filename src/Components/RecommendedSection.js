@@ -106,11 +106,16 @@ function RecommendedSection() {
                             <img src={item.images?.[0]} alt={item.name} />
                         </div>
                         <div className="wishlist-icon" onClick={(e) => {
-                            e.stopPropagation(); // 👈 prevent bubbling to parent
+                            e.stopPropagation();
                             addToWishlist(item);
                         }}>
-                            <HeartOutline height="25" width="25" />
+                            <HeartOutline
+                                height="30"
+                                width="30"
+                                className={wishlist.some(wish => wish.id === item.id) ? "red-heart" : ""}
+                            />
                         </div>
+
                         <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='20px' />
 
                         <p className="Recommended-price">

@@ -101,36 +101,24 @@
     right: 10px;
     background-color: white;
     border: 1px solid #DBDBDB;
-    /* Circle background */
     border-radius: 50%;
-    /* Make the container circular */
     padding: 8px;
-    /* Space around the heart */
     font-size: 20px;
-    /* Icon size */
-    color: #2c3e50;
-    /* Default color for the heart */
-    opacity: 0;
-    /* Initially hidden */
-    transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    /* Smooth transitions */
-    /* Optional: Shadow to make it stand out */
-}
-
-/* When the user hovers over the product box, show the heart icon */
-.box-Recommended:hover .wishlist-icon {
-    opacity: 1;
-    /* Make the heart visible */
     color: black;
+    transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
 
-    /* Change color to red on hover */
-    transform: scale(1.1);
-    /* Slightly scale up the heart on hover */
 }
 
-.box-Recommended .wishlist-icon:hover{
+.box-Recommended .wishlist-icon:hover {
     color: #1c799b;
     border-color: #1c799b;
+    /* border-color: #1c799b; */
+}
+
+/* In RecommendedSection.css or any relevant stylesheet */
+.wishlist-icon .red-heart path {
+    fill: red;
+    color: red;
 }
 
 .Add-To-Cart-Button {

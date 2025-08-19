@@ -7,12 +7,19 @@ import ServiceHighlights from './ServiceHighlights';
 import Footer from './Footer'
 import { useNavigate } from 'react-router-dom';
 import { BaselineHome } from '../Images/SvgImages';
+import { addToCart } from './cartUtils';
+
 const Wishlist = () => {
     const navigate = useNavigate();
     const [wishlist, setWishlist] = useState([]);
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        alert(`${product.name} has been added to your cart!`);
+    })
+
     // Retrieve wishlist data from localStorage
     useEffect(() => {
         const savedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -59,6 +66,9 @@ const Wishlist = () => {
                             <div className="wishlist-item-actions">
                                 <button onClick={() => handleRemoveFromWishlist(item.id)} className="remove-from-wishlist-btn">
                                     Remove
+                                </button>
+                                <button onClick={() => HandleAddToCart(item)} className="Add-to-wishlist-btn">
+                                    Add to Cart
                                 </button>
                             </div>
                         </div>
