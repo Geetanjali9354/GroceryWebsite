@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import CategoryCollection from './CategoryCollection';
+import {ProductCollection} from './CategoryCollection';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import ServiceHighlights from './ServiceHighlights';
@@ -23,14 +23,15 @@ const ProductsDetail = () => {
         setWishlist(getWishlist());
     }, []);
     const { id } = useParams();
-    const allProducts = CategoryCollection.flatMap(category => category.products || []);
-    const product = allProducts.find(p => p.id === id);
+    // const allProducts = CategoryCollection.flatMap(category => category.products || []);
+    const product = ProductCollection.find(p => p.id === id);
 
     if (!product) return <h2 className='text-center mt-5'>Product Not Found</h2>;
     const HandleAddToCart = (product => {
         addToCart(product);
         toast.success(`${product.name} added to cart!`);
     })
+    
     return (
         <>
             <TopBar />

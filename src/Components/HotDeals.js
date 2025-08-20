@@ -8,7 +8,7 @@ import "./HotDeals.css";
 import CustomText from "./CustomText";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import CategoryCollection from "./CategoryCollection";
+import { ProductCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
 import { addToCart } from '../Utils/cartUtils';
@@ -19,10 +19,21 @@ function HotDeals() {
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
-    const selectedCategoryIds = ["drinks", "desserts"];
-    const products = CategoryCollection
-        .filter(cat => selectedCategoryIds.includes(cat.id))
-        .flatMap(cat => cat.products || []);
+    const FeaturedProducts = ["dog-food-1", "cat-food-1", "bird-seed-1"];
+    const selectedProducts1 = ProductCollection.filter((p) =>
+        FeaturedProducts.includes(p.id)
+    );
+    const TopSellingProducts = ["dal-arhar", "basmati-rice", "sunflower-oil"];
+    const selectedProducts2 = ProductCollection.filter((p) =>
+        TopSellingProducts.includes(p.id)
+    );
+    const OnSaleProducts = ["banana-1", "grapes-1", "lollipop-1"];
+    const selectedProducts3 = ProductCollection.filter((p) =>
+        OnSaleProducts.includes(p.id)
+    );
+
+    const HotDealProducts = ProductCollection.filter(product => product.isSale === true);
+    // const singleProduct = ProductCollection[3];
 
     const copyCode = () => {
         navigator.clipboard.writeText("FREE25BAC");
@@ -105,7 +116,7 @@ function HotDeals() {
                     <div className="col-md-8 ">
                         <div className="hotdeals-container">
                             <Slider {...settings}>
-                                {products.map((product, idx) => (
+                                {HotDealProducts.map((product, idx) => (
                                     <div
                                         key={product.id}
                                         className="hotdeals-slide "
@@ -220,8 +231,8 @@ function HotDeals() {
                         </div>
 
                         {/* <Slider {...settings}> */}
-                        {[0, 1, 2].map((index) => {
-                            const product = CategoryCollection[0]?.products[index];
+                        {selectedProducts1.map((product, index) => {
+                            // const product = CategoryCollection[0]?.products.find((p) => p.id === id);
                             return (
                                 <div key={index}>
                                     <div className="row bg-white rounded p-2 mb-2">
@@ -263,8 +274,8 @@ function HotDeals() {
                                 </div>
                             </div>
                         </div>
-                        {[0, 1, 2].map((index) => {
-                            const product = CategoryCollection[1]?.products[index];
+                        {selectedProducts2.map((product, index) => {
+                            // const product = CategoryCollection[1]?.products.find((p) => p.id === productId);
                             return (
                                 <div key={index}>
                                     <div className="row bg-white rounded p-2 mb-2">
@@ -318,8 +329,8 @@ function HotDeals() {
                             </div>
                         </div>
 
-                        {[0, 1, 2].map((index) => {
-                            const product = CategoryCollection[2]?.products[index];
+                        {selectedProducts3.map((product, index) => {
+                            // const product = CategoryCollection[2]?.products[index];
                             return (
                                 <div key={index}>
                                     <div className="row bg-white rounded p-2 mb-2">
@@ -345,55 +356,58 @@ function HotDeals() {
 
                 {/* Fourth Box (Optional / Custom) */}
                 <div className="col-12 col-lg-3 mb-4 ">
-                    <div className="box-Hot-4">
-                        <div className="p-3  h-100 d-flex flex-column justify-content-between border rounded shadow-sm" style={{ backgroundColor: '#fff', borderRadius: '15px' }}>
-                            {/* Title and Countdown */}
+                    <div className="box-Hot-4 bg-">
+                        <div className="p-3 h-100 d-flex flex-column justify-content-between " >
                             <div>
                                 <CustomText Text="Deals of the week" className="fw-bold mb-3" fontSize="25px" fontWeight="bold" />
                                 <div className="d-flex gap-2 mb-2 flex-wrap">
-                                    <div className=" text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>823 D</div>
-                                    <div className=" text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>5 H</div>
+                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>823 D</div>
+                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>5 H</div>
                                     <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>34 M</div>
-                                    <div className=" text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>27 S</div>
+                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>27 S</div>
                                 </div>
                                 <CustomText Text="Don't miss this opportunity at a special" className="text-muted small mb-3" fontSize="14px" />
                             </div>
 
-                            {/* Product Image */}
+                            {/* 👇 yaha direct ek product show kar rahe hai */}
                             <div className="text-center my-3 image-container">
-                                <img src={CategoryCollection[3]?.products[0]?.images?.[0]} alt="Product" className="img-fluid" style={{ maxHeight: '130px', objectFit: 'contain' }} />
+                                <img
+                                    src={ProductCollection[3]?.images?.[0]}
+                                    alt={ProductCollection[3]?.name}
+                                    className="img-fluid"
+                                    style={{ maxHeight: '130px', objectFit: 'contain' }}
+                                />
                             </div>
 
-                            {/* Rating and Info */}
                             <div>
                                 <div className="text-warning mb-1 small" style={{ fontSize: '16px', fontFamily: 'Quicksand', fontWeight: 'bold' }}>
-                                    ★★★★☆ ({CategoryCollection[3]?.products[0]?.sold?.split('/')?.[0] || '3'})
+                                    ★★★★☆ ({ProductCollection[3]?.sold?.split('/')?.[0]})
                                 </div>
 
                                 <div className="mb-1">
-                                    <span className="text-danger fw-bold me-2" style={{ fontFamily: 'Quicksand', fontSize: '20px' }}>${CategoryCollection[3]?.products[0]?.price || '60.99'}</span>
-                                    <span className="text-muted text-decoration-line-through small" style={{ fontFamily: 'Quicksand', fontSize: '18px' }}>$79.99</span>
+                                    <span className="text-danger fw-bold me-2" style={{ fontFamily: 'Quicksand', fontSize: '20px' }}>
+                                        ${ProductCollection[3]?.price}
+                                    </span>
+                                    <span className="text-muted text-decoration-line-through small" style={{ fontFamily: 'Quicksand', fontSize: '18px' }}>
+                                        ${ProductCollection[3]?.originalPrice}
+                                    </span>
                                 </div>
 
                                 <div className="fw-bold small mb-2" style={{ fontFamily: 'Quicksand', fontSize: '18px', fontWeight: 'bold' }}>
-                                    {CategoryCollection[3]?.products[0]?.name}
+                                    {ProductCollection[3]?.name}
                                 </div>
 
-
-                                {/* Stock progress bar */}
                                 <div className="progress mb-1" style={{ height: '5px' }}>
                                     <div className="progress-bar bg-success" style={{ width: '60%' }}></div>
                                 </div>
-
-                                {/* <div className="text-muted small mb-3">Available only: <span className="text-danger fw-bold">${CategoryCollection[3]?.products[0]?.price || '60.99'}</span></div> */}
                             </div>
 
-                            {/* Add to Cart Button */}
                             <div className="mt-3">
-                                <button className="btn  w-100 fw-bold text-white" style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}
-                                    onClick={() => HandleAddToCart(CategoryCollection[3]?.products[0])}
+                                <button
+                                    className="btn w-100 fw-bold text-white"
+                                    style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}
+                                    onClick={() => HandleAddToCart(ProductCollection[3])}
                                 >
-                                    {/* <CustomText Text="Add To Cart" className="text-white" fontSize="18px" fontWeight="bold" /> */}
                                     Add To Cart
                                     <CartOutline height="20" width="20" className="text-white ms-2" />
                                 </button>
@@ -401,6 +415,7 @@ function HotDeals() {
                         </div>
                     </div>
                 </div>
+
 
             </div>
 

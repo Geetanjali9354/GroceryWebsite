@@ -4,7 +4,7 @@ import './DailyBestSale.css';
 import NewsletterImage from '../Images/NewsLetterImage.png';
 import { CartOutline } from "../Images/SvgImages";
 import CustomText from './CustomText';
-import CategoryCollection from './CategoryCollection';
+import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
@@ -17,14 +17,7 @@ const DailyBestSale = () => {
         addToCart(product);
         toast.success(`${product.name} added to cart!`);
     })
-    const selectedProductIds = [
-        "cat-food-1",
-        "pizza-1",
-        "milk-1",
-        "cheese-1"
-    ]
-    const AllProducts = CategoryCollection.flatMap(category => category.products);
-    const selectedProducts = AllProducts.filter(product => selectedProductIds.includes(product.id));
+    const selectedProducts = ProductCollection.slice(0, 4);
 
     return (
         <div className="container-fluid my-4">

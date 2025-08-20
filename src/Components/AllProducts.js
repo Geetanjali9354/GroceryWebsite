@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './AllProducts.css';
 import { CartOutline } from '../Images/SvgImages';
-import CategoryCollection from './CategoryCollection';
+import {ProductCollection } from './CategoryCollection';
 import CustomText from './CustomText';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
@@ -25,8 +25,7 @@ const AllProducts = () => {
         AOS.init({ duration: 700, once: true });
     }, []);
 
-    const allProducts = CategoryCollection.flatMap(category => category.products || []);
-
+    // const allProducts = ProductCollection;
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
@@ -54,7 +53,7 @@ const AllProducts = () => {
             </div>
 
             <div className="all-products-grid mt-5">
-                {allProducts.map((product, idx) => (
+                {ProductCollection.map((product, idx) => (
                     <div
                         key={product.id}
                         className="all-products-card-wrapper p-3"

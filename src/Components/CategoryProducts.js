@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import './CategoryProducts.css'; // Adjust the path as necessary
-import CategoryCollection from './CategoryCollection'; // adjust if path is different
+import { CategoryCollection, ProductCollection } from './CategoryCollection';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import { BaselineHome } from '../Images/SvgImages';
@@ -17,10 +17,14 @@ const CategoryProducts = () => {
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
+    const handleCategoryClick = (id) => {
+        navigate(`/category/${id}`);
+    };
     const { id } = useParams();
 
     const category = CategoryCollection.find((cat) => cat.id === id);
-
+    const filteredProducts = ProductCollection.filter((prod) => prod.categoryId === id);
+    console.log(filteredProducts);
     if (!category) return <div>Category not found</div>;
     const HandleAddToCart = (product => {
         addToCart(product);
@@ -55,7 +59,7 @@ const CategoryProducts = () => {
                             <hr className="category-divider" />
                             <div className="category-list">
                                 {CategoryCollection.map((item, index) => (
-                                    <div key={index} className="category-item">
+                                    <div key={index} className="category-item" onClick={() => handleCategoryClick(item.id)}>
                                         {item.label} (12)
                                     </div>
                                 ))}
@@ -152,7 +156,7 @@ const CategoryProducts = () => {
                     {/* Right Column (col-7) - Product List */}
                     <div className="col-7">
                         <div className="four-box-grid-catProduct">
-                            {category.products.map((item, index) => (
+                            {filteredProducts.map((item, index) => (
                                 <div
                                     key={index}
                                     className="box-catProduct "

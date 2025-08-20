@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
 import { CartOutline } from '../Images/SvgImages';
-import CategoryCollection from './CategoryCollection';
+import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../Utils/cartUtils';
 import { HeartOutline } from "../Images/SvgImages";
@@ -20,7 +20,12 @@ function RecommendedSection() {
 
     const [activeCategory, setActiveCategory] = useState("All");
     const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
-    const selectedCategoryIds = ["animal-food", "desserts", "drinks", "frozen-food"];
+    const selectedCategoryIds = ["yummycandy", "desserts", "fruit", "drinks"];
+
+    // 🔹 Un categories ke products collect kar lo
+    const selectedProducts = ProductCollection.filter(
+        (product) => selectedCategoryIds.includes(product.categoryId)
+    );
     const [wishlist, setWishlist] = useState([]);
     const navigate = useNavigate();
 
@@ -36,9 +41,9 @@ function RecommendedSection() {
         toast.success(`${product.name} added to cart!`);
     })
 
-    const recommendedProducts = CategoryCollection
-        .filter(category => selectedCategoryIds.includes(category.id))
-        .flatMap(category => category.products);
+    // const recommendedProducts = CategoryCollection
+    //     .filter(category => selectedCategoryIds.includes(category.id))
+    //     .flatMap(category => category.products);
     const handleCategoryClick = (category) => {
         setActiveCategory(category);
     };
@@ -77,9 +82,9 @@ function RecommendedSection() {
 
 
             <div className="four-box-grid-recommended">
-                {recommendedProducts.map((item, index) => (
+                {selectedProducts.map((item, index) => (
                     <div
-                        key={index}
+                        key={item?.id || index}
                         className="box-Recommended"
                         data-aos="fade-up"
                         data-aos-delay="100"

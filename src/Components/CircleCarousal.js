@@ -10,7 +10,7 @@ import DailyFreshVegetables from '../Images/DailyFreshVegetables.jpeg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
-import CategoryCollection from "./CategoryCollection";
+import { CategoryCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 
 function CircleCarousal() {

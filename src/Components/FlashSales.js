@@ -12,7 +12,7 @@ import { CartOutline } from '../Images/SvgImages';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import CategoryCollection from './CategoryCollection';
+import { ProductCollection } from './CategoryCollection';
 import CustomText from './CustomText';
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../Utils/cartUtils';
@@ -60,12 +60,12 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
         ChocoLava,
         GreenPeas,
     ];
-    const flashSaleProducts = CategoryCollection.flatMap(category =>
-        category.products?.filter(product => {
-            const images = product.image || product.images || []; // in some you used 'image', others 'images'
-            return images.some(img => carouselImages.includes(img));
-        }) || []
-    );
+    // Sare products collect karna
+    // const AllProducts = CategoryCollection.flatMap(category => category.products || []);
+
+    // Ab sirf unhe filter karo jinke isSale = true hai
+    const SaleProducts = ProductCollection.filter(product => product.isSale === true);
+
     return (
         // --------------------------------Flash Sales Section--------------------------------
         <div>
@@ -75,7 +75,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                     <a href="#" onClick={handleShopClick}>{linkText}</a>
                 </div>
                 <Slider {...settings}>
-                    {flashSaleProducts.map((product, idx) => (
+                    {SaleProducts.map((product, idx) => (
                         <div
                             key={product.id}
                             className="flash-sales-slide"
