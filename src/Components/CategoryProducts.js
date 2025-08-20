@@ -9,6 +9,8 @@ import { CartOutline } from '../Images/SvgImages';
 import ServiceHighlights from './ServiceHighlights';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../Utils/cartUtils';
+import { toast } from 'react-toastify';
 
 const CategoryProducts = () => {
     const navigate = useNavigate();
@@ -20,7 +22,10 @@ const CategoryProducts = () => {
     const category = CategoryCollection.find((cat) => cat.id === id);
 
     if (!category) return <div>Category not found</div>;
-
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        toast.success(`${product.name} added to cart!`);
+    })
     return (
         <div className="container-fluid m-0 g-0" style={{ overflowX: 'hidden' }}>
             <TopBar />
@@ -170,9 +175,13 @@ const CategoryProducts = () => {
                                         <strong>{item.rating}</strong> ⭐ (17k)
                                     </p>
 
-                                    <button className="Add-To-Cart-Button-catProduct">
+                                    <button className="Add-To-Cart-Button-catProduct" onClick={(e) => {
+                                        e.stopPropagation();
+                                        HandleAddToCart(item);
+                                    }}>
                                         Add To Cart
-                                        <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
+                                        < CartOutline height="20" width="20" style={{ marginLeft: '10px' }
+                                        } />
                                     </button>
                                 </div>
                             ))}
@@ -206,7 +215,7 @@ const CategoryProducts = () => {
 
             <ServiceHighlights />
             <Footer />
-        </div>
+        </div >
 
     );
 };

@@ -12,43 +12,30 @@ import './FlashSales.css';
 import { CartOutline } from '../Images/SvgImages';
 import CategoryCollection from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from './cartUtils';
+import { addToCart } from '../Utils/cartUtils';
 import { HeartOutline } from "../Images/SvgImages";
-
+import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
+import { toast } from 'react-toastify';
 function RecommendedSection() {
+
+    const [activeCategory, setActiveCategory] = useState("All");
+    const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
+    const selectedCategoryIds = ["animal-food", "desserts", "drinks", "frozen-food"];
     const [wishlist, setWishlist] = useState([]);
     const navigate = useNavigate();
 
-    // Load wishlist from localStorage on page load
     useEffect(() => {
-        const savedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        setWishlist(savedWishlist);
+        setWishlist(getWishlist());
     }, []);
-
-    // Add product to wishlist
-    const addToWishlist = (product) => {
-        // Check if product is already in the wishlist
-        const updatedWishlist = [...wishlist];
-        if (!updatedWishlist.some(item => item.id === product.id)) {
-            updatedWishlist.push(product);
-            setWishlist(updatedWishlist);
-            // Save to localStorage
-            localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-        }
-    };
-
-    // Navigate to the Wishlist page
+    // Load wishlist from localStorage on page load
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
     const HandleAddToCart = (product => {
         addToCart(product);
-        alert(`${product.name} has been added to your cart!`);
+        toast.success(`${product.name} added to cart!`);
     })
 
-    const [activeCategory, setActiveCategory] = useState("All");
-    const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
-    const selectedCategoryIds = ["animal-food", "desserts", "drinks", "frozen-food"];
     const recommendedProducts = CategoryCollection
         .filter(category => selectedCategoryIds.includes(category.id))
         .flatMap(category => category.products);
@@ -105,16 +92,28 @@ function RecommendedSection() {
                         >
                             <img src={item.images?.[0]} alt={item.name} />
                         </div>
-                        <div className="wishlist-icon" onClick={(e) => {
-                            e.stopPropagation();
-                            addToWishlist(item);
-                        }}>
+                        <div
+                            className="wishlist-icon"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                if (isInWishlist(item.id)) {
+                                    const updated = removeFromWishlist(item.id);
+                                    setWishlist(updated);
+                                    toast.error(`${item.name} removed from wishlist`);
+                                } else {
+                                    const updated = addToWishlist(item);
+                                    setWishlist(updated);
+                                    toast.success(`${item.name} added to wishlist`);
+                                }
+                            }}
+                        >
                             <HeartOutline
                                 height="30"
                                 width="30"
-                                className={wishlist.some(wish => wish.id === item.id) ? "red-heart" : ""}
+                                className={isInWishlist(item.id) ? "red-heart" : ""}
                             />
                         </div>
+
 
                         <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='20px' />
 
@@ -126,7 +125,10 @@ function RecommendedSection() {
                             <strong>{item.rating}</strong> ⭐ (17k)
                         </p>
 
-                        <button className="Add-To-Cart-Button" onClick={() => HandleAddToCart(item)}>
+                        <button className="Add-To-Cart-Button" onClick={(e) => {
+                            e.stopPropagation();
+                            HandleAddToCart(item);
+                        }}>
                             Add To Cart
                             <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
                         </button>

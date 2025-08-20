@@ -2,7 +2,7 @@ import AnimalFood from '../Images/AnimalFood.png';
 import DariyAndEggs from '../Images/DariyAndEggs.png';
 import Desserts from '../Images/Desserts.png';
 import DrinkAndJuice from '../Images/DrinkAndJuice.png';
-import FishAndMeat from '../Images/fishAndMeat.png';
+import VegGroceryImage from '../Images/VegetarianGrocery.png';
 import FreshFruit from '../Images/FreshFruits.png';
 import FrozenFood from '../Images/FrozenFood.png';
 import YummyCandy from '../Images/YummyCandy.png';
@@ -63,6 +63,71 @@ import SaltedPotatoChips from '../Images/SaltedPotatoChips.png';
 import SaltedPotatoChips2 from '../Images/SaltedPotatoChip2.png';
 import SaltedPotatoChips3 from '../Images/SaltedPotatoChips3.png';
 import SaltedPotatoChips4 from '../Images/SaltedPotatoChip4.png';
+import SpicyNachoChips1 from '../Images/SpicyNachoChips1.png';
+import SpicyNachoChips2 from '../Images/SpicyNachoChips2.png';
+import SpicyNachoChips3 from '../Images/SpicyNachoChips3.png';
+import SpicyNachoChips4 from '../Images/SpicyNachoChips4.png';
+import ButterPopcorn1 from '../Images/ButterPopcorn1.png';
+import ButterPopcorn2 from '../Images/ButterPopcorn2.png';
+import ButterPopcorn3 from '../Images/ButterPopcorn3.png';
+import ButterPopcorn4 from '../Images/ButterPopcorn4.png';
+import OrangeJuice2 from '../Images/OrangeJuice2.png';
+import OrangeJuice3 from '../Images/OrangeJuice3.png';
+import OrangeJuice4 from '../Images/OrangeJuice4.png';
+import ColaCan2 from '../Images/ColaCan2.png';
+import ColaCan3 from '../Images/ColaCan3.png';
+import ColaCan4 from '../Images/ColaCan4.png';
+import BerrySmoothieBootle2 from '../Images/BerrySmoothieBottle2.png';
+import BerrySmoothieBootle3 from '../Images/BerrySmoothieBottle3.png';
+import BerrySmoothieBootle4 from '../Images/BerrySmoothieBottle4.png';
+import ArharDal1 from '../Images/ArharDal1.png';
+import ArharDal2 from '../Images/ArharDal2.png';
+import ArharDal3 from '../Images/ArharDal3.png';
+import ArharDal4 from '../Images/ArharDal4.png';
+import BasmatiRice1 from '../Images/BasmatiRice1.png';
+import BasmatiRice2 from '../Images/BasmatiRice2.png';
+import BasmatiRice3 from '../Images/BasmatiRice3.png';
+import BasmatiRice4 from '../Images/BasmatiRice4.png';
+import SunflowerOil1 from '../Images/SunflowerOil1.png';
+import SunflowerOil2 from '../Images/SunflowerOil2.png';
+import SunflowerOil3 from '../Images/SunflowerOil3.png';
+import SunflowerOil4 from '../Images/SunflowerOil4.png';
+import Apple1 from '../Images/Apple1.png';
+import Apple2 from '../Images/Apple2.png';
+import Apple3 from '../Images/Apple3.png';
+import Apple4 from '../Images/Apple4.png'; 
+import Banana1 from '../Images/Banana1.png';
+import Banana2 from '../Images/Banana2.png';
+import Banana3 from '../Images/Banana3.png';
+import Banana4 from '../Images/Banana4.png';
+import Grapes1 from '../Images/Grapes1.png';
+import Grapes2 from '../Images/Grapes2.png';
+import Grapes3 from '../Images/Grapes3.png';
+import Grapes4 from '../Images/Grapes4.png';
+import FruitGummyBears1 from '../Images/FruitGummyBears1.png';
+import FruitGummyBears2 from '../Images/FruitGummyBears2.png';
+import FruitGummyBears3 from '../Images/FruitGummyBears3.png';
+import FruitGummyBears4 from '../Images/FruitGummyBears4.png';
+import MilkBar1 from '../Images/MilkBar1.png';
+import MilkBar2 from '../Images/MilkBar2.png';
+import MilkBar3 from '../Images/MilkBar3.png';
+import MilkBar4 from '../Images/MilkBar4.png';
+import Lollipop1 from '../Images/Lollipop1.png';
+import Lollipop2 from '../Images/Lollipop2.png';
+import Lollipop3 from '../Images/Lollipop3.png';
+import Lollipop4 from '../Images/Lollipop4.png';
+import Carrot1 from '../Images/Carrot1.png';
+import Carrot2 from '../Images/Carrot2.png';
+import Carrot3 from '../Images/Carrot3.png';
+import Carrot4 from '../Images/Carrot4.png';
+import Brocalli1 from '../Images/Brocalli1.png';
+import Brocalli2 from '../Images/Brocalli2.png';
+import Brocalli3 from '../Images/Brocalli3.png';
+import Brocalli4 from '../Images/Brocalli4.png';
+import Spinach1 from '../Images/Spinach1.png';
+import Spinach2 from '../Images/Spinach2.png';
+import Spinach3 from '../Images/Spinach3.png';
+import Spinach4 from '../Images/Spinach4.png';
 const CategoryCollection = [
     {
         id: "animal-food",
@@ -244,7 +309,7 @@ const CategoryCollection = [
                 originalPrice: 3.49,
                 rating: 4.6,
                 sold: "90/100",
-                // images: [CarouselImage2],
+                images: [SpicyNachoChips3, SpicyNachoChips2, SpicyNachoChips1, SpicyNachoChips4],
                 description: "Crunchy nachos with jalapeño flavor.",
             },
             {
@@ -254,7 +319,7 @@ const CategoryCollection = [
                 originalPrice: 2.99,
                 rating: 4.7,
                 sold: "120/150",
-                // images: [CarouselImage3],
+                images: [ButterPopcorn1, ButterPopcorn2, ButterPopcorn3, ButterPopcorn4],
                 description: "Ready-to-eat buttered popcorn.",
             },
         ],
@@ -273,7 +338,7 @@ const CategoryCollection = [
                 originalPrice: 3.99,
                 rating: 4.8,
                 sold: "100/120",
-                images: [OrangeJuice],
+                images: [OrangeJuice, OrangeJuice2, OrangeJuice3, OrangeJuice4],
                 description: "Freshly squeezed orange juice.",
             },
             {
@@ -283,7 +348,7 @@ const CategoryCollection = [
                 originalPrice: 1.99,
                 rating: 4.6,
                 sold: "140/160",
-                images: [ColaCan],
+                images: [ColaCan, ColaCan2, ColaCan3, ColaCan4],
                 description: "Classic fizzy cola drink.",
             },
             {
@@ -293,53 +358,51 @@ const CategoryCollection = [
                 originalPrice: 4.99,
                 rating: 4.7,
                 sold: "85/100",
-                images: [BerrySmoothieBootle],
+                images: [BerrySmoothieBootle, BerrySmoothieBootle2, BerrySmoothieBootle3, BerrySmoothieBootle4],
                 description: "Mixed berry smoothie, chilled.",
             },
         ],
     },
     {
-        id: "fish",
-        label: "Fish & Meat",
-        image: FishAndMeat,
+        id: "veg-grocery",
+        label: "Vegetarian Grocery",
+        image: VegGroceryImage, // yeh aap apne image asset se replace karein
         bgColor: "#BBDEFB",
-        subtitle: "125+ Products",
+        subtitle: "150+ Products",
         products: [
             {
-                id: "dog-food-1",
-                name: "Premium Dog Food",
-                price: 25.99,
-                // images: [Dog1, Dog2, Dog3],
-                description: "High-quality dog food made with real meat and grains.",
-            }, {
-                id: "chicken-1",
-                name: "Chicken Breast (500g)",
-                price: 5.99,
-                originalPrice: 7.99,
+                id: "dal-arhar",
+                name: "Arhar Dal (1kg)",
+                price: 2.49,
+                originalPrice: 3.49,
+                rating: 4.7,
+                sold: "120/150",
+                images: [ArharDal1, ArharDal2, ArharDal3, ArharDal4],
+                description: "Premium quality toor dal, unpolished.",
+            },
+            {
+                id: "basmati-rice",
+                name: "Basmati Rice (5kg)",
+                price: 8.99,
+                originalPrice: 11.49,
                 rating: 4.8,
-                sold: "60/80",
-                description: "Lean, boneless chicken breast.",
+                sold: "85/100",
+                images:[BasmatiRice1, BasmatiRice2, BasmatiRice3, BasmatiRice4],
+                description: "Aromatic long-grain basmati rice.",
             },
             {
-                id: "salmon-1",
-                name: "Fresh Salmon Fillet",
-                price: 9.99,
-                originalPrice: 12.99,
-                rating: 4.9,
-                sold: "40/50",
-                description: "Skinless Atlantic salmon portion.",
-            },
-            {
-                id: "mutton-1",
-                name: "Premium Mutton Curry Cut",
-                price: 11.99,
-                originalPrice: 14.99,
+                id: "sunflower-oil",
+                name: "Sunflower Oil (1L)",
+                price: 3.25,
+                originalPrice: 4.00,
                 rating: 4.6,
-                sold: "30/40",
-                description: "Fresh mutton, cleaned and cut.",
+                sold: "100/120",
+                images: [SunflowerOil1, SunflowerOil2, SunflowerOil3, SunflowerOil4],
+                description: "Refined sunflower oil for healthy cooking.",
             },
         ],
     },
+
     {
         id: "fruit",
         label: "Fruits",
@@ -354,6 +417,7 @@ const CategoryCollection = [
                 originalPrice: 3.49,
                 rating: 4.8,
                 sold: "80/100",
+                images: [Apple1, Apple2, Apple3, Apple4],
                 description: "Crisp and sweet red apples.",
             },
             {
@@ -363,6 +427,7 @@ const CategoryCollection = [
                 originalPrice: 2.49,
                 rating: 4.7,
                 sold: "100/120",
+                images: [Banana1, Banana2, Banana3, Banana4],
                 description: "Fresh and ripe bananas.",
             },
             {
@@ -372,6 +437,7 @@ const CategoryCollection = [
                 originalPrice: 2.99,
                 rating: 4.6,
                 sold: "70/90",
+                images: [Grapes1, Grapes2, Grapes3, Grapes4],
                 description: "Seedless sweet grapes.",
             },
         ],
@@ -390,6 +456,7 @@ const CategoryCollection = [
                 originalPrice: 1.99,
                 rating: 4.6,
                 sold: "200/250",
+                images: [FruitGummyBears1, FruitGummyBears2, FruitGummyBears3, FruitGummyBears4],
                 description: "Soft gummy bears with fruity flavors.",
             },
             {
@@ -399,6 +466,7 @@ const CategoryCollection = [
                 originalPrice: 3.49,
                 rating: 4.8,
                 sold: "150/180",
+                images: [MilkBar1, MilkBar2, MilkBar3, MilkBar4],
                 description: "Smooth milk chocolate delight.",
             },
             {
@@ -408,6 +476,7 @@ const CategoryCollection = [
                 originalPrice: 2.99,
                 rating: 4.5,
                 sold: "100/120",
+                images: [Lollipop1, Lollipop2, Lollipop3, Lollipop4],
                 description: "Fun and fruity lollipop collection.",
             },
         ],
@@ -426,6 +495,7 @@ const CategoryCollection = [
                 originalPrice: 2.49,
                 rating: 4.7,
                 sold: "70/90",
+                images: [Carrot1, Carrot2, Carrot3, Carrot4],
                 description: "Crisp and sweet orange carrots.",
             },
             {
@@ -435,6 +505,7 @@ const CategoryCollection = [
                 originalPrice: 3.99,
                 rating: 4.8,
                 sold: "50/70",
+                images: [Brocalli1, Brocalli2, Brocalli3, Brocalli4],
                 description: "Cleaned and cut fresh broccoli.",
             },
             {
@@ -444,6 +515,7 @@ const CategoryCollection = [
                 originalPrice: 2.49,
                 rating: 4.6,
                 sold: "60/80",
+                images: [Spinach1, Spinach2, Spinach3, Spinach4],
                 description: "Fresh baby spinach leaves.",
             },
         ],

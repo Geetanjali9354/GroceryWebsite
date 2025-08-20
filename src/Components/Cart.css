@@ -148,6 +148,11 @@ thead th {
     font-size: 18px;
 }
 
+.badge span {
+    background-color: red;
+    color: red;
+}
+
 .summary-total-box {
     background-color: #F1F1F1;
     padding: 20px;
@@ -167,12 +172,14 @@ thead th {
     font-family: 'Quicksand';
     font-size: 20px;
 }
-.summary-total span{
+
+.summary-total span {
     font-weight: 600;
     color: black;
     font-family: 'Quicksand';
     font-size: 22px;
 }
+
 .checkout-btn {
     background-color: #1C799B;
     color: white;

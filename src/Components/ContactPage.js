@@ -54,8 +54,8 @@ const ContactPage = () => {
                             <label className="form-label input-Text">Message <span className="text-danger">*</span></label>
                             <textarea className="form-control input-box" rows="4" placeholder="Type your message" required></textarea>
                         </div>
-
-                        <button type="submit" className="btn Quote-btn px-4 py-2 mt-2">
+                        
+                        <button type="submit" className="Quote-btn px-4 py-2 mt-2">
                             Get a Quote
                         </button>
                     </form>

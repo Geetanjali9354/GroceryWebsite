@@ -8,9 +8,26 @@ import Wishlist from './Components/Wishlist';
 import AllProducts from './Components/AllProducts';
 import ContactPage from './Components/ContactPage';
 import ProfilePage from './Components/ProfilePage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <Router>
+      {/* Toast container must be outside Routes */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/category/:id" element={<CategoryProducts />} />
@@ -25,5 +42,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;

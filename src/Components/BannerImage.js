@@ -9,7 +9,7 @@ function BannerImage() {
                 <div className="container-fluid container-fluid-lg Main-proDetail">
                     <div className="py-5 px-4 px-md-5  rounded-4 d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap gap-4">
                         <div className="max-w-700 Text-proDetail">
-                            <h3 className="">Don't Miss Out on   <br />Grocery Deals</h3>
+                            <h3 >Don't Miss Out on   <br />Grocery Deals</h3>
                             <h4 className="mb-5">SIGN UP FOR THE UPDATE NEWSLETTER</h4>
 
                             <form action="#" className="subscribe-box d-flex align-items-center">

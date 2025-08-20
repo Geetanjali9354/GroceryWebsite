@@ -7,7 +7,7 @@ import ServiceHighlights from './ServiceHighlights';
 import Footer from './Footer'
 import { useNavigate } from 'react-router-dom';
 import { BaselineHome } from '../Images/SvgImages';
-import { addToCart } from './cartUtils';
+import { addToCart } from '../Utils/cartUtils';
 
 const Wishlist = () => {
     const navigate = useNavigate();

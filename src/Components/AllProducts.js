@@ -1,5 +1,5 @@
 // src/components/AllProducts.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AllProducts.css';
 import { CartOutline } from '../Images/SvgImages';
 import CategoryCollection from './CategoryCollection';
@@ -7,14 +7,20 @@ import CustomText from './CustomText';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { addToCart } from './cartUtils';
+import { addToCart } from '../Utils/cartUtils';
 import TopBar from './TopBar';
 import ServiceHighlights from './ServiceHighlights';
 import Footer from './Footer';
-import { BaselineHome } from '../Images/SvgImages';
+import { BaselineHome, HeartOutline } from '../Images/SvgImages';
+import { toast } from 'react-toastify';
+import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
+
 const AllProducts = () => {
     const navigate = useNavigate();
-
+    const [wishlist, setWishlist] = useState([]);
+    useEffect(() => {
+        setWishlist(getWishlist());
+    }, []);
     useEffect(() => {
         AOS.init({ duration: 700, once: true });
     }, []);
@@ -27,7 +33,7 @@ const AllProducts = () => {
 
     const handleAddToCart = (product) => {
         addToCart(product);
-        alert(`${product.name} has been added to your cart!`);
+        toast.success(`${product.name} added to cart!`);
     };
 
     return (
@@ -57,15 +63,29 @@ const AllProducts = () => {
                     >
                         <div className="all-products-card " onClick={() => handleProductClick(product.id)}>
                             <div className="all-products-image-container">
-                                <img src={(product.image?.[0] || product.images?.[0])} alt={product.name} />
+                                <img src={(product.images?.[0] || product.images?.[0])} alt={product.name} />
                             </div>
-                            {/* <button className="all-products-add-button" onClick={(e) => {
-                                e.stopPropagation();
-                                handleAddToCart(product);
-                            }}>
-                                Add
-                                <CartOutline height="20" width="20" />
-                            </button> */}
+                            <div
+                                className="wishlist-icon"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (isInWishlist(product.id)) {
+                                        const updated = removeFromWishlist(product.id);
+                                        setWishlist(updated);
+                                        toast.error(`${product.name} removed from wishlist`);
+                                    } else {
+                                        const updated = addToWishlist(product);
+                                        setWishlist(updated);
+                                        toast.success(`${product.name} added to wishlist`);
+                                    }
+                                }}
+                            >
+                                <HeartOutline
+                                    height="30"
+                                    width="30"
+                                    className={isInWishlist(product.id) ? "red-heart" : ""}
+                                />
+                            </div>
                             <p className="all-products-price">
                                 ${product.price} <span className="original-price">${product.originalPrice}</span> <span className="per-qty">/Qty</span>
                             </p>

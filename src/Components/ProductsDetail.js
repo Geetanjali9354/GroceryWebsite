@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CategoryCollection from './CategoryCollection';
 import TopBar from './TopBar';
@@ -13,15 +13,24 @@ import { ShareAndroid } from '../Images/SvgImages';
 import { FaTruck, FaUndo, FaStore, FaCheck, FaCreditCard, FaShieldAlt, FaBox } from 'react-icons/fa';
 import FlashSales from './FlashSales';
 import BannerImage from './BannerImage';
-// #121535
-const ProductsDetail = () => {
-    const { id } = useParams();
+import { addToCart } from '../Utils/cartUtils';
+import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
+import { toast } from 'react-toastify';
 
+const ProductsDetail = () => {
+    const [wishlist, setWishlist] = useState([]);
+    useEffect(() => {
+        setWishlist(getWishlist());
+    }, []);
+    const { id } = useParams();
     const allProducts = CategoryCollection.flatMap(category => category.products || []);
     const product = allProducts.find(p => p.id === id);
 
     if (!product) return <h2 className='text-center mt-5'>Product Not Found</h2>;
-
+    const HandleAddToCart = (product => {
+        addToCart(product);
+        toast.success(`${product.name} added to cart!`);
+    })
     return (
         <>
             <TopBar />
@@ -131,7 +140,7 @@ const ProductsDetail = () => {
                                 <input type="text" className="form-control text-center qty-input" value="1" readOnly />
                                 <button className="btn ">+</button>
                             </div>
-                            <button className="Add-To-Cart-Button-Detail mb-4">
+                            <button className="Add-To-Cart-Button-Detail mb-4" onClick={() => HandleAddToCart(product)}>
                                 <span className="add-cart-text">
                                     Add To Cart
                                 </span>
@@ -139,18 +148,35 @@ const ProductsDetail = () => {
                             </button>
                             <div className="social-icons-Detail d-flex gap-2 ms-3 mb-4">
                                 {/* Facebook */}
-                                <a href="#" className="icon-circle" aria-label="Facebook">
-                                    <HeartOutline height="18" width="18" />
+                                <a href="#" className="icon-circle" onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (isInWishlist(product.id)) {
+                                        const updated = removeFromWishlist(product.id);
+                                        setWishlist(updated);
+                                        toast.info(`${product.name} removed from wishlist`);
+                                    } else {
+                                        const updated = addToWishlist(product);
+                                        setWishlist(updated);
+                                        toast.success(`${product.name} added to wishlist`);
+                                    }
+
+                                }}
+                                >
+                                    <HeartOutline
+                                        height="30"
+                                        width="30"
+                                        className={isInWishlist(product.id) ? "red-heart" : ""}
+                                    />
                                 </a>
 
                                 {/* Twitter */}
-                                <a href="#" className="icon-circle" aria-label="Twitter">
-                                    <ShuffleOutline height="18" width="18" />
+                                <a href="#" className="icon-circle" >
+                                    <ShuffleOutline height="25" width="25" />
                                 </a>
 
                                 {/* Instagram */}
-                                <a href="#" className="icon-circle" aria-label="Instagram">
-                                    <ShareAndroid height="18" width="18" />
+                                <a href="#" className="icon-circle" >
+                                    <ShareAndroid height="25" width="25" />
                                 </a>
                             </div>
                         </div>

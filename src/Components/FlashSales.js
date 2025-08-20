@@ -9,15 +9,15 @@ import Milk from '../Images/Milk.png';
 import ChocoLava from '../Images/Chocolava.png';
 import GreenPeas from '../Images/GreenPeas.jpeg'
 import { CartOutline } from '../Images/SvgImages';
-import Banner1 from '../Images/Banner1.png';
-import Banner2 from '../Images/Banner2.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import CategoryCollection from './CategoryCollection';
 import CustomText from './CustomText';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from './cartUtils';
+import { addToCart } from '../Utils/cartUtils';
+import { toast } from 'react-toastify';
+
 const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
     const navigate = useNavigate();
 
@@ -26,8 +26,11 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
     };
     const HandleAddToCart = (product => {
         addToCart(product);
-        alert(`${product.name} has been added to your cart!`);
+        toast.success(`${product.name} added to cart!`);
     })
+    const handleShopClick = () => {
+        navigate(`/shop`);
+    };
     const settings = {
         dots: false,
         infinite: true,
@@ -43,10 +46,6 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
             { breakpoint: 480, settings: { slidesToShow: 2 } },
         ]
     };
-    const TwoBanner = [
-        { image: Banner1 },
-        { image: Banner2 }
-    ]
     useEffect(() => {
         AOS.init({
             duration: 700, // Animation duration in ms
@@ -73,7 +72,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
             <div className="flash-sales-container">
                 <div className="flash-sales-header">
                     <h3>{title}</h3>
-                    <a href="#">{linkText}</a>
+                    <a href="#" onClick={handleShopClick}>{linkText}</a>
                 </div>
                 <Slider {...settings}>
                     {flashSaleProducts.map((product, idx) => (

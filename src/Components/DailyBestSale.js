@@ -6,8 +6,8 @@ import { CartOutline } from "../Images/SvgImages";
 import CustomText from './CustomText';
 import CategoryCollection from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from './cartUtils';
-
+import { addToCart } from '../Utils/cartUtils';
+import { toast } from 'react-toastify';
 const DailyBestSale = () => {
     const navigate = useNavigate();
     const handleProductClick = (productId) => {
@@ -15,7 +15,7 @@ const DailyBestSale = () => {
     };
     const HandleAddToCart = (product => {
         addToCart(product);
-        alert(`${product.name} has been added to your cart!`);
+        toast.success(`${product.name} added to cart!`);
     })
     const selectedProductIds = [
         "cat-food-1",

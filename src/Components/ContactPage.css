@@ -22,6 +22,8 @@
     background-color: #1C799B;
     color: white;
     font-weight: 600;
+    border: none;
+    border-radius: 8px;
 }
 
 .Quote-btn:hover {

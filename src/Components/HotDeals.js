@@ -11,7 +11,8 @@ import 'aos/dist/aos.css';
 import CategoryCollection from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
-import { addToCart } from './cartUtils';
+import { addToCart } from '../Utils/cartUtils';
+import { toast } from 'react-toastify';
 
 function HotDeals() {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ function HotDeals() {
     };
     const HandleAddToCart = (product => {
         addToCart(product);
-        alert(`${product.name} has been added to your cart!`);
+        toast.success(`${product.name} added to cart!`);
     })
     useEffect(() => {
         AOS.init({ duration: 700, once: true });

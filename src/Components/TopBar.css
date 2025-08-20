@@ -8,9 +8,10 @@
 
 }
 
+
 .countdown {
     display: flex;
-    /* gap: 10px; */
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -116,9 +117,32 @@
     margin-top: 0;
     /* Optional: remove gap */
 }
-.dropdown-menu .dropdown-item{}
 
+/* Custom active style for dropdown items */
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item.custom-active {
+    background-color: transparent !important;
+    /* Your custom color */
+    color: #1C799B !important;
+    /* Optional: custom text color */
+}
 
+/* Base icon style */
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when parent anchor is hovered */
+.nav-link-hover:hover .dropdown-icon {
+    transform: rotate(180deg);
+    color: #1C799B;
+}
+
+.BrowseIcon{
+    height: 20px;
+    width: 20px;
+}
 
 /* Browse Categories Dropdown Responsive */
 .category-dropdown {

@@ -12,6 +12,7 @@ import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
 import CategoryCollection from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
+import { FaThLarge } from 'react-icons/fa';
 
 
 function TopBar() {
@@ -75,7 +76,7 @@ function TopBar() {
         <div>
             {/* Top Bar */}
             <div className="header-top">
-                <div className="header-top-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                <div className="header-top-wrapper d-flex flex-wrap align-items-center justify-content-between ms-2 ">
                     <div className="header-countdown d-flex align-items-center flex-wrap mb-2 mb-md-0">
                         <CustomText Text="Until the end of the sale:" className="sale-text text-white d-none d-md-flex me-2" />
                         <CustomText Text="Sale end:" className="text-white d-xl-flex d-xl-none me-2" />
@@ -94,18 +95,18 @@ function TopBar() {
                             </div>
                         </div>
                     </div>
-                    <div className="header-offers d-none d-md-flex justify-content-center mb-2 mb-md-0">
+                    <div className="header-offers d-none d-lg-flex justify-content-center mb-2 mb-md-0">
                         <p className="header-offers mb-0 text-white" style={{ fontFamily: 'Quicksand' }}>
-                            Buy one get one free <span style={{ color: '#ffcc53', fontFamily: 'Quicksand' }}> first Order</span>
+                            Buy one get one free <span style={{ color: '#ffcc53', fontFamily: 'Quicksand' }}> first Order</span> | Track Your Order
                         </p>
                     </div>
                     <div className="me-5">
-                        <ul className="header-links mb-0">
+                        <ul className="header-links mb-0" style={{ paddingLeft: '0px' }}>
                             <li className="d-none d-md-flex"><a href="#" className='text-white' style={{ fontFamily: 'Quicksand' }}>Order Tracking</a></li>
                             <li className="d-none d-md-flex"><a href="#" className='d-none d-md-flex text-white' style={{ fontFamily: 'Quicksand' }}>About Us</a></li>
                             <li className="dropdown">
                                 <a href="#" style={{ fontFamily: 'Quicksand' }}>Eng</a>
-                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand' }}>
+                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand'}}>
                                     <li>English</li>
                                     <li>Japanese</li>
                                     <li>French</li>
@@ -194,10 +195,11 @@ function TopBar() {
                             onMouseLeave={() => setShowCategories(false)}
                         >
                             <button
-                                className="d-flex align-items-center px-5 py-3 rounded browse-button"
+                                className="d-flex align-items-center px-4 py-3 rounded browse-button"
                                 style={{ backgroundColor: '#2ABC79', border: 'none', color: 'white' }}
                             >
-                                <span className="">Browse Categories</span>
+                                <FaThLarge className="BrowseIcon"/>
+                                <span className="ms-3">Browse Categories</span>
                                 <BaselineKeyboardArrowDown
                                     height="20"
                                     width="20"
@@ -318,48 +320,57 @@ function TopBar() {
                         <div className="col d-none d-lg-flex gap-3 align-items-center"
 
                         >
-                            <div className="nav-link dropdown"
+                            <div className="nav-link dropdown nav-link-hover"
                             >
-                                <a href="#" className="text-dark "> <span className="">Home</span>
+                                <a href="#" > <span className="Heading">Home</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
-                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
-                                    /></a>
+                                        className="dropdown-icon"
+
+                                    />
+                                </a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="/">Home Page</a></li>
                                     <li><a className="dropdown-item" href="#">Grocery</a></li>
                                 </ul>
                             </div>
-                            <div className="nav-link dropdown">
-                                <a href="#" className="text-dark "> <span className="">shop</span>
+                            <div className="nav-link dropdown nav-link-hover">
+                                <a href="#" >
+                                    <span>Shop</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
-                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
-                                    /></a>                                <ul className="dropdown-menu">
+                                        className="dropdown-icon"
+                                    />
+                                </a>
+
+                                <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
                                     <li><a className="dropdown-item" href="#">Shop 2</a></li>
                                 </ul>
                             </div>
-                            <div className="nav-link dropdown">
-                                <a href="#" className="text-dark "> <span className="">Pages</span>
+                            <div className="nav-link dropdown nav-link-hover">
+                                <a href="#">
+                                    <span className="">Pages</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
-                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
+                                        className="dropdown-icon"
+
                                     /></a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
                                     <li><a className="dropdown-item" href="#">Contact</a></li>
                                 </ul>
                             </div>
-                            <div className="nav-link dropdown">
-                                <a href="#" className="text-dark "> <span className="">Vendors</span>
+                            <div className="nav-link dropdown nav-link-hover">
+                                <a href="#" > <span >Vendors</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
-                                        className={`transition-icon ${showMenu ? 'rotate-up' : ''}`}
+                                        className="dropdown-icon"
+
                                     /></a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#">Vendor 1</a></li>
