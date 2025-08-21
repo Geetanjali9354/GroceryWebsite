@@ -18,8 +18,6 @@ import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "..
 import { toast } from 'react-toastify';
 function RecommendedSection() {
 
-    const [activeCategory, setActiveCategory] = useState("All");
-    const categories = ["All", "Grocery", "Fruits", "Juices", "Vegetables", "Snacks", "Organic Foods"];
     const selectedCategoryIds = ["yummycandy", "desserts", "fruit", "drinks"];
 
     // 🔹 Un categories ke products collect kar lo
@@ -40,38 +38,10 @@ function RecommendedSection() {
         addToCart(product);
         toast.success(`${product.name} added to cart!`);
     })
-
-    // const recommendedProducts = CategoryCollection
-    //     .filter(category => selectedCategoryIds.includes(category.id))
-    //     .flatMap(category => category.products);
-    const handleCategoryClick = (category) => {
-        setActiveCategory(category);
-    };
-    const settings = {
-        dots: false,
-        infinite: true,
-        arrows: false,
-        speed: 600,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [
-            { breakpoint: 1200, settings: { slidesToShow: 3 } },
-            { breakpoint: 768, settings: { slidesToShow: 2 } },
-            { breakpoint: 480, settings: { slidesToShow: 2 } },
-        ]
-    };
     useEffect(() => {
         AOS.init({
             duration: 700, // Animation duration in ms
             once: true,    // Only once animation
-        });
-    }, []);
-    useEffect(() => {
-        AOS.init({
-            duration: 700,
-            once: true,
         });
     }, []);
     return (
@@ -80,14 +50,13 @@ function RecommendedSection() {
                 <h3>Recommended For You</h3>
             </div>
 
-
             <div className="four-box-grid-recommended">
                 {selectedProducts.map((item, index) => (
                     <div
                         key={item?.id || index}
                         className="box-Recommended"
                         data-aos="fade-up"
-                        data-aos-delay="100"
+                        data-aos-delay={index * 100}
                         data-aos-anchor-placement="top-bottom"
                         onClick={() => handleProductClick(item.id)}
                     // style={{ backgroundColor: 'pink' }}
@@ -124,7 +93,6 @@ function RecommendedSection() {
 
                         <p className="Recommended-price">
                             ${item.price} <span className="per-qty">/Qty</span><span className="original-price">${item.originalPrice}</span>
-                            {/* <CustomText Text={`$${product.price}`} className='flash-sales-price' fontWeight='bold' /> */}
                         </p>
                         <p className="Recommended-rating">
                             <strong>{item.rating}</strong> ⭐ (17k)

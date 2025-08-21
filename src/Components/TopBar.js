@@ -10,7 +10,7 @@ import { BaselineKeyboardArrowDown, HamburgerMd } from "../Images/SvgImages";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
-import {CategoryCollection} from "./CategoryCollection";
+import { CategoryCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { FaThLarge } from 'react-icons/fa';
 
@@ -26,6 +26,9 @@ function TopBar() {
     const handleShopClick = () => {
         navigate(`/shop`);
     };
+    const handleBlogDetailClick = () => {
+        navigate(`/blog`);
+    };
     const handleWishlistClick = () => {
         navigate(`/wishlist`);
     };
@@ -34,6 +37,9 @@ function TopBar() {
     };
     const handleProfileClick = () => {
         navigate(`/profile`);
+    };
+    const handleVendorsClick = () => {
+        navigate(`/vendors`);
     };
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
@@ -106,7 +112,7 @@ function TopBar() {
                             <li className="d-none d-md-flex"><a href="#" className='d-none d-md-flex text-white' style={{ fontFamily: 'Quicksand' }}>About Us</a></li>
                             <li className="dropdown">
                                 <a href="#" style={{ fontFamily: 'Quicksand' }}>Eng</a>
-                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand'}}>
+                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand' }}>
                                     <li>English</li>
                                     <li>Japanese</li>
                                     <li>French</li>
@@ -198,7 +204,7 @@ function TopBar() {
                                 className="d-flex align-items-center px-4 py-3 rounded browse-button"
                                 style={{ backgroundColor: '#2ABC79', border: 'none', color: 'white' }}
                             >
-                                <FaThLarge className="BrowseIcon"/>
+                                <FaThLarge className="BrowseIcon" />
                                 <span className="ms-3">Browse Categories</span>
                                 <BaselineKeyboardArrowDown
                                     height="20"
@@ -302,8 +308,18 @@ function TopBar() {
                                             Vendors
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Vendor 1</a></li>
+                                            <li><a className="dropdown-item" href="#" onClick={handleVendorsClick}>Vendor 1</a></li>
                                             <li><a className="dropdown-item" href="#">Vendor 2</a></li>
+                                        </ul>
+                                    </li>
+                                        {/* blog */}
+                                    <li className="nav-item dropdown border-bottom py-2">
+                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                            Blog
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#" onClick={handleBlogDetailClick}>Blog Details</a></li>
+                                            <li><a className="dropdown-item" href="#">Blog </a></li>
                                         </ul>
                                     </li>
 
@@ -373,8 +389,21 @@ function TopBar() {
 
                                     /></a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Vendor 1</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={handleVendorsClick}>Vendor 1</a></li>
                                     <li><a className="dropdown-item" href="#">Vendor 2</a></li>
+                                </ul>
+                            </div>
+                            <div className="nav-link dropdown nav-link-hover">
+                                <a href="#" > <span >Blog</span>
+                                    <BaselineKeyboardArrowDown
+                                        height="20"
+                                        width="20"
+                                        className="dropdown-icon"
+
+                                    /></a>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#" onClick={handleBlogDetailClick}>Blog Details</a></li>
+                                    <li><a className="dropdown-item" href="#">Blog</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link">

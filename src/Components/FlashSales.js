@@ -1,13 +1,7 @@
-import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
-import OrangeJuice from '../Images/OrangeJuice.png';
-import DogFood from '../Images/DogFood.png';
-import Milk from '../Images/Milk.png';
-import ChocoLava from '../Images/Chocolava.png';
-import GreenPeas from '../Images/GreenPeas.jpeg'
 import { CartOutline } from '../Images/SvgImages';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -52,18 +46,6 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
             once: true,    // Only once animation
         });
     }, []);
-    const carouselImages = [
-        // CarouselImage1,
-        OrangeJuice,
-        DogFood,
-        Milk,
-        ChocoLava,
-        GreenPeas,
-    ];
-    // Sare products collect karna
-    // const AllProducts = CategoryCollection.flatMap(category => category.products || []);
-
-    // Ab sirf unhe filter karo jinke isSale = true hai
     const SaleProducts = ProductCollection.filter(product => product.isSale === true);
 
     return (
@@ -86,7 +68,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                 onClick={() => handleProductClick(product.id)}
                             >
                                 <div className="flash-sales-image-container">
-                                    <img src={(product.image?.[0] || product.images?.[0])} alt={product.name} />
+                                    <img src={(product.images?.[0] || product.images?.[0])} alt={product.name} />
 
                                 </div>
                                 <button className="flash-sales-add-button" onClick={(e) => {
@@ -114,8 +96,6 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                 </Slider>
             </div>
         </div>
-
-
     );
 };
 

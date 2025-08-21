@@ -8,6 +8,8 @@ import Wishlist from './Components/Wishlist';
 import AllProducts from './Components/AllProducts';
 import ContactPage from './Components/ContactPage';
 import ProfilePage from './Components/ProfilePage';
+import Blog from './Components/Blog';
+import Vendors from './Components/Vendors';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,6 +39,8 @@ function App() {
         <Route path="/shop" element={<AllProducts />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/vendors" element={<Vendors />} /> {/* Assuming Vendors component is created */}
         {/* Add other routes as needed */}
       </Routes>
     </Router>
