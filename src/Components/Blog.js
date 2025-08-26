@@ -189,7 +189,7 @@ function Blog() {
                         <hr />
                         <div className="category-list d-flex flex-column ">
                             {['Gaming (12)', 'Smart Gadget (05)', 'Software (29)', 'Electronics (24)', 'Laptop (08)', 'Mobile & Accessories (16)', 'Apliance (24)'].map((category, index) => (
-                                <div className="category-item d-flex justify-content-between align-items-center px-3 rounded" key={index}>
+                                <div className="category-item1 d-flex justify-content-between align-items-center px-3 rounded" key={index}>
                                     <span>{category}</span>
                                     <div className="category-arrow d-flex justify-content-center align-items-center rounded">
                                         <span>&rarr;</span>

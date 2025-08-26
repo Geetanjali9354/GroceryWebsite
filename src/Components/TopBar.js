@@ -6,16 +6,19 @@ import User from '../Images/user.png';
 import Wishlist from '../Images/wishlist.png';
 import Cart from '../Images/trolley.png';
 import SearchBlack from '../Images/searchBlack.png';
-import { BaselineKeyboardArrowDown, HamburgerMd } from "../Images/SvgImages";
+import { BaselineKeyboardArrowDown, HamburgerMd, Mobile } from "../Images/SvgImages";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
 import { CategoryCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { FaThLarge } from 'react-icons/fa';
-
-
+import { getWishlist } from '../Utils/Wishlist';
+import { getCart } from "../Utils/cartUtils";
 function TopBar() {
+    const [wishlistCount, setWishlistCount] = useState(0);
+    const [cartCount, setCartCount] = useState(0);
+
     const navigate = useNavigate();
     const handleCategoryClick = (id) => {
         navigate(`/category/${id}`);
@@ -54,6 +57,31 @@ function TopBar() {
         AOS.init({ duration: 500, once: true });
     }, []);
 
+    // Count for Wishlist
+    useEffect(() => {
+        const updateWishlistCount = () => {
+            const wishlist = getWishlist();
+            setWishlistCount(wishlist.length);
+        }
+        updateWishlistCount();
+        window.addEventListener('wishlistUpdated', updateWishlistCount);
+        return () => {
+            window.removeEventListener('wishlistUpdated', updateWishlistCount);
+        };
+    }, []);
+    // Count for Cart
+    useEffect(() => {
+        const updateCartCount = () => {
+            const cart = getCart();
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            setCartCount(totalItems);
+        };
+
+        updateCartCount(); // load on mount
+
+        window.addEventListener('cartUpdated', updateCartCount);
+        return () => window.removeEventListener('cartUpdated', updateCartCount);
+    }, []);
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
@@ -177,12 +205,30 @@ function TopBar() {
                             <div className="d-flex align-items-center gap-1 cursor-pointer position-relative"
                                 onClick={handleWishlistClick}
                             >
-                                <img src={Wishlist} style={{ height: '20px', width: '20px' }} />
+                                {/* Badge Count */}
+                                {wishlistCount > 0 && (
+                                    <span
+                                        className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style={{ fontSize: '10px' }}
+                                    >
+                                        {wishlistCount}
+                                    </span>
+                                )}
+
+                                <img src={Wishlist} style={{ height: '20px', width: '20px' }} alt="wishlist" />
                                 <span className="d-none d-sm-inline">Wishlist</span>
                             </div>
+
                             <div className="d-flex align-items-center gap-1 cursor-pointer position-relative"
                                 onClick={handleCartClick}
                             >
+                                {cartCount > 0 && (
+                                    <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style={{ fontSize: '10px' }}
+                                    >
+                                        {cartCount}
+                                    </span>
+                                )}
                                 <img src={Cart} style={{ height: '20px', width: '20px' }} />
                                 <span className="d-none d-sm-inline">Cart</span>
                             </div>
@@ -312,7 +358,7 @@ function TopBar() {
                                             <li><a className="dropdown-item" href="#">Vendor 2</a></li>
                                         </ul>
                                     </li>
-                                        {/* blog */}
+                                    {/* blog */}
                                     <li className="nav-item dropdown border-bottom py-2">
                                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                             Blog
@@ -413,6 +459,7 @@ function TopBar() {
 
 
                         <div className="col-auto d-none d-lg-flex align-items-center gap-2">
+                            <Mobile height="30" width="30" />
                             <div className="d-flex flex-column HelpText">
                                 <span className="text-dark ">Need any Help! call Us</span>
                                 <span className="fw-bold " style={{ color: '#1C799B' }}>+(2) 871 382 023</span>

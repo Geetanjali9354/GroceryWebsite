@@ -4,33 +4,37 @@ import ServiceHighlights from "./ServiceHighlights";
 import Footer from "./Footer";
 import { BaselineHome } from "../Images/SvgImages";
 import './Cart.css';
+import { removeFromCart, getCart, updateCartQuantity } from "../Utils/cartUtils";
+
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartItems(storedCart);
+        const loadCart = () => setCartItems(getCart());
+        loadCart();
+        // 🧠 Listen for external cart changes (e.g., from other components)
+        window.addEventListener('cartUpdated', loadCart);
+        return () => window.removeEventListener('cartUpdated', loadCart);
     }, []);
 
     const handleRemoveItem = (id) => {
-        const updatedCart = cartItems.filter(item => item.id !== id);
-        setCartItems(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        const updated = removeFromCart(id);
+        setCartItems(updated); // Optional, since cartUpdated event will trigger as well
     };
 
     const handleIncreaseQty = (id) => {
-        const updatedCart = cartItems.map(item =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-        setCartItems(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        const current = cartItems.find(item => item.id === id);
+        if (current) {
+            const updated = updateCartQuantity(id, current.quantity + 1);
+            setCartItems(updated); // optional because event listener can update this too
+        }
     };
 
     const handleDecreaseQty = (id) => {
-        const updatedCart = cartItems.map(item =>
-            item.id === id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
-        );
-        setCartItems(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        const current = cartItems.find(item => item.id === id);
+        if (current && current.quantity > 1) {
+            const updated = updateCartQuantity(id, current.quantity - 1);
+            setCartItems(updated); // optional
+        }
     };
     const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const estimatedTax = 10; // or calculate it dynamically if needed
