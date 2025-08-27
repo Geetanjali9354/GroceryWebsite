@@ -73,7 +73,7 @@ function TopBar() {
     useEffect(() => {
         const updateCartCount = () => {
             const cart = getCart();
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalItems = cart.length;
             setCartCount(totalItems);
         };
 

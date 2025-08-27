@@ -8,7 +8,11 @@ import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
+import { HeartOutline } from "../Images/SvgImages";
+import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
+import { useState } from 'react';
 const DailyBestSale = () => {
+    const [wishlist, setWishlist] = useState([]);
     const navigate = useNavigate();
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
@@ -36,6 +40,27 @@ const DailyBestSale = () => {
                                 <div className="product-card p-3 rounded shadow-sm border"
                                     onClick={() => handleProductClick(prod.id)}
                                 >
+                                    <div
+                                        className="wishlist-icon1"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            if (isInWishlist(prod.id)) {
+                                                const updated = removeFromWishlist(prod.id);
+                                                setWishlist(updated);
+                                                toast.error(`${prod.name} removed from wishlist`);
+                                            } else {
+                                                const updated = addToWishlist(prod);
+                                                setWishlist(updated);
+                                                toast.success(`${prod.name} added to wishlist`);
+                                            }
+                                        }}
+                                    >
+                                        <HeartOutline
+                                            height="26"
+                                            width="26"
+                                            className={isInWishlist(prod.id) ? "red-heart1" : ""}
+                                        />
+                                    </div>
                                     <div className="row">
                                         {/* LEFT SIDE: IMAGE + TIMER */}
                                         <div className="col-6 d-flex flex-column align-items-center justify-content-between Daily-image-container">

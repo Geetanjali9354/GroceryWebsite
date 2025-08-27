@@ -8,31 +8,31 @@ import Footer from './Footer'
 import { useNavigate } from 'react-router-dom';
 import { BaselineHome } from '../Images/SvgImages';
 import { addToCart } from '../Utils/cartUtils';
-
+import { removeFromWishlist } from '../Utils/Wishlist';
+import { toast } from 'react-toastify';
 const Wishlist = () => {
     const navigate = useNavigate();
     const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
     const HandleAddToCart = (product => {
-        addToCart(product);
-        alert(`${product.name} has been added to your cart!`);
+        const UpdateCart = addToCart(product);
+        setCartItems(UpdateCart);
+        toast.success(`${product.name} has been added to your cart!`);
     })
 
+    const handleRemoveItem = (id) => {
+        const updated = removeFromWishlist(id);
+        setWishlist(updated); // Optional, since wishlistUpdated event will trigger as well
+        toast.error('Item removed from wishlist.');
+    };
     // Retrieve wishlist data from localStorage
     useEffect(() => {
         const savedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
         setWishlist(savedWishlist);
     }, []);
-
-    // Handle remove from wishlist
-    const handleRemoveFromWishlist = (productId) => {
-        const updatedWishlist = wishlist.filter(item => item.id !== productId);
-        setWishlist(updatedWishlist);
-        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    };
-
     return (
         <div className="container-fluid g-0">
             <TopBar />
@@ -64,7 +64,7 @@ const Wishlist = () => {
                                 <p className="wishlist-item-price">${item.price}</p>
                             </div>
                             <div className="wishlist-item-actions">
-                                <button onClick={() => handleRemoveFromWishlist(item.id)} className="remove-from-wishlist-btn">
+                                <button onClick={() => handleRemoveItem(item.id)} className="remove-from-wishlist-btn">
                                     Remove
                                 </button>
                                 <button onClick={() => HandleAddToCart(item)} className="Add-to-wishlist-btn">

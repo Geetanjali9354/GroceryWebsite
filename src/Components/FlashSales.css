@@ -9,13 +9,16 @@
     align-items: center;
     margin-bottom: 40px;
 }
-.flash-sales-header a{
+
+.flash-sales-header a {
     text-decoration: none;
 }
-.flash-sales-header a:hover{
+
+.flash-sales-header a:hover {
     color: #1c799b;
     text-decoration: underline;
 }
+
 .flash-sales-header h3 {
     font-weight: bold;
     font-size: 30px;
@@ -49,6 +52,28 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.wishlist-icon1 {
+    position: absolute;
+    top: 10px;
+    background-color: white;
+    border: 1px solid #DBDBDB;
+    border-radius: 50%;
+    padding: 9px;
+    color: #616161;
+    /* transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease; */
+
+}
+
+.flash-sales-slide .wishlist-icon1:hover {
+    color: #1c799b;
+    border-color: #1c799b;
+}
+
+.wishlist-icon1 .red-heart1 path {
+    fill: red;
+    color: red;
+}
+
 .flash-sales-image-container {
     height: 160px;
     border-radius: 12px;
@@ -71,10 +96,14 @@
     transform: scale(1.2);
     /* z-index: 10; */
 }
+
 .flash-sales-card:hover .flash-sales-image-container img {
-    transform: scale(1.2);  /* Zoom effect */
-    filter: brightness(1.1);  /* Optional: slightly increase brightness */
+    transform: scale(1.2);
+    /* Zoom effect */
+    filter: brightness(1.1);
+    /* Optional: slightly increase brightness */
 }
+
 .flash-sales-add-button {
     position: absolute;
     top: 10px;
@@ -132,6 +161,7 @@
     color: #1a2433;
     /* flex-grow: 1; */
 }
+
 .flash-sales-product-name:hover {
     color: #1c799b;
 }
@@ -156,5 +186,39 @@
     margin-bottom: 0;
 }
 
-/* ---------------------------------2 BANNER CSS START FROM NOW------------------ */
+.quantity-box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid #1C799B;
+    border-radius: 20px;
+    background-color: #E3F4FA;
+    color: #1C799B;
+    font-size: 16px;
+    font-family: 'Quicksand';
+    font-weight: 600;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
 
+.quantity-box button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #1C799B;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quantity-box span {
+    width: 20px;
+    text-align: center;
+}
+
+
+/* ---------------------------------2 BANNER CSS START FROM NOW------------------ */

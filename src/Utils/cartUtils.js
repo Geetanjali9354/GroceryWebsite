@@ -11,6 +11,7 @@ export const addToCart = (product) => {
 
     const existingIndex = cart.findIndex(item => item.id === product.id);
 
+
     if (existingIndex >= 0) {
         cart[existingIndex].quantity += 1;
     } else {
@@ -47,4 +48,10 @@ export const updateCartQuantity = (productId, quantity) => {
     localStorage.setItem('cart', JSON.stringify(cart));
     emitCartChange();
     return cart;
+};
+// ✅ Get quantity of a product in the cart
+export const getCartItemQuantity = (productId) => {
+    const cart = getCart();
+    const item = cart.find(item => item.id === productId);
+    return item?.quantity || 0;
 };

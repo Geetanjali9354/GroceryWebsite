@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,9 +13,13 @@ import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
 import { addToCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
+import { HeartOutline } from "../Images/SvgImages";
+import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 
 function HotDeals() {
     const navigate = useNavigate();
+    const [wishlist, setWishlist] = useState([]);
+
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
@@ -126,6 +130,27 @@ function HotDeals() {
                                         <div className="hotdeals-card "
                                             onClick={() => handleProductClick(product.id)}
                                         >
+                                            <div
+                                                className="wishlist-icon1"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    if (isInWishlist(product.id)) {
+                                                        const updated = removeFromWishlist(product.id);
+                                                        setWishlist(updated);
+                                                        toast.error(`${product.name} removed from wishlist`);
+                                                    } else {
+                                                        const updated = addToWishlist(product);
+                                                        setWishlist(updated);
+                                                        toast.success(`${product.name} added to wishlist`);
+                                                    }
+                                                }}
+                                            >
+                                                <HeartOutline
+                                                    height="26"
+                                                    width="26"
+                                                    className={isInWishlist(product.id) ? "red-heart1" : ""}
+                                                />
+                                            </div>
                                             <div className="hotdeals-image-container mt-5">
                                                 <img src={product.images?.[0]} alt={product.name} />
 

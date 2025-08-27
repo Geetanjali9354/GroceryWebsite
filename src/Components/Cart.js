@@ -35,6 +35,9 @@ function Cart() {
             const updated = updateCartQuantity(id, current.quantity - 1);
             setCartItems(updated); // optional
         }
+        else{
+            removeFromCart(id);
+        }
     };
     const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const estimatedTax = 10; // or calculate it dynamically if needed
