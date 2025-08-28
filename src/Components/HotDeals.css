@@ -146,6 +146,39 @@
     color: white;
 }
 
+.quantity-box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid #1C799B;
+    border-radius: 20px;
+    background-color: #E3F4FA;
+    color: #1C799B;
+    font-size: 16px;
+    font-family: 'Quicksand';
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.quantity-box button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #1C799B;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quantity-box span {
+    width: 20px;
+    text-align: center;
+}
+
 .hotdeals-price {
     font-weight: 700;
     font-size: 16px;

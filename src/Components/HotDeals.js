@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,14 +11,16 @@ import 'aos/dist/aos.css';
 import { ProductCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
-import { addToCart } from '../Utils/cartUtils';
+import { addToCart, getCartItemQuantity,getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
+import QuantityBox from "./QuantityBox";
 
 function HotDeals() {
     const navigate = useNavigate();
     const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState(getCart());
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
@@ -156,13 +158,38 @@ function HotDeals() {
 
                                             </div>
 
-                                            <button className="hotdeals-add-button" onClick={(e) => {
+                                            {/* <button className="hotdeals-add-button" onClick={(e) => {
                                                 e.stopPropagation(); // Prevent bubbling
                                                 HandleAddToCart(product);
                                             }}>
                                                 Add
                                                 <CartOutline height="20" width="20" />
-                                            </button>
+                                            </button> */}
+
+                                            {(() => {
+                                                const quantity = getCartItemQuantity(product.id);
+                                                if (quantity > 0) {
+                                                    return (
+                                                        <QuantityBox
+                                                            product={product}
+                                                            setCartItems={setCartItems}
+                                                            className='quantity-box'
+                                                        />
+                                                    );
+                                                } else {
+                                                    return (
+                                                        <button className="hotdeals-add-button" onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            addToCart(product);
+                                                            setCartItems(getCart());
+                                                            toast.success(`${product.name} added to cart!`);
+                                                        }}>
+                                                            Add
+                                                            <CartOutline height="20" width="20" />
+                                                        </button>
+                                                    );
+                                                }
+                                            })()}
 
                                             <p className="hotdeals-price">
                                                 ${product.price}{" "}

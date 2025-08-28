@@ -203,7 +203,6 @@
     font-family: 'Quicksand';
     font-weight: 600;
     transition: all 0.3s ease;
-    z-index: 1;
 }
 
 .quantity-box button {

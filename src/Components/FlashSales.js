@@ -12,8 +12,6 @@ import { useNavigate } from 'react-router-dom';
 import {
     addToCart,
     getCartItemQuantity,
-    removeFromCart,
-    updateCartQuantity,
     getCart
 } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
@@ -22,6 +20,7 @@ import {
     removeFromWishlist,
     isInWishlist,
 } from "../Utils/Wishlist";
+import QuantityBox from './QuantityBox';
 
 const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
     const navigate = useNavigate();
@@ -109,9 +108,8 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                     <img src={(product.images?.[0] || '')} alt={product.name} />
                                 </div>
 
-                                {(() => {
+                                {/* {(() => {
                                     const quantity = getCartItemQuantity(product.id);
-                                    console.log(quantity);
                                     if (quantity > 0) {
                                         return (
                                             <div className="quantity-box" onClick={(e) => e.stopPropagation()}>
@@ -147,7 +145,34 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                             </button>
                                         );
                                     }
+                                })()} */}
+
+                                {/*  */}
+                                {(() => {
+                                    const quantity = getCartItemQuantity(product.id);
+                                    if (quantity > 0) {
+                                        return (
+                                            <QuantityBox
+                                                product={product}
+                                                setCartItems={setCartItems}
+                                                className='quantity-box'
+                                            />
+                                        );
+                                    } else {
+                                        return (
+                                            <button className="flash-sales-add-button" onClick={(e) => {
+                                                e.stopPropagation();
+                                                addToCart(product);
+                                                setCartItems(getCart());
+                                                toast.success(`${product.name} added to cart!`);
+                                            }}>
+                                                Add
+                                                <CartOutline height="20" width="20" />
+                                            </button>
+                                        );
+                                    }
                                 })()}
+
 
                                 <p className="flash-sales-price">
                                     ${product.price}

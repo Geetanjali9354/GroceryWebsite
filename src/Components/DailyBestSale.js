@@ -6,19 +6,22 @@ import { CartOutline } from "../Images/SvgImages";
 import CustomText from './CustomText';
 import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from '../Utils/cartUtils';
+import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { useState } from 'react';
+import QuantityBox from './QuantityBox';
 const DailyBestSale = () => {
     const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState(getCart());
     const navigate = useNavigate();
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
     const HandleAddToCart = (product => {
         addToCart(product);
+        setCartItems(getCart());
         toast.success(`${product.name} added to cart!`);
     })
     const selectedProducts = ProductCollection.slice(0, 4);
@@ -112,13 +115,36 @@ const DailyBestSale = () => {
                                             </div>
 
                                             <div>
-                                                <button className="Add-To-Cart-Button-Daily" onClick={(e) => {
+                                                {/* <button className="Add-To-Cart-Button-Daily" onClick={(e) => {
                                                     e.stopPropagation(); // Prevent bubbling
                                                     HandleAddToCart(prod);
                                                 }}>
                                                     Add To Cart
                                                     <CartOutline height="20" width="20" style={{ marginLeft: '6px', marginBottom: '2px' }} />
-                                                </button>
+                                                </button> */}
+                                                {/*  */}
+                                                {(() => {
+                                                    const quantity = getCartItemQuantity(prod.id);
+                                                    if (quantity > 0) {
+                                                        return (
+                                                            <QuantityBox
+                                                                product={prod}
+                                                                setCartItems={setCartItems}
+                                                                className="Add-To-Cart-Quantity-Box"
+                                                            />
+                                                        );
+                                                    } else {
+                                                        return (
+                                                            <button className="Add-To-Cart-Button" onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                HandleAddToCart(prod);
+                                                            }}>
+                                                                Add To Cart
+                                                                <CartOutline height="20" width="20" style={{ marginLeft: '6px', marginBottom: '2px' }} />
+                                                            </button>
+                                                        );
+                                                    }
+                                                })()}
                                             </div>
                                         </div>
                                     </div>
