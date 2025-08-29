@@ -18,9 +18,19 @@ import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "..
 import { toast } from 'react-toastify';
 import QuantityBox from "./QuantityBox";
 function RecommendedSection() {
+    const categories = [
+        'All',
+        'Animal Food',
+        'Fruits',
+        'Drinks',
+        'Vegetables',
+        'Snacks',
+        'Desserts',
+    ];
 
     const selectedCategoryIds = ["yummycandy", "desserts", "fruit", "drinks"];
     const [cartItems, setCartItems] = useState(getCart());
+    const [active, setActive] = useState('All');
 
     // 🔹 Un categories ke products collect kar lo
     const selectedProducts = ProductCollection.filter(
@@ -47,9 +57,22 @@ function RecommendedSection() {
         });
     }, []);
     return (
-        <div>
-            <div className="Recommended-header ">
-                <h3>Recommended For You</h3>
+        <div >
+            <div className="Recommended-header row g-0 p-0 m-0 justify-content-between">
+                <div className="col-lg-5 col-sm-12 col-md-6 ">
+                    <h3>Recommended For You</h3>
+                </div>
+                <div className=" d-flex flex-wrap gap-3 col-lg-7 col-sm-12 col-md-6 justify-content-end " >
+                    {categories.map((item) => (
+                        <button
+                            key={item}
+                            className={`category-btn ${active === item ? 'active' : ''}`}
+                            onClick={() => setActive(item)}
+                        >
+                            {item}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             <div className="four-box-grid-recommended">
@@ -100,13 +123,6 @@ function RecommendedSection() {
                             <strong>{item.rating}</strong> ⭐ (17k)
                         </p>
 
-                        {/* <button className="Add-To-Cart-Button" onClick={(e) => {
-                            e.stopPropagation();
-                            HandleAddToCart(item);
-                        }}>
-                            Add To Cart
-                            <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
-                        </button> */}
                         {(() => {
                             const quantity = getCartItemQuantity(item.id);
                             if (quantity > 0) {

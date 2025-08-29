@@ -35,12 +35,12 @@ const DailyBestSale = () => {
                 <div className="col-12 col-lg-8">
                     <div className="row g-3">
                         {selectedProducts.map((prod) => (
-                            <div key={prod.id} className="col-12 col-md-6"
+                            <div key={prod.id} className="col-12 col-md-6 "
                                 data-aos="fade-up"
                                 data-aos-delay="100"
                                 data-aos-anchor-placement="top-bottom"
                             >
-                                <div className="product-card p-3 rounded shadow-sm border"
+                                <div className="product-card p-3 rounded border"
                                     onClick={() => handleProductClick(prod.id)}
                                 >
                                     <div

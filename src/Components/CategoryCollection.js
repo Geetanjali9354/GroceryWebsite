@@ -174,7 +174,7 @@ export const CategoryCollection = [
     },
     {
         id: "veg-grocery",
-        label: "Vegetarian Grocery",
+        label: "Vegetables",
         image: VegGroceryImage, // yeh aap apne image asset se replace karein
         bgColor: "#BBDEFB",
         subtitle: "150+ Products",

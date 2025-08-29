@@ -8,13 +8,16 @@ import CustomText from './CustomText';
 import ServiceHighlights from './ServiceHighlights';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from '../Utils/cartUtils';
+import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import FilterSection from './FilterSection';
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { useEffect, useState } from 'react';
+import QuantityBox from './QuantityBox';
 const CategoryProducts = () => {
     const navigate = useNavigate();
+    const [cartItems, setCartItems] = useState(getCart());
+
     const [wishlist, setWishlist] = useState([]);
     useEffect(() => {
         setWishlist(getWishlist());
@@ -105,14 +108,38 @@ const CategoryProducts = () => {
                                         <strong>{item.rating}</strong> ⭐ (17k)
                                     </p>
 
-                                    <button className="Add-To-Cart-Button-catProduct" onClick={(e) => {
+                                    {/* <button className="Add-To-Cart-Button-catProduct" onClick={(e) => {
                                         e.stopPropagation();
                                         HandleAddToCart(item);
                                     }}>
                                         Add To Cart
                                         < CartOutline height="20" width="20" style={{ marginLeft: '10px' }
                                         } />
-                                    </button>
+                                    </button> */}
+                                    {(() => {
+                                        const quantity = getCartItemQuantity(item.id);
+                                        if (quantity > 0) {
+                                            return (
+                                                <QuantityBox
+                                                    product={item}
+                                                    setCartItems={setCartItems}
+                                                    className="Add-To-Cart-Quantity-Box"
+                                                />
+                                            );
+                                        } else {
+                                            return (
+                                                <button className="Add-To-Cart-Button-catProduct" onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    addToCart(item);
+                                                    setCartItems(getCart());
+                                                    toast.success(`${item.name} added to cart!`);
+                                                }}>
+                                                    Add To Cart
+                                                    <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
+                                                </button>
+                                            );
+                                        }
+                                    })()}
                                 </div>
                             ))}
                         </div>
