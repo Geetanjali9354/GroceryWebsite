@@ -17,6 +17,7 @@ import { HeartOutline } from "../Images/SvgImages";
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { toast } from 'react-toastify';
 import QuantityBox from "./QuantityBox";
+import CartButton from "./CartButton";
 function RecommendedSection() {
     const categories = [
         'All',
@@ -123,7 +124,7 @@ function RecommendedSection() {
                             <strong>{item.rating}</strong> ⭐ (17k)
                         </p>
 
-                        {(() => {
+                        {/* {(() => {
                             const quantity = getCartItemQuantity(item.id);
                             if (quantity > 0) {
                                 return (
@@ -146,7 +147,8 @@ function RecommendedSection() {
                                     </button>
                                 );
                             }
-                        })()}
+                        })()} */}
+                        <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button ' />
                     </div>
                 ))}
             </div>

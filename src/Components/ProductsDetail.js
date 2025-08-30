@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {ProductCollection} from './CategoryCollection';
+import { ProductCollection } from './CategoryCollection';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import ServiceHighlights from './ServiceHighlights';
@@ -31,7 +31,7 @@ const ProductsDetail = () => {
         addToCart(product);
         toast.success(`${product.name} added to cart!`);
     })
-    
+
     return (
         <>
             <TopBar />
@@ -253,7 +253,6 @@ const ProductsDetail = () => {
                                 <div>
                                     <h5>Packaging</h5>
                                     <p className='mt-2'>Research & development value proposition graphical user interface investor.
-
                                     </p>
                                 </div>
                             </div>

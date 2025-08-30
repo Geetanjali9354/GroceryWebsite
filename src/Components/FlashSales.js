@@ -21,6 +21,7 @@ import {
     isInWishlist,
 } from "../Utils/Wishlist";
 import QuantityBox from './QuantityBox';
+import CartButton from './CartButton';
 
 const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
     const navigate = useNavigate();
@@ -112,46 +113,6 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                     const quantity = getCartItemQuantity(product.id);
                                     if (quantity > 0) {
                                         return (
-                                            <div className="quantity-box" onClick={(e) => e.stopPropagation()}>
-                                                <button onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    if (quantity === 1) {
-                                                        const updatedCart = removeFromCart(product.id);
-                                                        setCartItems(updatedCart);
-                                                        toast.info(`${product.name} removed from cart`);
-                                                    } else {
-                                                        const updatedCart = updateCartQuantity(product.id, quantity - 1);
-                                                        setCartItems(updatedCart);
-                                                    }
-                                                }}>-</button>
-                                                <span>{quantity}</span>
-                                                <button onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    const updatedCart = updateCartQuantity(product.id, quantity + 1);
-                                                    setCartItems(updatedCart);
-                                                }}>+</button>
-                                            </div>
-                                        );
-                                    } else {
-                                        return (
-                                            <button className="flash-sales-add-button" onClick={(e) => {
-                                                e.stopPropagation();
-                                                addToCart(product);
-                                                // setCartItems(getCart());
-                                                toast.success(`${product.name} added to cart!`);
-                                            }}>
-                                                Add
-                                                <CartOutline height="20" width="20" />
-                                            </button>
-                                        );
-                                    }
-                                })()} */}
-
-                                {/*  */}
-                                {(() => {
-                                    const quantity = getCartItemQuantity(product.id);
-                                    if (quantity > 0) {
-                                        return (
                                             <QuantityBox
                                                 product={product}
                                                 setCartItems={setCartItems}
@@ -171,8 +132,8 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                             </button>
                                         );
                                     }
-                                })()}
-
+                                })()} */}
+                                <CartButton product={product} setCartItems={setCartItems} addBtnClass='flash-sales-add-button' qtyBoxClass='quantity-box' />
 
                                 <p className="flash-sales-price">
                                     ${product.price}

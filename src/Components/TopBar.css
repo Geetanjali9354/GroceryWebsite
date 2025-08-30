@@ -8,6 +8,30 @@
 
 }
 
+.nav-link {
+  position: relative;
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.badgeeee {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.badgeeee-yellow {
+  background-color: orange;
+}
+
+.badgeeee-blue {
+  background-color: blueviolet;
+}
 
 .countdown {
     display: flex;

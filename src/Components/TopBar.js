@@ -339,8 +339,9 @@ function TopBar() {
 
                                     {/* PAGES with NEW badge */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <a href="#" className="nav-link dropdown-toggle position-relative" data-bs-toggle="dropdown">
                                             Pages
+                                            <span className="badgeeee badgeeee-yellow mt-3 ms-3">New</span>
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
@@ -350,8 +351,10 @@ function TopBar() {
 
                                     {/* VENDORS */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <a href="#" className="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                                             Vendors
+                                            <span className="badgeeee badgeeee-blue mt-3 ms-3">New</span>
+
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li><a className="dropdown-item" href="#" onClick={handleVendorsClick}>Vendor 1</a></li>
@@ -379,7 +382,7 @@ function TopBar() {
 
 
                         {/* DESKTOP NAV - only visible on large+ */}
-                        <div className="col d-none d-lg-flex gap-3 align-items-center"
+                        <div className="col d-none d-lg-flex  align-items-center"
 
                         >
                             <div className="nav-link dropdown nav-link-hover"
@@ -412,31 +415,59 @@ function TopBar() {
                                     <li><a className="dropdown-item" href="#">Shop 2</a></li>
                                 </ul>
                             </div>
-                            <div className="nav-link dropdown nav-link-hover">
+                            <div className="nav-link dropdown nav-link-hover ">
                                 <a href="#">
-                                    <span className="">Pages</span>
+                                    <span className="position-relative">
+                                        Pages
+                                        <span className="badgeeee badgeeee-yellow">New</span>
+                                    </span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
                                         className="dropdown-icon"
-
-                                    /></a>
+                                    />
+                                </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
-                                    <li><a className="dropdown-item" href="#">Contact</a></li>
+                                    <li>
+                                        <a className="dropdown-item" href="#" onClick={handleCartClick}>
+                                            Cart
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item" href="#">
+                                            Contact
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
+
                             <div className="nav-link dropdown nav-link-hover">
-                                <a href="#" > <span >Vendors</span>
+                                <a href="#">
+                                    <span className="position-relative">
+                                        Vendors
+                                        <span className="badgeeee badgeeee-blue">New</span>
+                                    </span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
                                         className="dropdown-icon"
-
-                                    /></a>
+                                    />
+                                </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#" onClick={handleVendorsClick}>Vendor 1</a></li>
-                                    <li><a className="dropdown-item" href="#">Vendor 2</a></li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="#"
+                                            onClick={handleVendorsClick}
+                                        >
+                                            Vendor 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item" href="#">
+                                            Vendor 2
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown nav-link-hover">

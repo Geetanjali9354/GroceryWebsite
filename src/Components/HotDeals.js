@@ -11,11 +11,12 @@ import 'aos/dist/aos.css';
 import { ProductCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
 import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
-import { addToCart, getCartItemQuantity,getCart } from '../Utils/cartUtils';
+import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import QuantityBox from "./QuantityBox";
+import CartButton from "./CartButton";
 
 function HotDeals() {
     const navigate = useNavigate();
@@ -157,39 +158,7 @@ function HotDeals() {
                                                 <img src={product.images?.[0]} alt={product.name} />
 
                                             </div>
-
-                                            {/* <button className="hotdeals-add-button" onClick={(e) => {
-                                                e.stopPropagation(); // Prevent bubbling
-                                                HandleAddToCart(product);
-                                            }}>
-                                                Add
-                                                <CartOutline height="20" width="20" />
-                                            </button> */}
-
-                                            {(() => {
-                                                const quantity = getCartItemQuantity(product.id);
-                                                if (quantity > 0) {
-                                                    return (
-                                                        <QuantityBox
-                                                            product={product}
-                                                            setCartItems={setCartItems}
-                                                            className='quantity-box'
-                                                        />
-                                                    );
-                                                } else {
-                                                    return (
-                                                        <button className="hotdeals-add-button" onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            addToCart(product);
-                                                            setCartItems(getCart());
-                                                            toast.success(`${product.name} added to cart!`);
-                                                        }}>
-                                                            Add
-                                                            <CartOutline height="20" width="20" />
-                                                        </button>
-                                                    );
-                                                }
-                                            })()}
+                                            <CartButton product={product} setCartItems={setCartItems} qtyBoxClass='quantity-box' addBtnClass='hotdeals-add-button ' />
 
                                             <p className="hotdeals-price">
                                                 ${product.price}{" "}

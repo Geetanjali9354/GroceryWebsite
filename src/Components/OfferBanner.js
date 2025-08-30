@@ -8,9 +8,9 @@ function OfferBanner() {
         <div className="p-3 my-4">
             <div className="row">
                 <div className="col-md-6"
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    data-aos-anchor-placement="top-bottom"
+                    data-aos="zoom-in"
+                    data-aos-duration="1000"
+
                 >
                     <div
                         className="rectangle-box banner-box"
@@ -39,9 +39,8 @@ function OfferBanner() {
                 </div>
 
                 <div className="col-md-6"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                    data-aos-anchor-placement="top-bottom"
+                    data-aos="zoom-in"
+                    data-aos-duration="1000"
                 >
                     <div
                         className="rectangle-box banner-box"
