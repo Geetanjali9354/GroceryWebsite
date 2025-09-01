@@ -8,7 +8,8 @@ const CartButton = ({
     product,
     setCartItems,
     addBtnClass = "",       // Add button ki styling
-    qtyBoxClass = ""        // QuantityBox ki styling
+    qtyBoxClass = "",
+    title=""     // QuantityBox ki styling
 }) => {
     const quantity = getCartItemQuantity(product.id);
 
@@ -34,7 +35,7 @@ const CartButton = ({
                 toast.success(`${product.name} added to cart!`);
             }}
         >
-            Add
+            {title}
             <CartOutline height="20" width="20" />
         </button>
     );

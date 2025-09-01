@@ -208,8 +208,8 @@ function TopBar() {
                                 {/* Badge Count */}
                                 {wishlistCount > 0 && (
                                     <span
-                                        className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                        style={{ fontSize: '10px' }}
+                                        className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                                        style={{ fontSize: '10px', backgroundColor: '#1C799B', color: 'white' }}
                                     >
                                         {wishlistCount}
                                     </span>
@@ -223,8 +223,8 @@ function TopBar() {
                                 onClick={handleCartClick}
                             >
                                 {cartCount > 0 && (
-                                    <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                        style={{ fontSize: '10px' }}
+                                    <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill "
+                                        style={{ fontSize: '10px', backgroundColor: '#1C799B', color: 'white' }}
                                     >
                                         {cartCount}
                                     </span>

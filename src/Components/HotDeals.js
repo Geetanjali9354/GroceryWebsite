@@ -158,7 +158,7 @@ function HotDeals() {
                                                 <img src={product.images?.[0]} alt={product.name} />
 
                                             </div>
-                                            <CartButton product={product} setCartItems={setCartItems} qtyBoxClass='quantity-box' addBtnClass='hotdeals-add-button ' />
+                                            <CartButton product={product} setCartItems={setCartItems} qtyBoxClass='quantity-box' addBtnClass='hotdeals-add-button' title="Add" />
 
                                             <p className="hotdeals-price">
                                                 ${product.price}{" "}
@@ -424,14 +424,15 @@ function HotDeals() {
                             </div>
 
                             <div className="mt-3">
-                                <button
+                                {/* <button
                                     className="btn w-100 fw-bold text-white"
                                     style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}
                                     onClick={() => HandleAddToCart(ProductCollection[3])}
                                 >
                                     Add To Cart
                                     <CartOutline height="20" width="20" className="text-white ms-2" />
-                                </button>
+                                </button> */}
+                                <CartButton product={ProductCollection[3]} setCartItems={setCartItems} addBtnClass='w-100 fw-bold text-white Add-to-cart-hot' qtyBoxClass='w-100 Add-To-Cart-Quantity-Box ' title="Add To Cart" />
                             </div>
                         </div>
                     </div>

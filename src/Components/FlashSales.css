@@ -60,8 +60,6 @@
     border-radius: 50%;
     padding: 9px;
     color: #616161;
-    /* transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease; */
-
 }
 
 .flash-sales-slide .wishlist-icon1:hover {
@@ -186,7 +184,7 @@
     margin-bottom: 0;
 }
 
-.quantity-box {
+/* .quantity-box {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -202,7 +200,6 @@
     font-size: 16px;
     font-family: 'Quicksand';
     font-weight: 600;
-    transition: all 0.3s ease;
 }
 
 .quantity-box button {
@@ -217,7 +214,7 @@
 .quantity-box span {
     width: 20px;
     text-align: center;
-}
+} */
 
 
 /* ---------------------------------2 BANNER CSS START FROM NOW------------------ */

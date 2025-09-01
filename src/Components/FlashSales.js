@@ -133,7 +133,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                         );
                                     }
                                 })()} */}
-                                <CartButton product={product} setCartItems={setCartItems} addBtnClass='flash-sales-add-button' qtyBoxClass='quantity-box' />
+                                <CartButton product={product} setCartItems={setCartItems} addBtnClass='flash-sales-add-button' qtyBoxClass='quantity-box' title='Add' />
 
                                 <p className="flash-sales-price">
                                     ${product.price}

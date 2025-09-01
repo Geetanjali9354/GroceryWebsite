@@ -148,7 +148,7 @@ function RecommendedSection() {
                                 );
                             }
                         })()} */}
-                        <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button ' />
+                        <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button' title="Add To Cart" />
                     </div>
                 ))}
             </div>
@@ -159,9 +159,7 @@ function RecommendedSection() {
             <div className="p-3 my-4">
                 <div className="row">
                     <div className="col-md-6"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        data-aos-anchor-placement="top-bottom"
+                        data-aos="zoom-in"
                     >
                         <div
                             className="rectangle-box_banner3 "
@@ -186,9 +184,7 @@ function RecommendedSection() {
                     </div>
 
                     <div className="col-md-6"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                        data-aos-anchor-placement="top-bottom"
+                        data-aos="zoom-in"
                     >
                         <div
                             className="rectangle-box_banner3 "

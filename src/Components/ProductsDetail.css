@@ -3,8 +3,6 @@
     object-fit: cover;
 }
 
-
-
 .imagediv {
     border: 1px solid #DBDBDB;
     height: 500px;
@@ -33,31 +31,69 @@
     border: none;
     padding: 8px 10px;
     color: white;
-    /* margin-top: 10px; */
-    transition: all 0.3s ease;
-    width: 30%;
-    margin-left: 10px;
+    width: 150px;
 }
+
+.Quantity-Box-detail {
+    display: flex;
+    width: 150px;
+    border: 1px solid #DBDBDB;
+    border-radius: 20px;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.Quantity-Box-detail button,
+.Quantity-Box-detail span {
+    flex: 1;
+    border: none;
+    background-color: white;
+    color: #1C799B;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.2s ease;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Optional hover effect */
+.Quantity-Box-detail button:hover {
+    background-color: #e3f4fa;
+}
+
+.icon-circle {
+    background-color: white;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .social-icons-Detail .icon-circle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: #e1f1fa;
-    color: #1c799b;
-    transition: all 0.3s ease;
+    color: #616161;
+    border: 1px solid #DBDBDB;
     text-decoration: none;
     margin-left: 10px;
 }
 
 .social-icons-Detail .icon-circle:hover {
-    background-color: #1c799b;
-    color: #ffffff;
+    border-color: #1C799B;
 }
-
 .coupon-box {
     border: 2px dotted #1e40af;
     border-radius: 8px;
@@ -108,15 +144,8 @@
     border-top: 1px solid #e0e0e0;
 }
 
-.info-box:first-of-type {
-    border-top: none;
-}
-
-.info-box .icon {
-    font-size: 1.4rem;
-    color: #008080;
-    margin-right: 15px;
-    margin-top: 3px;
+.icon {
+    color: #1C799B;
 }
 
 .store-header {
@@ -131,15 +160,6 @@
     cursor: pointer;
 }
 
-.icon-circle {
-    background-color: white;
-    border-radius: 50%;
-    height: 36px;
-    width: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .store-icon {
     color: #555;
@@ -167,10 +187,9 @@
 
 .info-box p {
     margin: 0;
-    font-size: 0.8rem;
+    /* font-size: 0.8rem; */
     color: #444;
     font-family: 'Quicksand';
-
 }
 
 .info-box h5 {
@@ -179,7 +198,6 @@
     color: black;
     font-family: 'Quicksand';
     font-weight: 600;
-
 }
 
 .product-rating-border {
@@ -296,12 +314,6 @@
 .product-qty-box {
     border-bottom: 1px solid #DBDBDB;
 
-}
-
-.qty-input-group {
-    width: 100px;
-    border-radius: 25px;
-    border: 1px solid #DBDBDB;
 }
 
 .qty-input {

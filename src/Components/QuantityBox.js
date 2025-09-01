@@ -1,5 +1,4 @@
 import React from 'react';
-import './QuantityBox.css';
 import {
     getCartItemQuantity,
     removeFromCart,
@@ -32,9 +31,9 @@ const QuantityBox = ({ product, setCartItems,className = ''  }) => {
     if (quantity > 0) {
         return (
             <div className={`${className}`} onClick={(e) => e.stopPropagation()}>
-                <button onClick={handleDecrease}>-</button>
+                <button onClick={handleDecrease} style={{borderRight:'1px solid #DBDBDB'}}>-</button>
                 <span>{quantity}</span>
-                <button onClick={handleIncrease}>+</button>
+                <button onClick={handleIncrease}  style={{borderLeft:'1px solid #DBDBDB'}}>+</button>
             </div>
         );
     } 

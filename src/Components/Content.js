@@ -1,4 +1,3 @@
-import React from "react";
 import './Content.css';
 import basket from '../Images/BANNER IMAGE.png';
 import { CartOutline } from "../Images/SvgImages";

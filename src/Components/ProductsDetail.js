@@ -6,19 +6,19 @@ import Footer from './Footer';
 import ServiceHighlights from './ServiceHighlights';
 import { BaselineHome } from '../Images/SvgImages';
 import './ProductsDetail.css'; // create and style separately
-import { CartOutline } from '../Images/SvgImages';
-import { HeartOutline } from '../Images/SvgImages';
-import { ShuffleOutline } from '../Images/SvgImages';
-import { ShareAndroid } from '../Images/SvgImages';
+import { HeartOutline, ShuffleOutline, ShareAndroid, Heart } from '../Images/SvgImages';
 import { FaTruck, FaUndo, FaStore, FaCheck, FaCreditCard, FaShieldAlt, FaBox } from 'react-icons/fa';
 import FlashSales from './FlashSales';
 import BannerImage from './BannerImage';
-import { addToCart } from '../Utils/cartUtils';
+import { addToCart, getCart } from '../Utils/cartUtils';
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { toast } from 'react-toastify';
+import CartButton from './CartButton';
 
 const ProductsDetail = () => {
     const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState(getCart());
+
     useEffect(() => {
         setWishlist(getWishlist());
     }, []);
@@ -135,52 +135,53 @@ const ProductsDetail = () => {
 
                         {/* Quantity & Add To Cart */}
                         <p className='mt-3 product-qty-label'>Quantity:</p>
-                        <div className="d-flex align-items-center mt-3 p-2 product-qty-box">
-                            <div className="input-group mb-4  qty-input-group" style={{ width: '120px', borderRadius: '25px', border: '1px solid #DBDBDB' }}>
-                                <button className="btn ">−</button>
-                                <input type="text" className="form-control text-center qty-input" value="1" readOnly />
-                                <button className="btn ">+</button>
-                            </div>
-                            <button className="Add-To-Cart-Button-Detail mb-4" onClick={() => HandleAddToCart(product)}>
-                                <span className="add-cart-text">
-                                    Add To Cart
-                                </span>
-                                <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
-                            </button>
-                            <div className="social-icons-Detail d-flex gap-2 ms-3 mb-4">
-                                {/* Facebook */}
-                                <a href="#" className="icon-circle" onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (isInWishlist(product.id)) {
-                                        const updated = removeFromWishlist(product.id);
-                                        setWishlist(updated);
-                                        toast.info(`${product.name} removed from wishlist`);
-                                    } else {
-                                        const updated = addToWishlist(product);
-                                        setWishlist(updated);
-                                        toast.success(`${product.name} added to wishlist`);
-                                    }
+                        <div className="d-flex align-items-center mt-3 p-2 product-qty-box justify-content-between">
+                            {/* Cart Button */}
+                            <CartButton
+                                product={product}
+                                setCartItems={setCartItems} // or whatever function updates your cart
+                                addBtnClass="Add-To-Cart-Button-Detail mb-4 "
+                                qtyBoxClass="qty-input-group mb-4 Quantity-Box-detail" // custom class if needed
+                                title="Add To Cart"
+                            />
 
-                                }}
+                            {/* ❤️ Wishlist and Social Icons — same as before */}
+                            <div className="social-icons-Detail d-flex gap-2 ms-3 mb-4 justify-content-end">
+                                <div
+                                    className="icon-circle"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (isInWishlist(product.id)) {
+                                            const updated = removeFromWishlist(product.id);
+                                            setWishlist(updated);
+                                            toast.info(`${product.name} removed from wishlist`);
+                                        } else {
+                                            const updated = addToWishlist(product);
+                                            setWishlist(updated);
+                                            toast.success(`${product.name} added to wishlist`);
+                                        }
+                                    }}
                                 >
-                                    <HeartOutline
-                                        height="30"
-                                        width="30"
-                                        className={isInWishlist(product.id) ? "red-heart" : ""}
-                                    />
-                                </a>
+                                    {isInWishlist(product.id) ? (
+                                        <Heart height="30" width="30" color="red" />
+                                    ) : (
+                                        <HeartOutline height="30" width="30" color="#616161" />
+                                    )}
+                                </div>
 
-                                {/* Twitter */}
-                                <a href="#" className="icon-circle" >
+
+
+                                <div className="icon-circle">
                                     <ShuffleOutline height="25" width="25" />
-                                </a>
+                                </div>
 
-                                {/* Instagram */}
-                                <a href="#" className="icon-circle" >
+                                <div className="icon-circle">
                                     <ShareAndroid height="25" width="25" />
-                                </a>
+                                </div>
                             </div>
+
                         </div>
+
                         {/* Coupon Section */}
                         <div className="coupon-box d-flex justify-content-between align-items-center p-2 mt-2">
                             <div className="d-flex align-items-center">
@@ -201,7 +202,7 @@ const ProductsDetail = () => {
                     {/* ---------------------------third div---------------------- */}
                     <div className="col-lg-3 col-md-6 col-sm-12 p-3">
                         <div className="card-box p-3">
-                            <div className="store-header d-flex align-items-center mb-4 ms-4">
+                            <div className="store-header d-flex align-items-center mb-4  w-100">
                                 <div className="icon-circle">
                                     <FaStore className="store-icon" />
                                 </div>
@@ -210,47 +211,59 @@ const ProductsDetail = () => {
                             </div>
 
                             <div className="info-box p-4">
-                                <FaTruck className="icon" />
-                                <div>
+                                <div className='icon-circle  shadow '>
+                                    <FaTruck className="icon" />
+                                </div>
+                                <div className='ms-2 w-75'>
                                     <h5>Fast Delivery</h5>
                                     <p className='mt-2'>Lightning-fast shipping,<br /> guaranteed.</p>
                                 </div>
                             </div>
 
                             <div className="info-box p-4">
-                                <FaUndo className="icon" />
-                                <div>
+                                <div className='icon-circle  shadow '>
+                                    <FaUndo className="icon" />
+                                </div>
+                                <div className='w-75 ms-2'>
                                     <h5>Free 90-day returns</h5>
                                     <p className='mt-2'>Shop risk-free with easy returns.</p>
                                 </div>
                             </div>
 
                             <div className="info-box p-4">
-                                <FaCheck re className="icon" />
-                                <div>
+                                <div className='icon-circle  shadow '>
+                                    <FaCheck className="icon" />
+                                </div>
+                                <div className='w-75 ms-2'>
                                     <h5>Pickup available at Shop location</h5>
                                     <p className='mt-2'>Usually ready in 24 hours</p>
                                 </div>
                             </div>
 
                             <div className="info-box p-4">
-                                <FaCreditCard className="icon" />
-                                <div>
+                                <div className='icon-circle  shadow '>
+                                    <FaCreditCard className="icon" />
+                                </div>
+                                <div className='w-75 ms-2'>
                                     <h5>Payment</h5>
                                     <p className='mt-2'>Payment upon receipt of goods, Payment by card in the department, Google Pay, Online card.</p>
                                 </div>
                             </div>
 
                             <div className="info-box p-4">
-                                <FaShieldAlt className="icon" />
-                                <div>
+                                <div className='icon-circle  shadow '>
+                                    <FaShieldAlt className="icon" />
+                                </div>
+                                <div className='w-75 ms-2'>
                                     <h5>Warranty</h5>
                                     <p className='mt-2'>The Consumer Protection Act does not provide for the return of...</p>
                                 </div>
                             </div>
                             <div className="info-box p-4">
-                                <FaBox className="icon" />
-                                <div>
+                                <div className='icon-circle  shadow '>
+                                    <FaBox className="icon" />
+                                </div>
+                                <div className='w-75 ms-2'>
                                     <h5>Packaging</h5>
                                     <p className='mt-2'>Research & development value proposition graphical user interface investor.
                                     </p>
@@ -259,7 +272,7 @@ const ProductsDetail = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <FlashSales title='You Might Also Like' linkText='All Products' />
             <ServiceHighlights />
 
