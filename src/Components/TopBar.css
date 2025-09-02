@@ -5,32 +5,27 @@
     padding: 10px 0;
     width: 100%;
     display: 'flex';
-
 }
 
-.nav-link {
-  position: relative;
-  display: inline-block;
-  margin: 0 15px;
-}
+
 
 .badgeeee {
-  position: absolute;
-  top: -25px;
-  left: 0;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 4px;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
 .badgeeee-yellow {
-  background-color: orange;
+    background-color: orange;
 }
 
 .badgeeee-blue {
-  background-color: blueviolet;
+    background-color: blueviolet;
 }
 
 .countdown {
@@ -128,28 +123,9 @@
     /* Highlight color on hover */
 }
 
-/* Show dropdown on hover */
-
-
-/* Smooth open animation (optional) */
-.dropdown-menu {
-    transition: all 0.3s ease;
-}
-
 .nav-link.dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
-    /* Optional: remove gap */
-}
-
-/* Custom active style for dropdown items */
-.dropdown-item:active,
-.dropdown-item:focus,
-.dropdown-item.custom-active {
-    background-color: transparent !important;
-    /* Your custom color */
-    color: #1C799B !important;
-    /* Optional: custom text color */
 }
 
 /* Base icon style */
@@ -163,7 +139,7 @@
     color: #1C799B;
 }
 
-.BrowseIcon{
+.BrowseIcon {
     height: 20px;
     width: 20px;
 }
@@ -172,8 +148,65 @@
 .category-dropdown {
     z-index: 1000;
     left: 10;
-    width: 30%;
+    width: 25%;
     cursor: pointer;
+}
+
+.category-card {
+    border-radius: 8px;
+}
+
+.category-card:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+/* Default height for mobile/small devices */
+.responsive-logo {
+    height: 30px;
+}
+@media (max-width: 819px) {
+    .responsive-logo {
+        height: 40px;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 820px) {
+    .responsive-logo {
+        height: 50px;
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1024px) {
+    .responsive-logo {
+        height: 60px;
+    }
+}
+
+/* Hover dropdown open */
+.custom-dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 10px;
+}
+
+.custom-dropdown .dropdown-menu {
+    font-family: 'Quicksand';
+    background-color: white;
+    border-radius: 6px;
+    min-width: 130px;
+    cursor: pointer;
+}
+
+.custom-dropdown .dropdown-item {
+    /* padding: 8px 16px; */
+    color: #333;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
 }
 
 .HelpText span {

@@ -7,7 +7,7 @@ function OfferBanner() {
     return (
         <div className="p-3 my-4">
             <div className="row">
-                <div className="col-md-6"
+                <div className="col-lg-6 col-sm-12 col-md-12 "
                     data-aos="zoom-in"
                     data-aos-duration="1000"
 
@@ -38,7 +38,7 @@ function OfferBanner() {
                     </div>
                 </div>
 
-                <div className="col-md-6"
+                <div className="col-lg-6 col-sm-12 col-md-12"
                     data-aos="zoom-in"
                     data-aos-duration="1000"
                 >

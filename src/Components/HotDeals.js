@@ -78,10 +78,10 @@ function HotDeals() {
                 </div>
                 <div className="row p-3">
                     {/* LEFT SECTION */}
-                    <div className="col-md-4 hotdeal-card text-white d-flex flex-column justify-content-between"
-                        data-aos="zoom-in"
-                        data-aos-duration="1000"
-                        data-aos-delay="100"
+                    <div className="col-md-4 col-lg-4 hotdeal-card text-white d-flex flex-column justify-content-between"
+                    // data-aos="zoom-in"
+                    // data-aos-duration="1000"
+                    // data-aos-delay="100"
                     >
                         <div className="h-100 position-relative d-flex align-items-end justify-content-end">
                             <img
@@ -92,16 +92,26 @@ function HotDeals() {
                         </div>
 
                         {/* Content Positioned Over Image */}
-                        <div className="hotdeal-content position-absolute mt-3 p-5">
-                            <span className=" hotdeal-badge mb-3 text-black">
+                        <div className="hotdeal-content p-4 p-md-5 position-relative position-absolute mt-3">
+                            {/* Badge */}
+                            <span className="hotdeal-badge mb-3 text-black">
                                 Medical equipment
                             </span>
 
-                            <CustomText Text="Deals of the day" className="hotdeal-title mt-3" fontWeight="bold" />
-                            <CustomText Text="Save up to 50% off on your first order" className="hotdeal-subtitle" />
+                            {/* Title */}
+                            <CustomText
+                                Text="Deals of the day"
+                                className="hotdeal-title mt-3"
+                                fontWeight="bold"
+                            />
+                            <CustomText
+                                Text="Save up to 50% off on your first order"
+                                className="hotdeal-subtitle"
+                            />
 
-                            <div className="d-flex align-items-center gap-2 mt-3">
-                                {["821 D", "17 H", "50 M", "38 S"].map((item, idx) => (
+                            {/* Timer */}
+                            <div className="d-flex align-items-center gap-2 mt-3 flex-wrap">
+                                {["799 D", "14 H", "57 M", "37 S"].map((item, idx) => (
                                     <div
                                         key={idx}
                                         className="hotdeal-timer-box bg-white text-dark fw-bold rounded px-2 py-1"
@@ -111,16 +121,18 @@ function HotDeals() {
                                 ))}
                             </div>
 
+                            {/* Button */}
                             <button className="d-flex align-items-center rounded-pill px-4 py-2 mt-4 hotdeal-btn">
                                 <span className="hotdeal-btn-text">
                                     Explore Shop <CartOutline height="20" width="20" />
                                 </span>
                             </button>
                         </div>
+
                     </div>
 
                     {/* RIGHT SECTION - SLIDER */}
-                    <div className="col-md-8 ">
+                    <div className="col-md-8 col-lg-8 ">
                         <div className="hotdeals-container">
                             <Slider {...settings}>
                                 {HotDealProducts.map((product, idx) => (

@@ -124,30 +124,6 @@ function RecommendedSection() {
                             <strong>{item.rating}</strong> ⭐ (17k)
                         </p>
 
-                        {/* {(() => {
-                            const quantity = getCartItemQuantity(item.id);
-                            if (quantity > 0) {
-                                return (
-                                    <QuantityBox
-                                        product={item}
-                                        setCartItems={setCartItems}
-                                        className="Add-To-Cart-Quantity-Box"
-                                    />
-                                );
-                            } else {
-                                return (
-                                    <button className="Add-To-Cart-Button" onClick={(e) => {
-                                        e.stopPropagation();
-                                        addToCart(item);
-                                        setCartItems(getCart());
-                                        toast.success(`${item.name} added to cart!`);
-                                    }}>
-                                        Add To Cart
-                                        <CartOutline height="20" width="20" style={{ marginLeft: '10px' }} />
-                                    </button>
-                                );
-                            }
-                        })()} */}
                         <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button' title="Add To Cart" />
                     </div>
                 ))}

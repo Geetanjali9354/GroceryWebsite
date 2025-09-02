@@ -7,6 +7,7 @@ import Wishlist from '../Images/wishlist.png';
 import Cart from '../Images/trolley.png';
 import SearchBlack from '../Images/searchBlack.png';
 import { BaselineKeyboardArrowDown, HamburgerMd, Mobile } from "../Images/SvgImages";
+import { FaTruck } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
@@ -109,10 +110,10 @@ function TopBar() {
     return (
         <div>
             {/* Top Bar */}
-            <div className="header-top">
+            <div className="header-top ">
                 <div className="header-top-wrapper d-flex flex-wrap align-items-center justify-content-between ms-2 ">
                     <div className="header-countdown d-flex align-items-center flex-wrap mb-2 mb-md-0">
-                        <CustomText Text="Until the end of the sale:" className="sale-text text-white d-none d-md-flex me-2" />
+                        <CustomText Text="Until the end of the sale:" className="sale-text text-white d-none d-lg-flex me-2" />
                         <CustomText Text="Sale end:" className="text-white d-xl-flex d-xl-none me-2" />
                         <div className="countdown d-flex">
                             <div className="countdown-item">
@@ -131,50 +132,66 @@ function TopBar() {
                     </div>
                     <div className="header-offers d-none d-lg-flex justify-content-center mb-2 mb-md-0">
                         <p className="header-offers mb-0 text-white" style={{ fontFamily: 'Quicksand' }}>
-                            Buy one get one free <span style={{ color: '#ffcc53', fontFamily: 'Quicksand' }}> first Order</span> | Track Your Order
+                            Buy one get one free <span style={{ color: '#ffcc53', fontFamily: 'Quicksand' }}> first Order</span> | <FaTruck /> Track Your Order
                         </p>
                     </div>
                     <div className="me-5">
-                        <ul className="header-links mb-0" style={{ paddingLeft: '0px' }}>
-                            <li className="d-none d-md-flex"><a href="#" className='text-white' style={{ fontFamily: 'Quicksand' }}>Order Tracking</a></li>
-                            <li className="d-none d-md-flex"><a href="#" className='d-none d-md-flex text-white' style={{ fontFamily: 'Quicksand' }}>About Us</a></li>
-                            <li className="dropdown">
-                                <a href="#" style={{ fontFamily: 'Quicksand' }}>Eng</a>
-                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand' }}>
-                                    <li>English</li>
-                                    <li>Japanese</li>
-                                    <li>French</li>
-                                    <li>Germany</li>
-                                    <li>Bangladesh</li>
-                                    <li>South Korea</li>
+                        <div className="header-links d-flex gap-4 align-items-center">
+                            {/* Order Tracking */}
+                            <p className="d-none d-lg-flex mb-0">
+                                <a href="#" className="text-white" style={{ fontFamily: 'Quicksand' }}>Order Tracking</a>
+                            </p>
+
+                            {/* About Us */}
+                            <p className="d-none d-lg-flex mb-0">
+                                <a href="#" className="text-white" style={{ fontFamily: 'Quicksand' }}>About Us</a>
+                            </p>
+
+                            {/* Language Dropdown */}
+                            <div className="dropdown custom-dropdown">
+                                <p className="text-white dropdown-toggle" style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
+                                    Eng
+                                </p>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#">English</a></li>
+                                    <li><a className="dropdown-item" href="#">Japanese</a></li>
+                                    <li><a className="dropdown-item" href="#">French</a></li>
+                                    <li><a className="dropdown-item" href="#">German</a></li>
+                                    <li><a className="dropdown-item" href="#">Bangla</a></li>
+                                    <li><a className="dropdown-item" href="#">Korean</a></li>
                                 </ul>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#" style={{ fontFamily: 'Quicksand' }}>USD</a>
-                                <ul className="dropdown-menu" style={{ fontFamily: 'Quicksand' }}>
-                                    <li>USD</li>
-                                    <li>Yen</li>
-                                    <li>Franc</li>
-                                    <li>EURO</li>
-                                    <li>BDT</li>
-                                    <li>WON</li>
+                            </div>
+
+                            {/* Currency Dropdown */}
+                            <div className="dropdown custom-dropdown">
+                                <p className="text-white dropdown-toggle" style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
+                                    USD
+                                </p>
+                                <ul className="dropdown-menu ">
+                                    <li><a className="dropdown-item" href="#">USD</a></li>
+                                    <li><a className="dropdown-item" href="#">Yen</a></li>
+                                    <li><a className="dropdown-item" href="#">Franc</a></li>
+                                    <li><a className="dropdown-item" href="#">Euro</a></li>
+                                    <li><a className="dropdown-item" href="#">BDT</a></li>
+                                    <li><a className="dropdown-item" href="#">Won</a></li>
                                 </ul>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
             {/* NAVBAR */}
             <header style={{ height: '100px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #DBDBDB' }}>
                 <div className='container-fluid'>
-                    <div className='row align-items-center'>
-                        <div className='col-6 col-md-2 text-start'>
-                            <img className='img-fluid' src={Logo} alt="MarketPro Logo" style={{ height: '50px' }} />
+                    <div className='row align-items-center justify-content-between'>
+                        <div className='w-auto col-lg-3 col-md-6 col-sm-3 text-start '>
+                            <img className=' responsive-logo' src={Logo} alt="MarketPro Logo" />
                         </div>
-                        <div className="col-lg-7 d-none d-lg-block">
+                        <div className="col-lg-5 col-md-5 col-sm-4 d-none d-lg-flex">
                             <div className="input-group">
-                                <select className="form-select" style={{ maxWidth: '21%' }}>
+                                <select className="form-select" style={{ maxWidth: '25%' }}>
                                     <option>All categories</option>
                                     <option>Electronics</option>
                                     <option>Fashion</option>
@@ -194,43 +211,51 @@ function TopBar() {
                                 </button>
                             </div>
                         </div>
-                        <div className="col-6 col-md-10 col-lg-3 d-flex justify-content-end align-items-center gap-3 pe-3 ProfileDiv">
+                        <div className="w-auto  col-lg-3 col-md-6 col-sm-6 d-flex justify-content-end align-items-center gap-3 pe-3 ProfileDiv">
                             <div className="d-lg-none cursor-pointer">
                                 <img src={SearchBlack} style={{ height: '20px', width: '20px' }} />
                             </div>
                             <div className="d-flex align-items-center gap-1 cursor-pointer" onClick={handleProfileClick}>
                                 <img src={User} style={{ height: '20px', width: '20px' }} />
-                                <span className="d-none d-sm-inline">Profile</span>
+                                <span className="d-none d-lg-flex">Profile</span>
                             </div>
-                            <div className="d-flex align-items-center gap-1 cursor-pointer position-relative"
+                            <div
+                                className="d-flex align-items-center gap-1 cursor-pointer position-relative"
                                 onClick={handleWishlistClick}
                             >
-                                {/* Badge Count */}
-                                {wishlistCount > 0 && (
-                                    <span
-                                        className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-                                        style={{ fontSize: '10px', backgroundColor: '#1C799B', color: 'white' }}
-                                    >
-                                        {wishlistCount}
-                                    </span>
-                                )}
+                                {/* Heart Icon with Badge */}
+                                <div className="position-relative" style={{ height: '20px', width: '20px' }}>
+                                    {/* Badge Count */}
+                                    {wishlistCount > 0 && (
+                                        <span
+                                            className="position-absolute  start-100 translate-middle badge rounded-pill"
+                                            style={{ fontSize: '10px', backgroundColor: '#1C799B', color: 'white' }}
+                                        >
+                                            {wishlistCount}
+                                        </span>
+                                    )}
+                                    <img src={Wishlist} style={{ height: '20px', width: '20px' }} className="mb-4" alt="wishlist" />
+                                </div>
 
-                                <img src={Wishlist} style={{ height: '20px', width: '20px' }} alt="wishlist" />
-                                <span className="d-none d-sm-inline">Wishlist</span>
+                                {/* Wishlist Text */}
+                                <span className="d-none d-lg-flex">Wishlist</span>
                             </div>
+
 
                             <div className="d-flex align-items-center gap-1 cursor-pointer position-relative"
                                 onClick={handleCartClick}
                             >
-                                {cartCount > 0 && (
-                                    <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill "
-                                        style={{ fontSize: '10px', backgroundColor: '#1C799B', color: 'white' }}
-                                    >
-                                        {cartCount}
-                                    </span>
-                                )}
-                                <img src={Cart} style={{ height: '20px', width: '20px' }} />
-                                <span className="d-none d-sm-inline">Cart</span>
+                                <div className="position-relative" style={{ height: '20px', width: '20px' }}>
+                                    {cartCount > 0 && (
+                                        <span className=" position-absolute start-100 translate-middle badge rounded-pill "
+                                            style={{ fontSize: '10px', backgroundColor: '#1C799B', color: 'white' }}
+                                        >
+                                            {cartCount}
+                                        </span>
+                                    )}
+                                    <img src={Cart} style={{ height: '20px', width: '20px' }} className="mb-4" alt="cart" />
+                                </div>
+                                <span className="d-none d-lg-flex">Cart</span>
                             </div>
                         </div>
                     </div>
@@ -270,7 +295,7 @@ function TopBar() {
                                             <div key={index} className="col-6 col-md-4 text-center"
                                                 onClick={() => handleCategoryClick(item.id)}
                                             >
-                                                <div className="category-card">
+                                                <div className="category-card p-1">
                                                     <img src={item.image} alt={item.label} className="img-fluid mb-2" style={{ height: '40px' }} />
                                                     <h6>{item.label}</h6>
                                                 </div>

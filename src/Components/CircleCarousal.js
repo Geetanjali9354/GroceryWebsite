@@ -41,7 +41,7 @@ function CircleCarousal() {
             },
             {
                 breakpoint: 768,
-                settings: { slidesToShow: 2, slidesToScroll: 1 }
+                settings: { slidesToShow: 4, slidesToScroll: 1 }
             },
             {
                 breakpoint: 480,

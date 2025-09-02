@@ -20,7 +20,6 @@
   margin-top: 40px;
   padding: 0 20px;
   margin-bottom: 50px;
-  grid-template-columns: repeat(1, 1fr);
 }
 
 .index1 {
@@ -31,7 +30,6 @@
   padding: 20px;
   border-radius: 15px;
   font-size: 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   color: white;
   height: 450px;
   display: flex;
@@ -42,18 +40,13 @@
   background-repeat: no-repeat;
   position: relative;
   cursor: pointer;
+  border: 1px solid #DBDBDB;
 }
 
 .box-catProduct:hover {
   border: 1px solid #2086A3;
 }
 
-/* Responsive 4-column layout on large screens */
-@media (min-width: 1024px) {
-  .four-box-grid-catProduct {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 
 .catProduct-image-container {
   height: '100%';
@@ -76,7 +69,6 @@
 /* Hover effect for image */
 .catProduct-image-container:hover img {
   transform: scale(1.2);
-  /* z-index: 10; */
 }
 
 .box-catProduct:hover .catProduct-image-container img {
@@ -140,12 +132,6 @@
   font-size: 18px;
   height: 60px;
   font-family: 'Quicksand';
-}
-
-.pagination-btn:hover:not(.active):not(.disabled) {
-  background-color: #167a92;
-  color: white;
-  border-color: #167a92;
 }
 
 .pagination-btn.active {

@@ -10,9 +10,31 @@
     height: 300px;
 }
 
+/* Make the card adapt height and prevent overflow */
 .hotdeal-content {
-    z-index: 2;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 20px;
+    color: white;
 }
+
+/* Responsive padding */
+@media (max-width: 768px) {
+    .hotdeal-content {
+        padding: 20px;
+        position: relative !important;
+    }
+
+    .hotdeal-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hotdeal-timer-box {
+        font-size: 12px;
+    }
+}
+
 
 .hotdeal-badge {
     background-color: #FFC107;
@@ -40,7 +62,6 @@
 .hotdeal-btn {
     background-color: white;
     border: none;
-    transition: background-color 0.3s ease;
 }
 
 .hotdeal-btn-text {

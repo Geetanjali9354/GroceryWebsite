@@ -60,16 +60,17 @@ const ProductsPage = ({ title, breadcrumb, products }) => {
       {/* Body */}
       <div className="container-fluid m-0 g-0 mt-4">
         <div className="row p-4">
-          <FilterSection
-            handleCategoryClick={(id) => navigate(`/category/${id}`)}
-          />
-
-          <div className="col-7">
-            <div className="four-box-grid-catProduct">
+          <div className="col-lg-3  col-sm-12">
+            <FilterSection
+              handleCategoryClick={(id) => navigate(`/category/${id}`)}
+            />
+          </div>
+          <div className="col-lg-9 col-md-12 col-sm-12 flex-wrap ">
+            <div className="four-box-grid-catProduct d-flex flex-wrap  justify-content-around">
               {products.map((item, index) => (
                 <div
                   key={index}
-                  className="box-catProduct"
+                  className="box-catProduct "
                   data-aos="fade-up"
                   data-aos-delay="100"
                   data-aos-anchor-placement="top-bottom"
@@ -118,7 +119,7 @@ const ProductsPage = ({ title, breadcrumb, products }) => {
                   <p className="catProduct-rating">
                     <strong>{item.rating}</strong> ⭐ (17k)
                   </p>
-                  <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button-catProduct ' />
+                  <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button-catProduct' title="Add to Cart" />
                 </div>
               ))}
             </div>

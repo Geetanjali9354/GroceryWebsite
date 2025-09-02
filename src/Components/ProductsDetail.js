@@ -55,7 +55,7 @@ const ProductsDetail = () => {
             <div className="container-fluid my-5">
                 <div className="row gy-4 p-3 ">
                     {/* Left - Product Image */}
-                    <div className="col-md-4 text-center h-100 ">
+                    <div className="col-lg-4 col-sm-12 col-md-12 text-center h-100">
                         <div className='row g-0 p-0 m-0 imagediv d-flex align-items-center justify-content-center'>
                             <img
                                 src={product.images?.[0]}
@@ -103,7 +103,7 @@ const ProductsDetail = () => {
 
 
                     {/* Right - Details */}
-                    <div className="col-md-5 p-3 MainDiv">
+                    <div className="col-lg-5 col-sm-12 col-md-12 p-3 MainDiv">
                         <h2 className="Product-name ">{product.name}</h2>
                         <div className="d-flex align-items-center mb-2 product-rating-border" >
                             <span className="text-warning fw-bold me-2 mb-4">{product.rating} ⭐⭐⭐⭐⭐</span>
@@ -200,7 +200,7 @@ const ProductsDetail = () => {
                     </div>
 
                     {/* ---------------------------third div---------------------- */}
-                    <div className="col-lg-3 col-md-6 col-sm-12 p-3">
+                    <div className="col-lg-3 col-md-12 col-sm-12 p-3 ">
                         <div className="card-box p-3">
                             <div className="store-header d-flex align-items-center mb-4  w-100">
                                 <div className="icon-circle">

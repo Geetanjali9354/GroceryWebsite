@@ -1,24 +1,24 @@
-/* General Styling */
 .special-offer-container {
   position: relative;
   width: 100%;
   padding: 20px;
   border-radius: 30px;
-  /* Background layering */
-  background-color: #e9ffff; /* Light blue fallback */
-  background-image: url('../Images/bannerbACKGROUND.png'); /* Replace with actual path */
+  background-color: #e9ffff;
+  background-image: url('../Images/bannerbACKGROUND.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
-
-/* Ensure content stays above background and overlay */
+.cursor{
+  cursor: grab;
+}
 .banner-item__content {
   position: relative;
   z-index: 2;
   color: white;
 }
+
 /* Banner Content */
 .banner-item__content {
   color: white;
@@ -30,37 +30,26 @@
 }
 
 .banner-item__title {
-  /* font-size: 36px; */
-  /* Reduced for better responsiveness */
-  /* font-weight: bold; */
+  font-weight: bold;
+  font-size: 50px;
+  font-family: 'Quicksand';
   margin-bottom: 30px;
   color: black;
 }
 
 .text-main-600 {
   color: #1C799B;
-  /* Highlight color */
 }
 
 .gap-16 {
   gap: 16px;
 }
 
-.exploreNowBtn{
+.exploreNowBtn {
   height: 50px;
-  /* width: '50%'; */
   border: none;
 }
 
-/* Mobile Screens */
-@media (max-width: 768px) {
-  .special-offer-container {
-    padding: 10px;
-    /* Reduce padding on mobile */
-  }
-}
-
-/* Extra small screens (portrait mobile) */
 @media (max-width: 480px) {
   .banner-item__title {
     font-size: 22px;
@@ -72,7 +61,7 @@
   }
 
   .image-style {
-    max-width: 80%;
+    max-width: 100%;
     /* Further reduce image width on very small screens */
   }
 
