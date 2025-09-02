@@ -109,30 +109,6 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                     <img src={(product.images?.[0] || '')} alt={product.name} />
                                 </div>
 
-                                {/* {(() => {
-                                    const quantity = getCartItemQuantity(product.id);
-                                    if (quantity > 0) {
-                                        return (
-                                            <QuantityBox
-                                                product={product}
-                                                setCartItems={setCartItems}
-                                                className='quantity-box'
-                                            />
-                                        );
-                                    } else {
-                                        return (
-                                            <button className="flash-sales-add-button" onClick={(e) => {
-                                                e.stopPropagation();
-                                                addToCart(product);
-                                                setCartItems(getCart());
-                                                toast.success(`${product.name} added to cart!`);
-                                            }}>
-                                                Add
-                                                <CartOutline height="20" width="20" />
-                                            </button>
-                                        );
-                                    }
-                                })()} */}
                                 <CartButton product={product} setCartItems={setCartItems} addBtnClass='flash-sales-add-button' qtyBoxClass='quantity-box' title='Add' />
 
                                 <p className="flash-sales-price">

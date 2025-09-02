@@ -119,6 +119,7 @@ const DailyBestSale = () => {
                                                     setCartItems={setCartItems}
                                                     qtyBoxClass="Add-To-Cart-Quantity-Box"
                                                     addBtnClass="Add-To-Cart-Button"
+                                                    title='Add to Cart'
                                                 />
                                             </div>
                                         </div>

@@ -26,7 +26,7 @@
     }
 
     .hotdeal-btn {
-        width: 100%;
+        width: 60%;
         justify-content: center;
     }
 
@@ -158,7 +158,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    box-shadow: 0 1px 4px rgb(13 110 253 / 0.3);
     transition: all 0.3s ease;
 }
 
@@ -289,20 +288,17 @@
 
 
 .box-Hot {
-    /* padding: 20px; */
     margin-top: 10px;
     border-radius: 15px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: black;
-    /* height: '80%'; */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    border: 1px solid #DBDBDB;
 }
 
 .box-Hot:hover {
@@ -310,18 +306,16 @@
 }
 
 .box-Hot-4 {
-    /* padding: 20px; */
     margin-top: 10px;
     border-radius: 15px;
     color: black;
-    /* height: '80%'; */
     display: flex;
     flex-direction: column;
-    gap: 10px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    border: 1px solid #DBDBDB;
 }
 
 .box-Hot-4:hover {
@@ -329,7 +323,7 @@
 }
 
 .box-Hot-4 .image-container img {
-    transition: transform 0.4s ease, filter 0.4s ease;
+    transition: transform 0.4s ;
 }
 
 .box-Hot-4:hover .image-container img {
@@ -379,7 +373,7 @@
     border-radius: 25px;
     font-family: 'Quicksand';
     border: none;
-    height: 35px;
+    height: 40px;
 }
 
 .Add-To-Cart-Quantity-Box {
@@ -387,7 +381,6 @@
     width: 100%;
     height: 35px;
     border: 1px solid #ccc;
-    /* light grey border */
     border-radius: 20px;
     overflow: hidden;
     margin-top: 10px;
@@ -417,7 +410,6 @@
     background-color: #e3f4fa;
 }
 
-/* Responsive 4-column layout on large screens */
 @media (min-width: 1024px) {
     .four-box-grid-Hot {
         grid-template-columns: repeat(4, 1fr);

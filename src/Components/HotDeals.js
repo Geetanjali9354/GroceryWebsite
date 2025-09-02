@@ -3,19 +3,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HotdealBannerImg from "../Images/HotDealBanner.png";
-import { CartOutline } from "../Images/SvgImages";
+import { CartOutline, BaselineContentCopy, HeartOutline } from "../Images/SvgImages";
 import "./HotDeals.css";
 import CustomText from "./CustomText";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ProductCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
-import { BaselineContentCopy } from "../Images/SvgImages";// Sample Product Data (replace with actual dynamic data if needed)
-import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
+import { addToCart, getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
-import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
-import QuantityBox from "./QuantityBox";
 import CartButton from "./CartButton";
 
 function HotDeals() {
@@ -40,7 +37,6 @@ function HotDeals() {
     );
 
     const HotDealProducts = ProductCollection.filter(product => product.isSale === true);
-    // const singleProduct = ProductCollection[3];
 
     const copyCode = () => {
         navigator.clipboard.writeText("FREE25BAC");
@@ -69,6 +65,16 @@ function HotDeals() {
             { breakpoint: 480, settings: { slidesToShow: 1 } },
         ],
     };
+    const carouselSetting = {
+        dots: false,
+        infinite: true,
+        arrows: false,
+        speed: 2000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000
+    };
     return (
         <div>
             <div className="container-fluid ">
@@ -79,9 +85,9 @@ function HotDeals() {
                 <div className="row p-3">
                     {/* LEFT SECTION */}
                     <div className="col-md-4 col-lg-4 hotdeal-card text-white d-flex flex-column justify-content-between"
-                    // data-aos="zoom-in"
-                    // data-aos-duration="1000"
-                    // data-aos-delay="100"
+                        data-aos="zoom-in"
+                        data-aos-duration="1000"
+                        data-aos-delay="100"
                     >
                         <div className="h-100 position-relative d-flex align-items-end justify-content-end">
                             <img
@@ -208,12 +214,12 @@ function HotDeals() {
 
             <div className="promo-banner container-fluid py-3 p-5 mt-5 mb-5 ">
                 <div className="row align-items-center text-center text-md-start">
-                    <div className="col-12 col-md-5 mb-2 mb-md-0">
+                    <div className="col-lg-4 col-md-5 mb-2 mb-md-0">
                         Super discount for your <strong><u>first purchase</u></strong>
                     </div>
 
                     <div
-                        className="col-12 col-md-3 promo-code d-flex justify-content-center justify-content-md-center mb-2 mb-md-0"
+                        className="col-lg-3 col-md-3 promo-code d-flex justify-content-center justify-content-md-center mb-2 mb-md-0"
                         onClick={copyCode}
                         role="button"
                         tabIndex={0}
@@ -222,7 +228,7 @@ function HotDeals() {
                         <CustomText Text="FREE25BAC" fontSize="18px" />
                         <BaselineContentCopy height="20" width="20" className="ms-2" />
                     </div>
-                    <div className="col-12 col-md-5 text-center text-md-end">
+                    <div className="col-lg-5 col-md-4 text-center text-md-end">
                         <span style={{ fontSize: '16px', color: '#1c799b', fontWeight: '500' }}>
                             Use discount code to get <strong>20%</strong> discount for any item
                         </span>
@@ -232,9 +238,13 @@ function HotDeals() {
 
             {/* -----------------------------FEATURED PRODUCTS/ TOP SELLING PRODUCTS/ON-SALE PRODUCTS----------- */}
 
-            <div className="four-box-grid-Hot row  container-fluid p-3 m-0">
-                {/* Featured Products */}
-                <div className="col-12 col-lg-3 mb-4 ">
+            <div className="four-box-grid-Hot row  m-0"
+                data-aos="fade-up"
+            >
+                <div className="col-sm-6 col-md-6 col-lg-3 mb-4"
+
+                // data-aos-delay={idx * 100}
+                >
                     <div className="box-Hot p-3">
                         <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px' }}>
                             <CustomText
@@ -262,37 +272,61 @@ function HotDeals() {
                                 </div>
                             </div>
                         </div>
-
                         {/* <Slider {...settings}> */}
-                        {selectedProducts1.map((product, index) => {
-                            // const product = CategoryCollection[0]?.products.find((p) => p.id === id);
-                            return (
-                                <div key={index}>
-                                    <div className="row bg-white rounded p-2 mb-2">
+                        <Slider
+                            {...carouselSetting}
+                        >
+                            {/* 🔹 First Slide (All Products ek sath) */}
+                            <div className="container-fluid ">
+                                {selectedProducts1.map((product, index) => (
+                                    <div key={`first-${index}`} className="row rounded mb-3 p-2  mt-4">
                                         <div className="col-4">
-                                            <div className="d-flex align-items-center justify-content-center border rounded" style={{ backgroundColor: '#f8f9fa', height: '90px' }}>
+                                            <div
+                                                className="d-flex align-items-center justify-content-center border rounded"
+                                                style={{ backgroundColor: '#f8f9fa', height: '90px' }}
+                                            >
                                                 <img src={product?.images?.[0]} alt="Product" height="70" />
                                             </div>
                                         </div>
                                         <div className="col-8 product-details">
-                                            <div className="text-muted product-rating">
-                                                {product?.rating || '4.8'} ★ ({product?.sold?.split('/')?.[0]})
+                                            <div className="text-muted product-rating ">
+                                                {product?.rating || '4.8'} <span className="text-warning">★</span> ({product?.sold?.split('/')?.[0]})
                                             </div>
                                             <div className="product-name">{product?.name}</div>
                                             <div className="product-price">${product?.price}</div>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
-                        {/* </Slider> */}
+                                ))}
+                            </div>
 
+                            {/* 🔹 Second Slide (Same products again) */}
+                            <div className="container-fluid">
+                                {selectedProducts1.map((product, index) => (
+                                    <div key={`second-${index}`} className="row rounded mb-3 p-2 mt-4">
+                                        <div className="col-4">
+                                            <div
+                                                className="d-flex align-items-center justify-content-center border rounded"
+                                                style={{ backgroundColor: '#f8f9fa', height: '90px' }}
+                                            >
+                                                <img src={product?.images?.[0]} alt="Product" height="70" />
+                                            </div>
+                                        </div>
+                                        <div className="col-8 product-details">
+                                            <div className="text-muted product-rating">
+                                                {product?.rating || '4.8'} <span className="text-warning">★</span> ({product?.sold?.split('/')?.[0]})
+                                            </div>
+                                            <div className="product-name">{product?.name}</div>
+                                            <div className="product-price">${product?.price}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Slider>
                     </div>
                 </div>
 
 
-                {/* Top Selling Products */}
-                <div className="col-12 col-lg-3 mb-4 ">
+                <div className="col-sm-6 col-md-6 col-lg-3 mb-4 ">
                     <div className="box-Hot p-3">
                         <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px' }}>
                             <CustomText
@@ -307,33 +341,60 @@ function HotDeals() {
                                 </div>
                             </div>
                         </div>
-                        {selectedProducts2.map((product, index) => {
-                            // const product = CategoryCollection[1]?.products.find((p) => p.id === productId);
-                            return (
-                                <div key={index}>
-                                    <div className="row bg-white rounded p-2 mb-2">
+                        <Slider
+                            {...carouselSetting}
+                        >
+                            {/* 🔹 First Slide (All Products ek sath) */}
+                            <div className="container-fluid">
+                                {selectedProducts2.map((product, index) => (
+                                    <div key={`first-${index}`} className="row rounded mb-3 p-2 mt-4">
                                         <div className="col-4">
-                                            <div className="d-flex align-items-center justify-content-center border rounded" style={{ backgroundColor: '#f8f9fa', height: '90px' }}>
+                                            <div
+                                                className="d-flex align-items-center justify-content-center border rounded"
+                                                style={{ backgroundColor: '#f8f9fa', height: '90px' }}
+                                            >
                                                 <img src={product?.images?.[0]} alt="Product" height="70" />
                                             </div>
                                         </div>
                                         <div className="col-8 product-details">
                                             <div className="text-muted product-rating">
-                                                {product?.rating || '4.8'} ★ ({product?.sold?.split('/')?.[0]})
+                                                {product?.rating || '4.8'} <span className="text-warning">★</span> ({product?.sold?.split('/')?.[0]})
                                             </div>
                                             <div className="product-name">{product?.name}</div>
                                             <div className="product-price">${product?.price}</div>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                ))}
+                            </div>
+
+                            {/* 🔹 Second Slide (Same products again) */}
+                            <div className="container-fluid">
+                                {selectedProducts2.map((product, index) => (
+                                    <div key={`second-${index}`} className="row rounded mb-3 p-2 mt-4">
+                                        <div className="col-4">
+                                            <div
+                                                className="d-flex align-items-center justify-content-center border rounded"
+                                                style={{ backgroundColor: '#f8f9fa', height: '90px' }}
+                                            >
+                                                <img src={product?.images?.[0]} alt="Product" height="70" />
+                                            </div>
+                                        </div>
+                                        <div className="col-8 product-details">
+                                            <div className="text-muted product-rating">
+                                                {product?.rating || '4.8'} <span className="text-warning">★</span> ({product?.sold?.split('/')?.[0]})
+                                            </div>
+                                            <div className="product-name">{product?.name}</div>
+                                            <div className="product-price">${product?.price}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Slider>
                     </div>
                 </div>
 
 
-                {/* On-sale Products */}
-                <div className="col-12 col-lg-3 mb-4 ">
+                <div className="col-sm-6 col-md-6 col-lg-3 mb-4 ">
                     <div className="box-Hot p-3">
                         <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px' }}>
                             <CustomText
@@ -362,35 +423,62 @@ function HotDeals() {
                             </div>
                         </div>
 
-                        {selectedProducts3.map((product, index) => {
-                            // const product = CategoryCollection[2]?.products[index];
-                            return (
-                                <div key={index}>
-                                    <div className="row bg-white rounded p-2 mb-2">
+                        <Slider
+                            {...carouselSetting}
+                        >
+                            {/* 🔹 First Slide (All Products ek sath) */}
+                            <div className="container-fluid">
+                                {selectedProducts3.map((product, index) => (
+                                    <div key={`first-${index}`} className="row rounded mb-3 p-2 mt-4">
                                         <div className="col-4">
-                                            <div className="d-flex align-items-center justify-content-center border rounded" style={{ backgroundColor: '#f8f9fa', height: '90px' }}>
+                                            <div
+                                                className="d-flex align-items-center justify-content-center border rounded"
+                                                style={{ backgroundColor: '#f8f9fa', height: '90px' }}
+                                            >
                                                 <img src={product?.images?.[0]} alt="Product" height="70" />
                                             </div>
                                         </div>
                                         <div className="col-8 product-details">
                                             <div className="text-muted product-rating">
-                                                {product?.rating || '4.8'} ★ ({product?.sold?.split('/')?.[0]})
+                                                {product?.rating || '4.8'} <span className="text-warning">★</span> ({product?.sold?.split('/')?.[0]})
                                             </div>
                                             <div className="product-name">{product?.name}</div>
                                             <div className="product-price">${product?.price}</div>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                ))}
+                            </div>
+
+                            {/* 🔹 Second Slide (Same products again) */}
+                            <div className="container-fluid">
+                                {selectedProducts3.map((product, index) => (
+                                    <div key={`second-${index}`} className="row rounded mb-3 p-2 mt-4">
+                                        <div className="col-4">
+                                            <div
+                                                className="d-flex align-items-center justify-content-center border rounded"
+                                                style={{ backgroundColor: '#f8f9fa', height: '90px' }}
+                                            >
+                                                <img src={product?.images?.[0]} alt="Product" height="70" />
+                                            </div>
+                                        </div>
+                                        <div className="col-8 product-details">
+                                            <div className="text-muted product-rating">
+                                                {product?.rating || '4.8'} <span className="text-warning">★</span> ({product?.sold?.split('/')?.[0]})
+                                            </div>
+                                            <div className="product-name">{product?.name}</div>
+                                            <div className="product-price">${product?.price}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Slider>
                     </div>
                 </div>
 
 
-                {/* Fourth Box (Optional / Custom) */}
-                <div className="col-12 col-lg-3 mb-4 ">
+                <div className="col-sm-6 col-md-6 col-lg-3 mb-4 ">
                     <div className="box-Hot-4 bg-">
-                        <div className="p-3 h-100 d-flex flex-column justify-content-between " >
+                        <div className="p-3 h-100 d-flex flex-column " >
                             <div>
                                 <CustomText Text="Deals of the week" className="fw-bold mb-3" fontSize="25px" fontWeight="bold" />
                                 <div className="d-flex gap-2 mb-2 flex-wrap">
@@ -402,7 +490,6 @@ function HotDeals() {
                                 <CustomText Text="Don't miss this opportunity at a special" className="text-muted small mb-3" fontSize="14px" />
                             </div>
 
-                            {/* 👇 yaha direct ek product show kar rahe hai */}
                             <div className="text-center my-3 image-container">
                                 <img
                                     src={ProductCollection[3]?.images?.[0]}
@@ -433,17 +520,11 @@ function HotDeals() {
                                 <div className="progress mb-1" style={{ height: '5px' }}>
                                     <div className="progress-bar bg-success" style={{ width: '60%' }}></div>
                                 </div>
+                                <p className="text-muted mt-2">Available only: <strong className="text-danger">{ProductCollection[3]?.sold?.split('/')?.[1] - ProductCollection[3]?.sold?.split('/')?.[0]}</strong></p>
+
                             </div>
 
                             <div className="mt-3">
-                                {/* <button
-                                    className="btn w-100 fw-bold text-white"
-                                    style={{ backgroundColor: '#2ABC79', borderRadius: '25px', fontFamily: 'Quicksand' }}
-                                    onClick={() => HandleAddToCart(ProductCollection[3])}
-                                >
-                                    Add To Cart
-                                    <CartOutline height="20" width="20" className="text-white ms-2" />
-                                </button> */}
                                 <CartButton product={ProductCollection[3]} setCartItems={setCartItems} addBtnClass='w-100 fw-bold text-white Add-to-cart-hot' qtyBoxClass='w-100 Add-To-Cart-Quantity-Box ' title="Add To Cart" />
                             </div>
                         </div>
