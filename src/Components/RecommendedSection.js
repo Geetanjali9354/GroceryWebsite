@@ -60,10 +60,10 @@ function RecommendedSection() {
     return (
         <div >
             <div className="Recommended-header row g-0 p-0 m-0 justify-content-between">
-                <div className="col-lg-5 col-sm-12 col-md-6 ">
+                <div className="col-lg-4 col-sm-12 col-md-12">
                     <h3>Recommended For You</h3>
                 </div>
-                <div className=" d-flex flex-wrap gap-3 col-lg-7 col-sm-12 col-md-6 justify-content-end " >
+                <div className=" d-flex flex-wrap col-lg-8 col-sm-12 col-md-12 justify-content-end " >
                     {categories.map((item) => (
                         <button
                             key={item}
