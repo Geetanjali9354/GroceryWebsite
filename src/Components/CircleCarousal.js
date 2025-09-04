@@ -120,8 +120,8 @@ function CircleCarousal() {
                             <h6 className="text-danger mb-0" style={{ fontSize: '18px' }}>$60.99</h6>
                         </div>
                         <div className="mt-3">
-                            <button className="btn btn-main rounded-pill">
-                                Shop Now <span style={{ fontWeight: 'bold', fontSize: '18px' }}>→</span>
+                            <button className=" btn-main rounded-pill">
+                                Shop Now <span style={{ fontWeight: '600', fontSize: '18px' }}>→</span>
                             </button>
                         </div>
                     </div>

@@ -19,7 +19,34 @@ function HotDeals() {
     const navigate = useNavigate();
     const [wishlist, setWishlist] = useState([]);
     const [cartItems, setCartItems] = useState(getCart());
-
+    const [timeLeft, setTimeLeft] = useState({
+        days: 832,
+        hours: 8,
+        minutes: 29,
+        seconds: 34,
+    });
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => {
+                let { days, hours, minutes, seconds } = prev;
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                if (hours < 0) {
+                    hours = 23;
+                    days--;
+                }
+                return { days, hours, minutes, seconds };
+            });
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
@@ -117,15 +144,20 @@ function HotDeals() {
 
                             {/* Timer */}
                             <div className="d-flex align-items-center gap-2 mt-3 flex-wrap">
-                                {["799 D", "14 H", "57 M", "37 S"].map((item, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="hotdeal-timer-box bg-white text-dark fw-bold rounded px-2 py-1"
-                                    >
-                                        {item}
-                                    </div>
-                                ))}
+                                <div className="hotdeal-timer-box bg-white text-dark TextElement rounded px-2 py-1">
+                                    <span>{timeLeft.days}</span> D
+                                </div>
+                                <div className="hotdeal-timer-box bg-white text-dark TextElement rounded px-2 py-1">
+                                    <span>{timeLeft.hours}</span> H
+                                </div>
+                                <div className="hotdeal-timer-box bg-white text-dark TextElement rounded px-2 py-1">
+                                    <span>{timeLeft.minutes}</span> M
+                                </div>
+                                <div className="hotdeal-timer-box bg-white text-dark TextElement rounded px-2 py-1">
+                                    <span>{timeLeft.seconds}</span> S
+                                </div>
                             </div>
+
 
                             {/* Button */}
                             <button className="d-flex align-items-center rounded-pill px-4 py-2 mt-4 hotdeal-btn">
@@ -482,10 +514,10 @@ function HotDeals() {
                             <div>
                                 <CustomText Text="Deals of the week" className="fw-bold mb-3" fontSize="25px" fontWeight="bold" />
                                 <div className="d-flex gap-2 mb-2 flex-wrap">
-                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>823 D</div>
-                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>5 H</div>
-                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>34 M</div>
-                                    <div className="text-white px-3 py-1 rounded text-center fw-bold" style={{ backgroundColor: '#1C799B' }}>27 S</div>
+                                    <div className="text-white px-3 py-1 rounded text-center TextElement" style={{ backgroundColor: '#1C799B' }}>{timeLeft.days} D</div>
+                                    <div className="text-white px-3 py-1 rounded text-center TextElement" style={{ backgroundColor: '#1C799B' }}>{timeLeft.hours} H</div>
+                                    <div className="text-white px-3 py-1 rounded text-center TextElement" style={{ backgroundColor: '#1C799B' }}>{timeLeft.minutes} M</div>
+                                    <div className="text-white px-3 py-1 rounded text-center TextElement" style={{ backgroundColor: '#1C799B' }}>{timeLeft.seconds} S</div>
                                 </div>
                                 <CustomText Text="Don't miss this opportunity at a special" className="text-muted small mb-3" fontSize="14px" />
                             </div>

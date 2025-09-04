@@ -1,5 +1,3 @@
-// utils/cartUtils.js
-
 // 🔥 Emit event to notify other components
 export const emitCartChange = () => {
     window.dispatchEvent(new Event('cartUpdated'));

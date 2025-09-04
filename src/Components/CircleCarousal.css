@@ -83,6 +83,9 @@
 .btn-main {
     background-color: #1C799B !important;
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     border: none;
+    height: 40px;
+    width: 140px;
+    font-family: 'Quicksand';
 }

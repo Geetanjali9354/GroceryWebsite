@@ -9,12 +9,40 @@ import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import CartButton from './CartButton';
 const DailyBestSale = () => {
     const [wishlist, setWishlist] = useState([]);
     const [cartItems, setCartItems] = useState(getCart());
     const navigate = useNavigate();
+    const [timeLeft, setTimeLeft] = useState({
+        days: 832,
+        hours: 8,
+        minutes: 29,
+        seconds: 34,
+    });
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => {
+                let { days, hours, minutes, seconds } = prev;
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                if (hours < 0) {
+                    hours = 23;
+                    days--;
+                }
+                return { days, hours, minutes, seconds };
+            });
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
@@ -73,10 +101,10 @@ const DailyBestSale = () => {
                                                 style={{ maxHeight: "150px", objectFit: "contain" }}
                                             />
                                             <div className="d-flex gap-2 flex-wrap justify-content-center">
-                                                <div className="timer">835 d</div>
-                                                <div className="timer">20 h</div>
-                                                <div className="timer">15 m</div>
-                                                <div className="timer">30 s</div>
+                                                <div className="timer TextElement">{timeLeft.days} d</div>
+                                                <div className="timer TextElement">{timeLeft.hours} h</div>
+                                                <div className="timer TextElement">{timeLeft.minutes} m</div>
+                                                <div className="timer TextElement">{timeLeft.seconds} s</div>
                                             </div>
                                         </div>
 

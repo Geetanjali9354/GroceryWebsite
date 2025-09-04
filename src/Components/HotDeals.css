@@ -6,6 +6,11 @@
     overflow: hidden;
 }
 
+.TextElement {
+    font-weight: 600;
+    font-family: 'Quicksand';
+}
+
 .hotdeal-img {
     height: 300px;
 }
@@ -323,7 +328,7 @@
 }
 
 .box-Hot-4 .image-container img {
-    transition: transform 0.4s ;
+    transition: transform 0.4s;
 }
 
 .box-Hot-4:hover .image-container img {

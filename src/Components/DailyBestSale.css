@@ -33,7 +33,10 @@
     transform: scale(1.2);
     /* Slight zoom effect */
 }
-
+.TextElement {
+    font-family: 'Quicksand';
+    font-weight: 600;
+}
 
 /* Banner container */
 .banner-container {

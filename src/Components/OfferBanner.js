@@ -2,8 +2,37 @@ import Banner1 from '../Images/Banner1.png';
 import Banner2 from '../Images/Banner2.png';
 import './OfferBanner.css';
 import CustomText from './CustomText';
+import { useEffect, useState } from 'react';
 
 function OfferBanner() {
+    const [timeLeft, setTimeLeft] = useState({
+        days: 832,
+        hours: 8,
+        minutes: 29,
+        seconds: 34,
+    });
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => {
+                let { days, hours, minutes, seconds } = prev;
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                if (hours < 0) {
+                    hours = 23;
+                    days--;
+                }
+                return { days, hours, minutes, seconds };
+            });
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
     return (
         <div className="p-3 my-4">
             <div className="row">
@@ -28,10 +57,10 @@ function OfferBanner() {
                             {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
                             <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
                             <div className="countdown1 ">
-                                <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>874</span > D</div>
-                                <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>16</span> H</div>
-                                <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>28</span> M</div>
-                                <div className="countdown-item-Baner1 mt-3"><span style={{ fontFamily: 'quicksand' }}>17</span> S</div>
+                                <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.days}</span > D</div>
+                                <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.hours}</span> H</div>
+                                <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.minutes}</span> M</div>
+                                <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.seconds}</span> S</div>
                             </div>
                             <button className="shop-now-btn-banner1">Shop Now →</button>
                         </div>
@@ -49,15 +78,13 @@ function OfferBanner() {
                         }}
                     >
                         <div className="banner-content ">
-                            {/* <h2>Vegetables Combo Box</h2> */}
                             <CustomText Text="Vegetables Combo Box" fontWeight='bold' className='banner-contentText' />
-                            {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
                             <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
                             <div className="countdown1 ">
-                                <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>874</span > D</div>
-                                <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>16</span> H</div>
-                                <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>28</span> M</div>
-                                <div className="countdown-item-Baner2 mt-3"><span style={{ fontFamily: 'quicksand' }}>17</span> S</div>
+                                <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.days}</span > D</div>
+                                <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.hours}</span> H</div>
+                                <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.minutes}</span> M</div>
+                                <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.seconds}</span> S</div>
                             </div>
                             <button className="shop-now-btn-banner2">Shop Now →</button>
                         </div>

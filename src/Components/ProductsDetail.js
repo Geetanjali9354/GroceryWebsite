@@ -18,7 +18,34 @@ import CartButton from './CartButton';
 const ProductsDetail = () => {
     const [wishlist, setWishlist] = useState([]);
     const [cartItems, setCartItems] = useState(getCart());
-
+    const [timeLeft, setTimeLeft] = useState({
+        days: 832,
+        hours: 8,
+        minutes: 29,
+        seconds: 34,
+    });
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => {
+                let { days, hours, minutes, seconds } = prev;
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                if (hours < 0) {
+                    hours = 23;
+                    days--;
+                }
+                return { days, hours, minutes, seconds };
+            });
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
     useEffect(() => {
         setWishlist(getWishlist());
     }, []);
@@ -119,10 +146,10 @@ const ProductsDetail = () => {
                         {/* Countdown (Static Example) */}
                         <div className="p-3  rounded mb-3  mt-5 offer-timer" style={{ backgroundColor: '#F3FAF2' }}>
                             <span className="me-2 offer-label">Special Offer:</span>
-                            <span className="badge me-1 text-black offer-badge" >821</span> :
-                            <span className="badge mx-1 text-black offer-badge" >08</span> :
-                            <span className="badge  mx-1 text-black offer-badge" >33</span> :
-                            <span className="badge  ms-1 text-black offer-badge" >22</span>
+                            <span className="badge me-1 text-black offer-badge" >{timeLeft.days}</span>:
+                            <span className="badge mx-1 text-black offer-badge" >{timeLeft.hours}</span>:
+                            <span className="badge  mx-1 text-black offer-badge" >{timeLeft.minutes}</span>:
+                            <span className="badge  ms-1 text-black offer-badge" >{timeLeft.seconds}</span>
                             <span className="ms-2 offer-time-left" >Remains until  end of the offer</span>
                         </div>
 
