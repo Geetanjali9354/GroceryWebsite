@@ -38,7 +38,6 @@ function ShopBrand() {
         },
         {
             image: ShopCarousal2
-
         }
     ]
 
@@ -50,7 +49,6 @@ function ShopBrand() {
         });
     }, []);
     const settings = {
-        // dots: true,
         infinite: true,
         speed: 500,
         arrows: false,
@@ -85,7 +83,7 @@ function ShopBrand() {
                         data-aos="fade-up"
                         data-aos-delay={index * 100}>
                         <div className="circle-carousel-image-shop">
-                            <img src={item.image} alt={`Shop Brand ${index + 1}`} />
+                            <img src={item.image}  />
                         </div>
                     </div>
                 ))

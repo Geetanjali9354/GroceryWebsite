@@ -17,18 +17,13 @@
     font-weight: 600;
     font-family: 'Quicksand';
     }
-.banner-contentText {
-    font-size: 1.8rem;
-    color: black;
-}
 
 .subtext {
     color: #9fa2b4;
-    font-size: 1.0rem;
-    /* margin-bottom: 20px; */
+    font-size: 16px;
 }
 
-.countdown1 {
+.countdown-offer-banner {
     display: flex;
     gap: 12px;
     margin-bottom: 20px;
@@ -39,8 +34,7 @@
     background: white;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
+    font-size: 16px;
     color: #252733;
     display: flex;
     gap: 5px;
@@ -51,8 +45,7 @@
     background-color: #1c799b;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
+    font-size: 16px;
     color: #252733;
     display: flex;
     gap: 5px;
@@ -60,7 +53,7 @@
 }
 
 .countdown-item span {
-    font-size: 1.0rem;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -82,17 +75,4 @@
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .rectangle-box {
-        margin-bottom: 20px;
-    }
-}
-
-
-@media (max-width: 992px) {
-    .banner-contentText {
-        font-size: 1.25rem;
-    }
 }

@@ -5,7 +5,7 @@ import NewsletterImage from '../Images/NewsLetterImage.png';
 import CustomText from './CustomText';
 import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
+import { addToCart, getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
@@ -46,32 +46,27 @@ const DailyBestSale = () => {
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
-    const HandleAddToCart = (product => {
-        addToCart(product);
-        setCartItems(getCart());
-        toast.success(`${product.name} added to cart!`);
-    })
     const selectedProducts = ProductCollection.slice(0, 4);
-
     return (
         <div className="container-fluid my-4">
             <div className="Shop-brand-header">
-                <h3>Daily Best Sells</h3>
+                {/* <h3>Daily Best Sells</h3> */}
+                <CustomText Text="Daily Best Sells" fontSize="30px" fontWeight="bold" className="text-dark"/>
             </div>
             <div className="row g-3 ">
                 <div className="col-12 col-lg-8">
-                    <div className="row g-3">
+                    <div className="row g-3 ">
                         {selectedProducts.map((prod) => (
                             <div key={prod.id} className="col-12 col-md-6 "
                                 data-aos="fade-up"
                                 data-aos-delay="100"
                                 data-aos-anchor-placement="top-bottom"
                             >
-                                <div className="product-card p-3 rounded border"
+                                <div className="product-card p-3 rounded border "
                                     onClick={() => handleProductClick(prod.id)}
                                 >
                                     <div
-                                        className="wishlist-icon1"
+                                        className="wishlist-icon-flash"
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             if (isInWishlist(prod.id)) {
@@ -88,7 +83,7 @@ const DailyBestSale = () => {
                                         <HeartOutline
                                             height="26"
                                             width="26"
-                                            className={isInWishlist(prod.id) ? "red-heart1" : ""}
+                                            className={isInWishlist(prod.id) ? "red-heart-flash" : ""}
                                         />
                                     </div>
                                     <div className="row">
@@ -113,7 +108,7 @@ const DailyBestSale = () => {
                                             <div className='ProductDetails'>
                                                 <div className="d-flex align-items-center gap-2 mb-2 price">
                                                     <span className="text-muted text-decoration-line-through">${prod.originalPrice?.toFixed(2)}</span>
-                                                    <span className="fw-bold text-dark">${prod.price?.toFixed(2)}</span>
+                                                    <span className=" text-dark">${prod.price?.toFixed(2)}</span>
                                                     <span className="text-muted">/Qty</span>
                                                 </div>
 
@@ -129,7 +124,6 @@ const DailyBestSale = () => {
                                                 </p>
 
                                                 <div className="d-flex align-items-center gap-1 text-muted mb-1" style={{ fontSize: "12px" }}>
-                                                    {/* <i className="bi bi-shop"></i> */}
                                                     <span>By Supermarket</span>
                                                 </div>
 
@@ -158,10 +152,6 @@ const DailyBestSale = () => {
 
                     </div>
                 </div>
-
-
-
-
                 {/* Banner */}
                 <div
                     className="col-12 col-lg-4 banner-container d-flex flex-column bg-danger"

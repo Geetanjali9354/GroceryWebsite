@@ -66,13 +66,8 @@ function HotDeals() {
     const HotDealProducts = ProductCollection.filter(product => product.isSale === true);
 
     const copyCode = () => {
-        navigator.clipboard.writeText("FREE25BAC");
         alert("Code copied to clipboard!");
     };
-    const HandleAddToCart = (product => {
-        addToCart(product);
-        toast.success(`${product.name} added to cart!`);
-    })
     useEffect(() => {
         AOS.init({ duration: 700, once: true });
     }, []);
@@ -96,7 +91,7 @@ function HotDeals() {
         dots: false,
         infinite: true,
         arrows: false,
-        speed: 2000,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
@@ -109,7 +104,7 @@ function HotDeals() {
                     <CustomText Text="Hot Deals Todays" fontWeight="bold" fontSize="30px" />
                     <a href="#">View All Deals</a>
                 </div>
-                <div className="row p-3">
+                <div className="row p-3 ">
                     {/* LEFT SECTION */}
                     <div className="col-md-4 col-lg-4 hotdeal-card text-white d-flex flex-column justify-content-between"
                         data-aos="zoom-in"
@@ -120,14 +115,13 @@ function HotDeals() {
                             <img
                                 src={HotdealBannerImg}
                                 alt="Hot Deal"
-                                className="hotdeal-img img-fluid"
+                                className="img-fluid"
                             />
                         </div>
 
-                        {/* Content Positioned Over Image */}
-                        <div className="hotdeal-content p-4 p-md-5 position-relative position-absolute mt-3">
+                        <div className="hotdeal-content p-4 p-md-5 position-absolute mt-3 ">
                             {/* Badge */}
-                            <span className="hotdeal-badge mb-3 text-black">
+                            <span className="hotdeal-badge mb-3">
                                 Medical equipment
                             </span>
 
@@ -160,18 +154,17 @@ function HotDeals() {
 
 
                             {/* Button */}
-                            <button className="d-flex rounded-pill p-2 py-2 mt-4 hotdeal-btn">
+                            <button className="d-flex rounded-pill p-2 mt-4 hotdeal-btn">
                                 <span className="hotdeal-btn-text">
-                                    Explore Shop <CartOutline height="20" width="20" className="mt-1"/>
+                                    Explore Shop <CartOutline height="20" width="20" />
                                 </span>
                             </button>
                         </div>
-
                     </div>
 
                     {/* RIGHT SECTION - SLIDER */}
                     <div className="col-md-8 col-lg-8 mt-4">
-                        <div className="hotdeals-container">
+                        <div>
                             <Slider {...settings}>
                                 {HotDealProducts.map((product, idx) => (
                                     <div
@@ -184,7 +177,7 @@ function HotDeals() {
                                             onClick={() => handleProductClick(product.id)}
                                         >
                                             <div
-                                                className="wishlist-icon1"
+                                                className="wishlist-icon-flash"
                                                 onClick={(e) => {
                                                     e.stopPropagation();
                                                     if (isInWishlist(product.id)) {
@@ -201,7 +194,7 @@ function HotDeals() {
                                                 <HeartOutline
                                                     height="26"
                                                     width="26"
-                                                    className={isInWishlist(product.id) ? "red-heart1" : ""}
+                                                    className={isInWishlist(product.id) ? "red-heart-flash" : ""}
                                                 />
                                             </div>
                                             <div className="hotdeals-image-container mt-5">
@@ -273,10 +266,8 @@ function HotDeals() {
             <div className="four-box-grid-Hot row  m-0"
                 data-aos="fade-up"
             >
-                <div className="col-sm-6 col-md-6 col-lg-3 mb-4"
-
-                // data-aos-delay={idx * 100}
-                >
+                {/* ==========First Box========== */}
+                <div className="col-sm-6 col-md-6 col-lg-3 mb-4">
                     <div className="box-Hot p-3">
                         <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px' }}>
                             <CustomText
@@ -357,7 +348,7 @@ function HotDeals() {
                     </div>
                 </div>
 
-
+                {/* ==========Second Box========== */}
                 <div className="col-sm-6 col-md-6 col-lg-3 mb-4 ">
                     <div className="box-Hot p-3">
                         <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px' }}>
@@ -425,7 +416,7 @@ function HotDeals() {
                     </div>
                 </div>
 
-
+                {/* ==========Third Box========== */}
                 <div className="col-sm-6 col-md-6 col-lg-3 mb-4 ">
                     <div className="box-Hot p-3">
                         <div style={{ backgroundColor: '#E3F4FA', borderRadius: '15px' }}>
@@ -507,7 +498,7 @@ function HotDeals() {
                     </div>
                 </div>
 
-
+                {/* ==========Fourth Box===== */}
                 <div className="col-sm-6 col-md-6 col-lg-3 mb-4 ">
                     <div className="box-Hot-4 bg-">
                         <div className="p-3 h-100 d-flex flex-column " >
@@ -562,10 +553,7 @@ function HotDeals() {
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     );
 }

@@ -9,14 +9,12 @@ import 'aos/dist/aos.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
-import { CartOutline } from '../Images/SvgImages';
 import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, getCartItemQuantity, getCart } from '../Utils/cartUtils';
+import { addToCart, getCart } from '../Utils/cartUtils';
 import { HeartOutline } from "../Images/SvgImages";
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { toast } from 'react-toastify';
-import QuantityBox from "./QuantityBox";
 import CartButton from "./CartButton";
 function RecommendedSection() {
     const categories = [
@@ -47,10 +45,6 @@ function RecommendedSection() {
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
-    const HandleAddToCart = (product => {
-        addToCart(product);
-        toast.success(`${product.name} added to cart!`);
-    })
     useEffect(() => {
         AOS.init({
             duration: 700, // Animation duration in ms
@@ -61,7 +55,7 @@ function RecommendedSection() {
         <div >
             <div className="Recommended-header row g-0 p-0 m-0 justify-content-between">
                 <div className="col-lg-4 col-sm-12 col-md-12">
-                    <h3>Recommended For You</h3>
+                    <CustomText Text="Recommended For You" fontWeight="bold" fontSize="30px" className="text-dark ms-3" />
                 </div>
                 <div className=" d-flex flex-wrap col-lg-8 col-sm-12 col-md-12 justify-content-end">
                     {categories.map((item) => (
@@ -86,7 +80,6 @@ function RecommendedSection() {
                         data-aos-anchor-placement="top-bottom"
                         onClick={() => handleProductClick(item.id)}
                     >
-                        {/* Row for Sale Badge + Wishlist */}
                         <div >
                             {item.isSale && (
                                 <span className="sale-badge">Sale 50%</span>
@@ -169,7 +162,7 @@ function RecommendedSection() {
                                     <img src={Banner34Logo} alt="Logo" />
                                 </div>
                                 <CustomText Text="$5 off your first order" fontWeight='bold' className='banner-contentText' />
-                                <CustomText Text="Delivery by 6:15 am" className='subtext' fontWeight='normal' />
+                                <CustomText Text="Delivery by 6:15 am" className='subtext' fontWeight='600' />
                                 <button className="shop-now-btn-banner1 mt-2">Shop Now →</button>
                             </div>
                         </div>

@@ -11,6 +11,7 @@ import { TwitterSolid } from '../Images/SvgImages';
 import { LinkedinBoxLine } from '../Images/SvgImages';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import CustomText from './CustomText';
 const Footer = () => {
     useEffect(() => {
         AOS.init({
@@ -19,7 +20,7 @@ const Footer = () => {
         });
     }, []);
     return (
-        <footer className="footer bg-light py-4">
+        <footer className="footer  py-4">
             <div className="container-fluid p-3">
                 <div className="row " style={{ borderBottom: '1px solid #eee' }} >
                     {/* Left side: Brand Information */}
@@ -31,7 +32,7 @@ const Footer = () => {
                         <div className="logo ">
                             <img src={Logo} alt="Marketpro Logo" className="img-fluid" />
                         </div>
-                        <p className='mt-3'>We're Grocery Shop, an innovative team of food suppliers.</p>
+                        <CustomText Text="We're Grocery Shop, an innovative team of food suppliers." className="mt-3" fontSize="18px" fontWeight="500" />
                         <address className='mt-4'>
                             2972 Westheimer Rd. Santa Ana, Illinois 85486
                             <br />
@@ -47,7 +48,7 @@ const Footer = () => {
                         data-aos="fade-up"
                         data-aos-delay="100"
                     >
-                        <h4>Information</h4>
+                        <CustomText Text="Information" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
                             <li><a href="#">Become a Vendor</a></li>
                             <li><a href="#">Affiliate Program</a></li>
@@ -62,7 +63,7 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-6 mb-4 heading-column  flash-sales-slide"
                         data-aos="fade-up"
                         data-aos-delay="150">
-                        <h4>Customer Support</h4>
+                        <CustomText Text="Customer Support" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
                             <li><a href="#">Help Center</a></li>
                             <li><a href="#">Contact Us</a></li>
@@ -77,7 +78,7 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-6 mb-4 heading-column  flash-sales-slide"
                         data-aos="fade-up"
                         data-aos-delay="200">
-                        <h4 >My Account</h4>
+                        <CustomText Text="My Account" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
                             <li><a href="#">My Account</a></li>
                             <li><a href="#">Order History</a></li>
@@ -92,7 +93,7 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-6 mb-4 heading-column  flash-sales-slide"
                         data-aos="fade-up"
                         data-aos-delay="250">
-                        <h4>Daily Groceries</h4>
+                        <CustomText Text="Daily Groceries" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
                             <li><a href="#">Dairy & Eggs</a></li>
                             <li><a href="#">Meat & Seafood</a></li>
@@ -102,14 +103,12 @@ const Footer = () => {
                             <li><a href="#">Pantry Staples</a></li>
                         </ul>
                     </div>
-
-                    {/* Right Side: Shop on The Go */}
-                    {/* Right Side: Shop on The Go */}
+                    {/* Shop on The Go Column */}
                     <div className="col-lg-3 col-md-6 mb-4 heading-column mt-5  flash-sales-slide"
                         data-aos="fade-up"
                         data-aos-delay="300">
-                        <h4>Shop on The Go</h4>
-                        <p className="text-muted">MarketPro App is available. Get it now</p>
+                        <CustomText Text="Shop on The Go" fontSize="22px" fontWeight="bold" className="mb-1" />
+                        <CustomText Text="MarketPro App is available. Get it now" className="text-muted"/>
                         <div className="d-flex align-items-start mt-3">
                             {/* QR Code */}
                             <img src={QrImg} alt="QR Code" width="80" className="me-3 mt-2" />

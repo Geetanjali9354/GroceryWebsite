@@ -11,28 +11,20 @@
     font-family: 'Quicksand';
 }
 
-.hotdeal-img {
-    height: 300px;
+.hotdeals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hotdeals-header a {
+    font-weight: 600;
+    color: #6c757d;
 }
 
-/* Make the card adapt height and prevent overflow */
 .hotdeal-content {
-    max-width: 100%;
     width: 100%;
     border-radius: 20px;
     color: white;
-}
-
-/* Responsive padding */
-@media (max-width: 768px) {
-    .hotdeal-content {
-        padding: 20px;
-        position: relative !important;
-    }
-
-    .hotdeal-timer-box {
-        font-size: 12px;
-    }
 }
 
 
@@ -46,7 +38,7 @@
 }
 
 .hotdeal-title {
-    font-size: 2rem;
+    font-size: 35px;
 }
 
 .hotdeal-subtitle {
@@ -55,23 +47,21 @@
 }
 
 .hotdeal-timer-box {
-    min-width: 65px;
+    width: 65px;
     text-align: center;
 }
 
 .hotdeal-btn {
     background-color: white;
     border: none;
-    width: 180px;
+    width: 150px;
 }
 
 .hotdeal-btn-text {
     color: #1C799B;
     font-family: 'Quicksand';
     font-weight: bold;
-    display: flex;
-    gap: 8px;
-    text-align: center;
+    gap: 6px;
 }
 
 /* Hover Effect */
@@ -82,27 +72,7 @@
 .hotdeal-btn:hover .hotdeal-btn-text {
     color: white;
 }
-
-
-.hotdeals-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* margin-bottom: 40px; */
-}
-
-.hotdeals-header h3 {
-    font-weight: 700;
-    font-size: 30px;
-    color: #1a2433;
-    font-family: 'quicksand', sans-serif;
-}
-
-.hotdeals-header a {
-    font-weight: 600;
-    color: #6c757d;
-}
-
+/* ======================================= Hot Deals Card ================================ */
 .hotdeals-slide {
     padding: 0 10px;
 }
@@ -125,7 +95,6 @@
 }
 
 .hotdeals-image-container {
-    height: 150px;
     border-radius: 12px;
     margin-bottom: 15px;
     overflow: hidden;
@@ -142,7 +111,6 @@
 
 .hotdeals-card:hover .hotdeals-image-container img {
     transform: scale(1.2);
-    filter: brightness(1.1);
 }
 
 .hotdeals-add-button {
@@ -158,7 +126,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    transition: all 0.3s ease;
 }
 
 .hotdeals-add-button:hover {
@@ -182,7 +149,6 @@
     font-size: 16px;
     font-family: 'Quicksand';
     font-weight: 600;
-    transition: all 0.3s ease;
 }
 
 .quantity-box button {
@@ -200,10 +166,11 @@
 }
 
 .hotdeals-price {
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 18px;
     margin-bottom: 5px;
     color: #1a2433;
+    font-family: 'Quicksand';
 }
 
 .hotdeals-price .original-price {
@@ -247,7 +214,7 @@
     color: #6c757d;
     margin-bottom: 0;
 }
-
+/* ============================================Promo Banner =================================== */
 .promo-banner {
     background-color: #E3F4FA;
     border: 1px dashed #2196f3;
@@ -263,11 +230,8 @@
     padding: 10px 20px;
     border-radius: 30px;
     cursor: pointer;
-    /* font-weight: bold; */
     display: inline-flex;
     align-items: center;
-    transition: background-color 0.3s;
-    user-select: none;
 }
 
 .promo-code:hover {
@@ -278,22 +242,19 @@
     font-size: 18px;
 }
 
-/* ---------- FOUR BOX GRID ---------- */
+/* ===============================================Four Box grid ================================== */
 .four-box-grid-Hot {
     display: grid;
     margin-bottom: 50px;
     grid-template-columns: repeat(2, 1fr);
 
 }
-
-
 .box-Hot {
     margin-top: 10px;
     border-radius: 15px;
     color: black;
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -386,29 +347,8 @@
     margin-top: 10px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
-    box-shadow: none;
 }
 
-.Add-To-Cart-Quantity-Box button,
-.Add-To-Cart-Quantity-Box span {
-    flex: 1;
-    border: none;
-    background-color: white;
-    color: #1c799b;
-    font-size: 22px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    outline: none;
-    box-shadow: none;
-}
-
-/* Optional hover effect */
-.Add-To-Cart-Quantity-Box button:hover {
-    background-color: #e3f4fa;
-}
 
 @media (min-width: 1024px) {
     .four-box-grid-Hot {
