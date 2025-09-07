@@ -19,20 +19,13 @@
     text-decoration: underline;
 }
 
-.flash-sales-header h3 {
-    font-weight: bold;
-    font-size: 30px;
-    color: #1a2433;
-    font-family: 'quicksand', sans-serif;
-}
-
 .flash-sales-header a {
     font-weight: 600;
     color: #6c757d;
 }
 
 .flash-sales-slide {
-    padding: 0 10px;
+    padding: 10px;
 }
 
 .flash-sales-card {
@@ -52,7 +45,7 @@
     border: 1px solid #1c799b;
 }
 
-.wishlist-icon1 {
+.wishlist-icon-flash {
     position: absolute;
     top: 10px;
     background-color: white;
@@ -62,12 +55,12 @@
     color: #616161;
 }
 
-.flash-sales-slide .wishlist-icon1:hover {
+.flash-sales-slide .wishlist-icon-flash:hover {
     color: #1c799b;
     border-color: #1c799b;
 }
 
-.wishlist-icon1 .red-heart1 path {
+.wishlist-icon-flash .red-heart-flash path {
     fill: red;
     color: red;
 }
@@ -89,17 +82,12 @@
     transition: transform 0.4s ease;
 }
 
-/* Hover effect for image */
 .flash-sales-image-container:hover img {
     transform: scale(1.2);
-    /* z-index: 10; */
 }
 
 .flash-sales-card:hover .flash-sales-image-container img {
     transform: scale(1.2);
-    /* Zoom effect */
-    filter: brightness(1.1);
-    /* Optional: slightly increase brightness */
 }
 
 .flash-sales-add-button {
@@ -126,10 +114,11 @@
 }
 
 .flash-sales-price {
-    font-weight: 700;
+    font-weight: bold;
     font-size: 18px;
     margin-bottom: 5px;
     color: #1a2433;
+    font-family: 'Quicksand';
 }
 
 .flash-sales-price span {
@@ -149,8 +138,10 @@
 
 .flash-sales-rating {
     font-size: 16px;
-    color: #495057;
+    color: black;
     margin-bottom: 10px;
+    font-family: 'Quicksand';
+    font-weight: 600;
 }
 
 .flash-sales-product-name {
@@ -169,7 +160,6 @@
     background-color: #e9ecef;
     border-radius: 4px;
     overflow: hidden;
-    /* margin-bottom: 8px; */
 }
 
 .flash-sales-progress-bar-inner {
@@ -181,40 +171,4 @@
 .flash-sales-sold-text {
     font-size: 15px;
     color: #6c757d;
-    margin-bottom: 0;
 }
-
-/* .quantity-box {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border: 1px solid #1C799B;
-    border-radius: 20px;
-    background-color: #E3F4FA;
-    color: #1C799B;
-    font-size: 16px;
-    font-family: 'Quicksand';
-    font-weight: 600;
-}
-
-.quantity-box button {
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    color: #1C799B;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.quantity-box span {
-    width: 20px;
-    text-align: center;
-} */
-
-
-/* ---------------------------------2 BANNER CSS START FROM NOW------------------ */

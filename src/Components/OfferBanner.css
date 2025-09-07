@@ -3,7 +3,6 @@
     color: white;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 1024px) {
     .rectangle-box {
@@ -13,7 +12,6 @@
 
 .banner-content {
     width: 70%;
-    padding: 20px;
 }
 .TextElement {
     font-weight: 600;

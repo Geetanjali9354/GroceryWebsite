@@ -13,7 +13,6 @@
     border-radius: 15px;
     font-weight: bold;
     font-size: 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: white;
     height: 250px;
     display: flex;
@@ -52,8 +51,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
 .circle-carousel-image img {
@@ -69,16 +66,9 @@
 }
 
 .circle-carousel-label {
-    font-size: 18px;
-    color: #333;
+    color: black;
     margin-top: 15px;
 }
-
-.circle-carousel-subtitle {
-    font-size: 14px;
-    color: #999;
-}
-
 /* ---------- BUTTON STYLE (can be reused) ---------- */
 .btn-main {
     background-color: #1C799B !important;

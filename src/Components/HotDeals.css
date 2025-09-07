@@ -30,11 +30,6 @@
         position: relative !important;
     }
 
-    .hotdeal-btn {
-        width: 60%;
-        justify-content: center;
-    }
-
     .hotdeal-timer-box {
         font-size: 12px;
     }
@@ -67,16 +62,16 @@
 .hotdeal-btn {
     background-color: white;
     border: none;
+    width: 180px;
 }
 
 .hotdeal-btn-text {
     color: #1C799B;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand';
     font-weight: bold;
     display: flex;
-    align-items: center;
     gap: 8px;
-    transition: color 0.3s ease;
+    text-align: center;
 }
 
 /* Hover Effect */

@@ -3,7 +3,6 @@ import Banner2 from '../Images/Banner2.png';
 import './OfferBanner.css';
 import CustomText from './CustomText';
 import { useEffect, useState } from 'react';
-
 function OfferBanner() {
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
@@ -39,10 +38,9 @@ function OfferBanner() {
                 <div className="col-lg-6 col-sm-12 col-md-12 "
                     data-aos="zoom-in"
                     data-aos-duration="1000"
-
                 >
                     <div
-                        className="rectangle-box banner-box"
+                        className="rectangle-box"
                         style={{
                             backgroundImage: `url(${Banner1})`,
                             backgroundRepeat: 'no-repeat',
@@ -52,11 +50,10 @@ function OfferBanner() {
                             justifyContent: 'end',
                         }}
                     >
-                        <div className="banner-content">
-                            <CustomText Text="X-Connect Smart Television" fontWeight='bold' className='banner-contentText' />
-                            {/* <p className="subtext">Time remaining until the end of the offer.</p> */}
-                            <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
-                            <div className="countdown1 ">
+                        <div className="banner-content ">
+                            <CustomText Text="X-Connect Smart Television" fontWeight='bold' className='text-dark' fontSize='30px' />
+                            <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='600' />
+                            <div className="countdown-offer-banner">
                                 <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.days}</span > D</div>
                                 <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.hours}</span> H</div>
                                 <div className="countdown-item-Baner1 mt-3 TextElement"><span>{timeLeft.minutes}</span> M</div>
@@ -72,15 +69,15 @@ function OfferBanner() {
                     data-aos-duration="1000"
                 >
                     <div
-                        className="rectangle-box banner-box"
+                        className="rectangle-box "
                         style={{
                             backgroundImage: `url(${Banner2})`,
                         }}
                     >
                         <div className="banner-content ">
-                            <CustomText Text="Vegetables Combo Box" fontWeight='bold' className='banner-contentText' />
+                            <CustomText Text="Vegetables Combo Box" fontWeight='bold' className='text-dark' fontSize='30px'  />
                             <CustomText Text="Time remaining until the end of the offer." className='subtext' fontWeight='bold' />
-                            <div className="countdown1 ">
+                            <div className="countdown-offer-banner ">
                                 <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.days}</span > D</div>
                                 <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.hours}</span> H</div>
                                 <div className="countdown-item-Baner2 mt-3 TextElement"><span>{timeLeft.minutes}</span> M</div>

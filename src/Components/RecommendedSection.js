@@ -63,7 +63,7 @@ function RecommendedSection() {
                 <div className="col-lg-4 col-sm-12 col-md-12">
                     <h3>Recommended For You</h3>
                 </div>
-                <div className=" d-flex flex-wrap col-lg-8 col-sm-12 col-md-12 justify-content-end " >
+                <div className=" d-flex flex-wrap col-lg-8 col-sm-12 col-md-12 justify-content-end">
                     {categories.map((item) => (
                         <button
                             key={item}
@@ -85,49 +85,65 @@ function RecommendedSection() {
                         data-aos-delay={index * 100}
                         data-aos-anchor-placement="top-bottom"
                         onClick={() => handleProductClick(item.id)}
-                    // style={{ backgroundColor: 'pink' }}
                     >
+                        {/* Row for Sale Badge + Wishlist */}
+                        <div >
+                            {item.isSale && (
+                                <span className="sale-badge">Sale 50%</span>
+                            )}
+                            <div
+                                className="wishlist-icon"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (isInWishlist(item.id)) {
+                                        const updated = removeFromWishlist(item.id);
+                                        setWishlist(updated);
+                                        toast.error(`${item.name} removed from wishlist`);
+                                    } else {
+                                        const updated = addToWishlist(item);
+                                        setWishlist(updated);
+                                        toast.success(`${item.name} added to wishlist`);
+                                    }
+                                }}
+                            >
+                                <HeartOutline
+                                    height="30"
+                                    width="30"
+                                    className={isInWishlist(item.id) ? "red-heart" : ""}
+                                />
+                            </div>
+                        </div>
 
-                        <div className="Recommended-image-container"
-                        >
+                        <div className="Recommended-image-container">
                             <img src={item.images?.[0]} alt={item.name} />
                         </div>
-                        <div
-                            className="wishlist-icon"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                if (isInWishlist(item.id)) {
-                                    const updated = removeFromWishlist(item.id);
-                                    setWishlist(updated);
-                                    toast.error(`${item.name} removed from wishlist`);
-                                } else {
-                                    const updated = addToWishlist(item);
-                                    setWishlist(updated);
-                                    toast.success(`${item.name} added to wishlist`);
-                                }
-                            }}
-                        >
-                            <HeartOutline
-                                height="30"
-                                width="30"
-                                className={isInWishlist(item.id) ? "red-heart" : ""}
-                            />
-                        </div>
 
-
-                        <CustomText Text={item.name} className='Recommended-product-name' fontWeight='bold' fontSize='20px' />
+                        <CustomText
+                            Text={item.name}
+                            className="Recommended-product-name"
+                            fontWeight="bold"
+                            fontSize="20px"
+                        />
 
                         <p className="Recommended-price">
-                            ${item.price} <span className="per-qty">/Qty</span><span className="original-price">${item.originalPrice}</span>
+                            ${item.price} <span className="per-qty">/Qty</span>
+                            <span className="original-price">${item.originalPrice}</span>
                         </p>
                         <p className="Recommended-rating">
                             <strong>{item.rating}</strong> ⭐ (17k)
                         </p>
 
-                        <CartButton product={item} setCartItems={setCartItems} qtyBoxClass='Add-To-Cart-Quantity-Box' addBtnClass='Add-To-Cart-Button' title="Add To Cart" />
+                        <CartButton
+                            product={item}
+                            setCartItems={setCartItems}
+                            qtyBoxClass="Add-To-Cart-Quantity-Box"
+                            addBtnClass="Add-To-Cart-Button"
+                            title="Add To Cart"
+                        />
                     </div>
                 ))}
             </div>
+
 
             {/* -----------------------------------Two Banner---------------------------- */}
 

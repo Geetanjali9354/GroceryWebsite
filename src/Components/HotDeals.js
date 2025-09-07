@@ -160,9 +160,9 @@ function HotDeals() {
 
 
                             {/* Button */}
-                            <button className="d-flex align-items-center rounded-pill px-4 py-2 mt-4 hotdeal-btn">
+                            <button className="d-flex rounded-pill p-2 py-2 mt-4 hotdeal-btn">
                                 <span className="hotdeal-btn-text">
-                                    Explore Shop <CartOutline height="20" width="20" />
+                                    Explore Shop <CartOutline height="20" width="20" className="mt-1"/>
                                 </span>
                             </button>
                         </div>
@@ -170,7 +170,7 @@ function HotDeals() {
                     </div>
 
                     {/* RIGHT SECTION - SLIDER */}
-                    <div className="col-md-8 col-lg-8 ">
+                    <div className="col-md-8 col-lg-8 mt-4">
                         <div className="hotdeals-container">
                             <Slider {...settings}>
                                 {HotDealProducts.map((product, idx) => (

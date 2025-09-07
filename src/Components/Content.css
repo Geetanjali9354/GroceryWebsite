@@ -9,19 +9,19 @@
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.cursor{
-  cursor: grab;
-}
+
 .banner-item__content {
   position: relative;
   z-index: 2;
   color: white;
 }
 
-/* Banner Content */
-.banner-item__content {
-  color: white;
+.cursor {
+  cursor: grab;
 }
 
 /* Text Content Styling */
@@ -41,13 +41,11 @@
   color: #1C799B;
 }
 
-.gap-16 {
-  gap: 16px;
-}
-
 .exploreNowBtn {
   height: 50px;
   border: none;
+  background-color: #1C799B;
+  font-size: 20px;
 }
 
 @media (max-width: 480px) {
@@ -56,20 +54,48 @@
     /* Further reduce the title size */
   }
 
-  .btn-main {
-    font-size: 12px;
-  }
-
   .image-style {
-    max-width: 100%;
-    /* Further reduce image width on very small screens */
+    width: 80%;
   }
 
   .text-danger {
     font-size: 14px;
   }
+}
 
-  .gap-16 {
-    gap: 8px;
+@media (min-width: 768px) {
+  .banner-item__title {
+    font-size: 30px;
+    /* Adjust title size for tablets */
+  }
+
+  .image-style {
+    width: 250px;
+  }
+
+  .text-danger {
+    font-size: 16px;
+  }
+
+  .special-offer-container {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner-item__title {
+    font-size: 50px;
+  }
+
+  .image-style {
+    width: 100%;
+  }
+
+  .text-danger {
+    font-size: 16px;
+  }
+
+  .special-offer-container {
+    height: 500px;
   }
 }

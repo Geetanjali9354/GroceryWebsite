@@ -6,24 +6,22 @@ function Content() {
     return (
         <div className="special-offer-container mt-5">
             {/* Banner Content */}
-            <div className="banner-item__content " style={{ marginTop: '20px' }}>
+            <div className="banner-item__content ">
                 <div className="container">
                     <div className="row align-items-center">
                         {/* Text Content (Left side) */}
-                        <div className="col-lg-6 col-md-12 cursor"
+                        <div className="col-lg-6 col-md-8 cursor "
                             data-aos="fade-right"
                             data-aos-duration="1000"
                             data-aos-delay="100"
                         >
                             <CustomText Text="Save up to 50% off on your first order" className='text-success-600 fw-semibold' fontWeight='bold' fontSize="20px" />
-                            {/* <CustomText Text="Daily Grocery Order and Get Express Delivery" className='banner-item__title' fontWeight='bold' fontSize='50px' /> */}
                             <h2 className='banner-item__title'>Daily Grocery Order and Get <span className='text-main-600'>Express</span> Delivery</h2>
-                            <div className="d-flex align-items-center gap-16">
+                            <div className="d-flex align-items-center gap-4">
                                 <button
-                                    style={{ backgroundColor: '#1C799B' }}
                                     className="exploreNowBtn rounded-pill text-white px-3 "
                                 >
-                                    <span style={{ fontSize: '20px' }}>
+                                    <span>
                                         Explore Shop
                                         <span><CartOutline height="25" width="25" /></span>
                                     </span>
@@ -36,7 +34,7 @@ function Content() {
                         </div>
 
                         {/* Image (Right side) */}
-                        <div className="col-lg-6 col-md-12 image-container d-flex justify-content-end align-items-end position-relative"
+                        <div className="col-lg-6 col-md-4  d-flex justify-content-end align-items-end position-relative"
                             data-aos="zoom-in"
                             data-aos-duration="1000"
                         >
@@ -44,7 +42,7 @@ function Content() {
                                 <img
                                     src={basket} // Replace with the correct path of your image
                                     alt="Grocery Basket"
-                                    className="image-style " // Ensures image fits in container
+                                    className="image-style"
                                 />
                             </div>
                         </div>

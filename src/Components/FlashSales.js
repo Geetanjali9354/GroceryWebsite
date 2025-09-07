@@ -2,25 +2,16 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
-import { CartOutline, HeartOutline } from '../Images/SvgImages';
+import { HeartOutline } from '../Images/SvgImages';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import { ProductCollection } from './CategoryCollection';
 import CustomText from './CustomText';
 import { useNavigate } from 'react-router-dom';
-import {
-    addToCart,
-    getCartItemQuantity,
-    getCart
-} from '../Utils/cartUtils';
+import { getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
-import {
-    addToWishlist,
-    removeFromWishlist,
-    isInWishlist,
-} from "../Utils/Wishlist";
-import QuantityBox from './QuantityBox';
+import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import CartButton from './CartButton';
 
 const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
@@ -32,7 +23,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
         navigate(`/product/${productId}`);
     };
 
-    const handleShopClick = () => {
+    const handleLinkClick = () => {
         navigate(`/shop`);
     };
 
@@ -41,11 +32,10 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
             duration: 700,
             once: true,
         });
-
-        // Listen for cart updates (from other components)
-        const updateCartState = () => setCartItems(getCart());
+        const updateCartState = () => {
+            setCartItems(getCart());
+        };
         window.addEventListener("cartUpdated", updateCartState);
-        return () => window.removeEventListener("cartUpdated", updateCartState);
     }, []);
 
     const SaleProducts = ProductCollection.filter(product => product.isSale === true);
@@ -58,7 +48,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
         slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 2000,
         responsive: [
             { breakpoint: 1200, settings: { slidesToShow: 3 } },
             { breakpoint: 768, settings: { slidesToShow: 2 } },
@@ -70,8 +60,8 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
         <div>
             <div className="flash-sales-container">
                 <div className="flash-sales-header">
-                    <h3>{title}</h3>
-                    <a href="#" onClick={handleShopClick}>{linkText}</a>
+                    <CustomText Text={title} className='text-dark' fontWeight='bold' fontSize='30px' />
+                    <a href="#" onClick={handleLinkClick}>{linkText}</a>
                 </div>
 
                 <Slider {...settings}>
@@ -84,7 +74,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                         >
                             <div className="flash-sales-card" onClick={() => handleProductClick(product.id)}>
                                 <div
-                                    className="wishlist-icon1"
+                                    className="wishlist-icon-flash"
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         if (isInWishlist(product.id)) {
@@ -101,16 +91,14 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                                     <HeartOutline
                                         height="26"
                                         width="26"
-                                        className={isInWishlist(product.id) ? "red-heart1" : ""}
+                                        className={isInWishlist(product.id) ? "red-heart-flash" : ""}
                                     />
                                 </div>
 
                                 <div className="flash-sales-image-container">
                                     <img src={(product.images?.[0] || '')} alt={product.name} />
                                 </div>
-
                                 <CartButton product={product} setCartItems={setCartItems} addBtnClass='flash-sales-add-button' qtyBoxClass='quantity-box' title='Add' />
-
                                 <p className="flash-sales-price">
                                     ${product.price}
                                     <span className="original-price">${product.originalPrice}</span>

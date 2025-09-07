@@ -175,9 +175,9 @@ export const CategoryCollection = [
     {
         id: "veg-grocery",
         label: "Vegetables",
-        image: VegGroceryImage, // yeh aap apne image asset se replace karein
+        image: VegGroceryImage, 
         bgColor: "#BBDEFB",
-        subtitle: "150+ Products",
+        subtitle: "125+ Products",
     },
     {
         id: "fruit",
@@ -414,7 +414,7 @@ export const ProductCollection = [
         images: [ColaCan, ColaCan2, ColaCan3, ColaCan4],
         description: "Classic fizzy cola drink.",
         categoryId: "drinks",
-        isSale: false,
+        isSale: true,
     },
     {
         id: "smoothie-1",
@@ -537,7 +537,7 @@ export const ProductCollection = [
         images: [Lollipop1, Lollipop2, Lollipop3, Lollipop4],
         description: "Fun and fruity lollipop collection.",
         categoryId: "yummycandy",
-        isSale: false,
+        isSale: true,
     },
     // vegetables
     {

@@ -12,7 +12,6 @@ import 'aos/dist/aos.css';
 import CustomText from "./CustomText";
 import { CategoryCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
-
 function CircleCarousal() {
     const navigate = useNavigate();
     const handleCategoryClick = (id) => {
@@ -26,7 +25,6 @@ function CircleCarousal() {
         });
     }, []);
     const settings = {
-        // dots: true,
         arrows: false,
         infinite: true,
         speed: 1500,
@@ -37,15 +35,15 @@ function CircleCarousal() {
         responsive: [
             {
                 breakpoint: 1024,
-                settings: { slidesToShow: 3, slidesToScroll: 1 }
+                settings: { slidesToShow: 3 }
             },
             {
                 breakpoint: 768,
-                settings: { slidesToShow: 4, slidesToScroll: 1 }
+                settings: { slidesToShow: 4 }
             },
             {
                 breakpoint: 480,
-                settings: { slidesToShow: 2, slidesToScroll: 1 }
+                settings: { slidesToShow: 2 }
             }
         ]
     };
@@ -83,17 +81,14 @@ function CircleCarousal() {
                                 <img src={item.image} alt={item.label} />
                             </div>
                             <div>
-                                <CustomText Text={item.label} className='circle-carousel-label mt-3' fontWeight='bold' />
-                                <CustomText Text={item.subtitle} className='circle-carousel-subtitle mt-2' fontWeight='normal' />
+                                <CustomText Text={item.label} className='circle-carousel-label mt-3' fontWeight='bold' fontSize='20px' />
+                                <CustomText Text={item.subtitle} className='text-secondary mt-2' fontWeight='500' fontSize='14px' />
                             </div>
                         </div>
                     ))}
                 </Slider>
             </div>
-
-
             {/* --------------------------- FOUR BOX GRID BANNER---------------------------- */}
-
             <div className="four-box-grid">
                 {fourBoxItems.map((item, index) => (
                     <div
@@ -106,18 +101,18 @@ function CircleCarousal() {
                     >
                         <h3 style={{
                             fontSize: '22px',
-                            margin: 0,
                             lineHeight: '1.1',
                             color: 'black',
-                            fontFamily: 'inherit',
-                            whiteSpace: 'pre-line'
+                            whiteSpace: 'pre-line',
+                            fontFamily: 'Quicksand',
+                            fontWeight: '600'
                         }}>
                             {item.title}
                         </h3>
 
                         <div className="d-flex align-items-end gap-1">
-                            <span style={{ color: 'grey' }}>Starting at </span>
-                            <h6 className="text-danger mb-0" style={{ fontSize: '18px' }}>$60.99</h6>
+                            <CustomText Text="Starting at" className='text-secondary' fontWeight='bold' fontSize='18px' />
+                            <CustomText Text="$60.99" className='text-danger mb-0' fontWeight='bold' fontSize='18px' />
                         </div>
                         <div className="mt-3">
                             <button className=" btn-main rounded-pill">

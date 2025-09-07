@@ -45,15 +45,7 @@ function TopBar() {
     const handleVendorsClick = () => {
         navigate(`/vendors`);
     };
-    const [timeLeft, setTimeLeft] = useState({
-        days: 832,
-        hours: 8,
-        minutes: 29,
-        seconds: 34,
-    });
     const [showCategories, setShowCategories] = useState(false);
-    const [showMenu, setShowMenu] = useState(false);
-
     useEffect(() => {
         AOS.init({ duration: 500, once: true });
     }, []);
@@ -66,23 +58,23 @@ function TopBar() {
         }
         updateWishlistCount();
         window.addEventListener('wishlistUpdated', updateWishlistCount);
-        return () => {
-            window.removeEventListener('wishlistUpdated', updateWishlistCount);
-        };
     }, []);
     // Count for Cart
     useEffect(() => {
         const updateCartCount = () => {
             const cart = getCart();
-            const totalItems = cart.length;
-            setCartCount(totalItems);
+            setCartCount(cart.length);
         };
-
-        updateCartCount(); // load on mount
-
+        updateCartCount();
         window.addEventListener('cartUpdated', updateCartCount);
-        return () => window.removeEventListener('cartUpdated', updateCartCount);
     }, []);
+    // count for Timer
+    const [timeLeft, setTimeLeft] = useState({
+        days: 832,
+        hours: 8,
+        minutes: 29,
+        seconds: 34,
+    });
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
@@ -105,7 +97,6 @@ function TopBar() {
         }, 1000);
         return () => clearInterval(timer);
     }, []);
-
 
     return (
         <div>
@@ -167,14 +158,7 @@ function TopBar() {
                                 <p className="text-white dropdown-toggle" style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
                                     USD
                                 </p>
-                                <ul className="dropdown-menu ">
-                                    <li><a className="dropdown-item" href="#">USD</a></li>
-                                    <li><a className="dropdown-item" href="#">Yen</a></li>
-                                    <li><a className="dropdown-item" href="#">Franc</a></li>
-                                    <li><a className="dropdown-item" href="#">Euro</a></li>
-                                    <li><a className="dropdown-item" href="#">BDT</a></li>
-                                    <li><a className="dropdown-item" href="#">Won</a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -325,8 +309,6 @@ function TopBar() {
                             tabIndex="-1"
                             id="mobileNavMenu"
                             aria-labelledby="mobileNavMenuLabel"
-                            onMouseEnter={() => setShowMenu(true)}
-                            onMouseLeave={() => setShowMenu(false)}
                         >
                             <div className="offcanvas-header">
                                 <img className='img-fluid' src={Logo} alt="MarketPro Logo" style={{ height: '50px' }} />
@@ -378,7 +360,7 @@ function TopBar() {
                                     <li className="nav-item dropdown border-bottom py-2">
                                         <a href="#" className="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                                             Vendors
-                                            <span className="badgeeee badgeeee-blue mt-3 ms-3">New</span>
+                                            <span className="badgeeee badgeeee-blue mt-3 ms-4">New</span>
 
                                         </a>
                                         <ul className="dropdown-menu">
@@ -417,10 +399,9 @@ function TopBar() {
                                         height="20"
                                         width="20"
                                         className="dropdown-icon"
-
                                     />
                                 </a>
-                                <ul className="dropdown-menu">
+                                <ul className="dropdown-menu ">
                                     <li><a className="dropdown-item" href="/">Home Page</a></li>
                                     <li><a className="dropdown-item" href="#">Grocery</a></li>
                                 </ul>
