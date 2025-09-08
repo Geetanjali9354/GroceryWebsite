@@ -1,4 +1,3 @@
-import React from "react";
 import TopBar from "./TopBar";
 import './Vendors.css'; // Assuming you have a CSS file for styling
 import { BaselineHome } from "../Images/SvgImages";
@@ -79,7 +78,7 @@ function Vendors() {
                             <div className="d-flex justify-content-center gap-3 mt-3 flex-wrap">
                                 {[VendorProduct1, VendorProduct2, VendorProduct3, VendorProduct4, VendorProduct3].map((img, i) => (
                                     <div key={i} className="product-circle-wrapper">
-                                        <img src={img} alt={`product-${i}`} className="product-image-inside" />
+                                        <img src={img} className="product-image-inside" />
                                     </div>
                                 ))}
                             </div>

@@ -1,17 +1,13 @@
 .search-container {
     background-color: white;
-    /* padding: 20px; */
     border-radius: 8px;
     border: 1px solid #dbdbdb;
-    /* margin-bottom: 1.5rem; */
 }
 
 .search-title {
     color: black;
-    margin-bottom: 1rem;
 
 }
-
 .input-div {
     height: 60px;
 }
@@ -58,7 +54,6 @@
 }
 
 .recent-post-text {
-    /* font-weight: 600; */
     color: black;
     font-size: 18px;
     line-height: 1.3;

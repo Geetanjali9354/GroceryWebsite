@@ -1,20 +1,8 @@
-.product-card {
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
 .category-sidebar {
   background-color: white;
   height: 500px;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
-  /* overflow-y: auto; */
   border: 1px solid #DBDBDB;
 
 }
@@ -37,7 +25,6 @@
 .category-list {
   padding: 10px 20px;
 }
-
 .category-item {
   font-size: 16px;
   margin-bottom: 15px;
@@ -45,6 +32,9 @@
   font-weight: 600;
   font-family: 'Quicksand', sans-serif;
   cursor: pointer;
+}
+.category-item:hover {
+  color: #1C799B;
 }
 
 /* Shared Style for Sidebar Boxes */
@@ -134,7 +124,6 @@
   background-color: white;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #DBDBDB;
 
 }
@@ -152,7 +141,6 @@
   border: 2px solid #ccc;
   border-radius: 50%;
   appearance: none;
-  -webkit-appearance: none;
   outline: none;
   cursor: pointer;
   position: relative;
@@ -181,7 +169,6 @@
   background-color: white;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #DBDBDB;
 }
 

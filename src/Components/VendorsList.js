@@ -1,4 +1,3 @@
-import React from "react";
 import VendorLogo1 from '../Images/VendorLogoR1.png';
 import VendorLogo2 from '../Images/VendorLogoR2.png';
 import VendorLogo3 from '../Images/VendorLogoR3.png';

@@ -1,4 +1,3 @@
-import React from "react";
 import { getCartItemQuantity, addToCart, getCart } from "../Utils/cartUtils";
 import QuantityBox from "./QuantityBox";
 import { CartOutline } from "../Images/SvgImages";
@@ -7,14 +6,14 @@ import { toast } from "react-toastify";
 const CartButton = ({
     product,
     setCartItems,
-    addBtnClass = "",       // Add button ki styling
+    addBtnClass = "",
     qtyBoxClass = "",
-    title=""     // QuantityBox ki styling
+    title = ""
 }) => {
     const quantity = getCartItemQuantity(product.id);
 
     if (quantity > 0) {
-        // ✅ Agar cart me product hai → QuantityBox with custom style
+        // Agar cart me product hai then QuantityBox
         return (
             <QuantityBox
                 product={product}
@@ -23,22 +22,23 @@ const CartButton = ({
             />
         );
     }
-
-    // ✅ Agar cart me nahi hai → Add Button with custom style
-    return (
-        <button
-            className={addBtnClass}
-            onClick={(e) => {
-                e.stopPropagation();
-                addToCart(product);
-                setCartItems(getCart());
-                toast.success(`${product.name} added to cart!`);
-            }}
-        >
-            {title}
-            <CartOutline height="20" width="20" />
-        </button>
-    );
+    else {
+        // Agar cart me nahi hai → Add to cart button
+        return (
+            <button
+                className={addBtnClass}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    addToCart(product);
+                    setCartItems(getCart());
+                    toast.success(`${product.name} added to cart!`);
+                }}
+            >
+                {title}
+                <CartOutline height="20" width="20" />
+            </button>
+        );
+    }
 };
 
 export default CartButton;

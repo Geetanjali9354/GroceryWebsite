@@ -1,11 +1,4 @@
-import React from 'react';
-import {
-    getCartItemQuantity,
-    removeFromCart,
-    updateCartQuantity,
-    addToCart,
-    getCart
-} from '../Utils/cartUtils';
+import {getCartItemQuantity,removeFromCart,updateCartQuantity} from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 
 const QuantityBox = ({ product, setCartItems,className = ''  }) => {

@@ -79,7 +79,7 @@ const FilterSection = ({ handleCategoryClick }) => {
                             { color: 'Gray', hex: '#6c757d' },
                             { color: 'Green', hex: '#28a745' },
                             { color: 'Red', hex: '#dc3545' },
-                            { color: 'White', hex: '#ffffff' },
+                            { color: 'White', hex: '#DBDBDB' },
                             { color: 'Purple', hex: '#6f42c1' },
                         ].map((item, index) => (
                             <label className="color-option d-flex align-items-center mb-3" key={index}>

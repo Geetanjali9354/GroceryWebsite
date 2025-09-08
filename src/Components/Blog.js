@@ -1,6 +1,6 @@
 import TopBar from "./TopBar";
 import { BaselineHome } from "../Images/SvgImages";
-import { FaCalendarWeek, FaComment, FaSearch } from "react-icons/fa";
+import { FaCalendarWeek, FaComment, FaSearch,FaArrowRight } from "react-icons/fa";
 import BlogMainImg from '../Images/BlogMainImg.jpeg';
 import './Blog.css';
 import BlogProduct1 from '../Images/BlogProduct1.jpeg';
@@ -61,7 +61,7 @@ function Blog() {
                             <img src={BlogMainImg} alt="Tech Image" className="img-fluid rounded mb-4" />
 
                             {/* Tag */}
-                            <span className="  px-3 py-2 mb-3 Gadget-btn" >
+                            <span className="px-3 py-2 mb-3 Gadget-btn" >
                                 Gadget
                             </span>
 
@@ -131,7 +131,6 @@ function Blog() {
                                     <div>
                                         <CustomText Text={post.title} className="recent-post-text mb-1 mt-3" fontSize="18px" fontWeight="bold" />
                                         <small className="text-muted d-flex align-items-center gap-1">
-                                            {/* <FaRegCalendarAlt className="calendar-icon" /> */}
                                             <FaCalendarWeek className="calendar-icon" />
                                             {post.date}
                                         </small>
@@ -146,7 +145,6 @@ function Blog() {
                     {/* Left Content (Images + Text) */}
                     <div className="col-12 col-lg-8">
 
-                        {/* Image Wrapper */}
                         <div className="row g-4">
                             <div className="col-12 col-md-6">
                                 <div
@@ -184,7 +182,7 @@ function Blog() {
                     </div>
 
                     {/* Right Side - Categories (Only on large screens) */}
-                    <div className="categories-card p-4 bg-white col-4 d-none d-lg-block">
+                    <div className="categories-card p-4 bg-white col-lg-4 d-none d-lg-block">
                         <CustomText Text="Categories" className=" mb-3" fontSize="22px" fontWeight="bold" />
                         <hr />
                         <div className="category-list d-flex flex-column ">
@@ -192,7 +190,7 @@ function Blog() {
                                 <div className="category-item1 d-flex justify-content-between align-items-center px-3 rounded" key={index}>
                                     <span>{category}</span>
                                     <div className="category-arrow d-flex justify-content-center align-items-center rounded">
-                                        <span>&rarr;</span>
+                                        <FaArrowRight  />
                                     </div>
                                 </div>
                             ))}

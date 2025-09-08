@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLock, FaSignOutAlt } from 'react-icons/fa';
 import TopBar from './TopBar';
 import { BaselineHome } from '../Images/SvgImages';

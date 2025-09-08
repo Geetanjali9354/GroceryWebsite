@@ -25,7 +25,7 @@ const ContactPage = () => {
             </div>
             <div className="row bg-white  rounded p-4 mt-5">
                 {/* Left Side - Form */}
-                <div className="col-lg-8 col-sm-12 MainLeftDiv p-4">
+                <div className="col-lg-8 col-sm-12 MainLeftDiv p-4 ">
                     <CustomText Text="Make Custom Request" fontSize="22px" fontFamily="Quicksand" fontWeight={700} />
                     <form className='Font'>
                         <div className="row mb-3 mt-4">
@@ -63,7 +63,7 @@ const ContactPage = () => {
 
                 {/* Right Side - Contact Info */}
                 <div className="col-lg-4 col-sm-12  mt-lg-0">
-                    <div className="border rounded p-4 h-75 d-flex flex-column justify-content-between">
+                    <div className="border rounded p-4 h-75 d-flex flex-column justify-content-between"style={{cursor:'pointer'}}>
                         <div >
                             <CustomText Text={"Get In Touch"} fontSize="22px" fontFamily="Quicksand" fontWeight={700} />
                             <div className='mt-4 contact-details p-2'>
@@ -81,7 +81,6 @@ const ContactPage = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div className="d-flex gap-3 mt-4 button-div">
                         <button className="btn contact-btn d-flex align-items-center gap-2 w-50">

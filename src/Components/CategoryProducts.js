@@ -6,9 +6,6 @@ import ProductsPage from "./ProductsPage";
 const CategoryProducts = () => {
   const { id } = useParams();
   const category = CategoryCollection.find((cat) => cat.id === id);
-
-  if (!category) return <div>Category not found</div>;
-
   const filteredProducts = ProductCollection.filter(
     (prod) => prod.categoryId === id
   );

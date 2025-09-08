@@ -4,12 +4,11 @@ import TopBar from "./TopBar";
 import Footer from "./Footer";
 import ServiceHighlights from "./ServiceHighlights";
 import FilterSection from "./FilterSection";
-import QuantityBox from "./QuantityBox";
 import CustomText from "./CustomText";
-import { BaselineHome, CartOutline, HeartOutline } from "../Images/SvgImages";
+import { BaselineHome, HeartOutline } from "../Images/SvgImages";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { addToCart, getCartItemQuantity, getCart } from "../Utils/cartUtils";
+import { getCart } from "../Utils/cartUtils";
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { toast } from "react-toastify";
 import './ProductsPage.css';
@@ -53,7 +52,7 @@ const ProductsPage = ({ title, breadcrumb, products }) => {
             Home
           </a>
           <span className="mx-1">{">"}</span>
-          <span className="text-primary">{breadcrumb}</span>
+          <a className="text-primary" href="#" style={{ textDecoration: "none" }}>{breadcrumb}</a>
         </div>
       </div>
 
@@ -61,9 +60,12 @@ const ProductsPage = ({ title, breadcrumb, products }) => {
       <div className="container-fluid m-0 g-0 mt-4">
         <div className="row p-4">
           <div className="col-lg-3  col-sm-12">
+            
+            {/* =====================Filter Section =============================*/}
             <FilterSection
               handleCategoryClick={(id) => navigate(`/category/${id}`)}
             />
+
           </div>
           <div className="col-lg-9 col-md-12 col-sm-12 flex-wrap ">
             <div className="four-box-grid-catProduct d-flex flex-wrap  justify-content-around">

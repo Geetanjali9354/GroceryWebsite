@@ -348,7 +348,7 @@ function TopBar() {
                                     <li className="nav-item dropdown border-bottom py-2">
                                         <a href="#" className="nav-link dropdown-toggle position-relative" data-bs-toggle="dropdown">
                                             Pages
-                                            <span className="badgeeee badgeeee-yellow mt-3 ms-3">New</span>
+                                            <span className="badgeeee badgeeee-yellow mt-3 ms-3 bulb">New</span>
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
@@ -360,7 +360,7 @@ function TopBar() {
                                     <li className="nav-item dropdown border-bottom py-2">
                                         <a href="#" className="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                                             Vendors
-                                            <span className="badgeeee badgeeee-blue mt-3 ms-4">New</span>
+                                            <span className="badgeeee badgeeee-blue mt-3 ms-4 bulb">New</span>
 
                                         </a>
                                         <ul className="dropdown-menu">
@@ -425,7 +425,7 @@ function TopBar() {
                                 <a href="#">
                                     <span className="position-relative">
                                         Pages
-                                        <span className="badgeeee badgeeee-yellow">New</span>
+                                        <span className="badgeeee badgeeee-yellow bulb">New</span>
                                     </span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
@@ -451,7 +451,7 @@ function TopBar() {
                                 <a href="#">
                                     <span className="position-relative">
                                         Vendors
-                                        <span className="badgeeee badgeeee-blue">New</span>
+                                        <span className="badgeeee badgeeee-blue bulb">New</span>
                                     </span>
                                     <BaselineKeyboardArrowDown
                                         height="20"

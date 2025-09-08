@@ -4,14 +4,10 @@
     overflow: hidden;
     height: 400px;
     cursor: pointer;
-
     -webkit-mask-image: url('../Images/VendorRemovebg.png');
     mask-image: url('../Images/VendorRemovebg.png');
-    -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-    -webkit-mask-position: center top;
     mask-position: center top;
 }
 
@@ -33,13 +29,18 @@
     transition: background-color 0.3s ease;
 }
 
-/* 👇 Hover effect */
 .vendor-badge:hover {
     background-color: #1C799B;
     color: white;
-    /* Optional: make text visible */
 }
 
+.product-image-inside {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* =========================================filter Section====================================== */
 .vendor-filter-bar {
     background-color: #fff;
 }
@@ -106,11 +107,6 @@
     justify-content: center;
 }
 
-.product-image-inside {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
 
 .pagination1-static {
     flex-wrap: wrap;
@@ -131,11 +127,6 @@
     font-family: 'Quicksand';
 }
 
-.pagination1-btn:hover:not(.active):not(.disabled) {
-    background-color: #167a92;
-    color: white;
-    border-color: #167a92;
-}
 
 .pagination1-btn.active {
     background-color: #167a92;
@@ -147,4 +138,10 @@
     background-color: #f1f1f1;
     color: #6c757d;
     cursor: not-allowed;
+}
+
+.pagination1-btn:hover:not(.active):not(.disabled) {
+    background-color: #167a92;
+    color: white;
+    border-color: #167a92;
 }

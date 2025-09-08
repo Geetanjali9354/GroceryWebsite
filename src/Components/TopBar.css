@@ -26,6 +26,24 @@
     background-color: blueviolet;
 }
 
+.bulb {
+    animation: bulb 1s infinite;
+}
+
+@keyframes bulb {
+    0% {
+        opacity: 10%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 10%;
+    }
+}
+
 .countdown {
     display: flex;
     gap: 10px;
@@ -106,6 +124,7 @@
     transition: color 0.3s ease;
     font-family: 'Quicksand';
 }
+
 .nav-link a:hover {
     color: #1C799B;
 }
@@ -144,9 +163,11 @@
     background-color: lightblue;
     cursor: pointer;
 }
+
 .responsive-logo {
     height: 30px;
 }
+
 @media (max-width: 819px) {
     .responsive-logo {
         height: 40px;
