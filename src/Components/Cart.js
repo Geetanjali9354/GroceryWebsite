@@ -74,7 +74,7 @@ function Cart() {
                         ) : (
                             <div style={{ overflowX: 'auto' }}>
                                 {/* ✅ Header Row */}
-                                <div className="cart-list-container" style={{ width: '1500px' }}>
+                                <div  style={{ width: '1500px' }}>
                                     <div className="row w-100 h-100 py-4">
                                         <div className="col-2 CenterElement TextClass"><h5 className="TextClass">Delete</h5></div>
                                         <div className="col-3 CenterElement"><h5 className="TextClass">Product Name</h5></div>
@@ -85,7 +85,7 @@ function Cart() {
                                 </div>
 
                                 {/* ✅ Cart Items */}
-                                <div className="cart-list-container" style={{ width: '1500px' }}>
+                                <div style={{ width: '1500px' }}>
                                     <div className="row w-100 h-100">
                                         {cartItems.map((item) => (
                                             <div className="cart-row cart-item" key={item.id}>

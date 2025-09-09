@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import CustomText from './CustomText';
 import './Wishlist.css'; // You can style the wishlist page here
 import TopBar from './TopBar';
 import ServiceHighlights from './ServiceHighlights';
@@ -8,7 +6,7 @@ import Footer from './Footer'
 import { useNavigate } from 'react-router-dom';
 import { BaselineHome } from '../Images/SvgImages';
 import { addToCart } from '../Utils/cartUtils';
-import { removeFromWishlist } from '../Utils/Wishlist';
+import { removeFromWishlist, getWishlist } from '../Utils/Wishlist';
 import { toast } from 'react-toastify';
 const Wishlist = () => {
     const navigate = useNavigate();
@@ -17,20 +15,29 @@ const Wishlist = () => {
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
-    const HandleAddToCart = (product => {
+    const HandleAddToCart = (product) => {
+        //  Cart mein add hora hai
         const UpdateCart = addToCart(product);
         setCartItems(UpdateCart);
-        toast.success(`${product.name} has been added to your cart!`);
-    })
+
+        //  Wishlist se remove hora hai 
+        const updatedWishlist = removeFromWishlist(product.id);
+        setWishlist(updatedWishlist);
+        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+
+        //  toast message
+        toast.success(`${product.name} has been added to your cart !`);
+    };
+
 
     const handleRemoveItem = (id) => {
         const updated = removeFromWishlist(id);
-        setWishlist(updated); // Optional, since wishlistUpdated event will trigger as well
+        setWishlist(updated);
         toast.error('Item removed from wishlist.');
     };
     // Retrieve wishlist data from localStorage
     useEffect(() => {
-        const savedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const savedWishlist = getWishlist();
         setWishlist(savedWishlist);
     }, []);
     return (
@@ -51,41 +58,64 @@ const Wishlist = () => {
             </div>
 
             {/* Show wishlist items */}
-            <div className="wishlist-items mt-4">
+            <div style={{ overflowX: 'auto' }} className='p-4'>
                 {wishlist.length > 0 ? (
-                    wishlist.map((item) => (
-                        <div key={item.id} className="wishlist-item"
-                        >
-                            <div className="wishlist-item-image" onClick={() => handleProductClick(item.id)}>
-                                <img src={item.images[0]} alt={item.name} />
-                            </div>
-                            <div className="wishlist-item-info" onClick={() => handleProductClick(item.id)}>
-                                <CustomText Text={item.name} fontWeight="500" fontSize="20px" />
-                                <p className="wishlist-item-price">${item.price}</p>
-                            </div>
-                            <div className="wishlist-item-actions">
-                                <button onClick={() => handleRemoveItem(item.id)} className="remove-from-wishlist-btn">
-                                    Remove
-                                </button>
-                                <button onClick={() => HandleAddToCart(item)} className="Add-to-wishlist-btn">
-                                    Add to Cart
-                                </button>
+                    <div>
+                        {/* ✅ Header Row */}
+                        <div style={{ width: '1500px' }}>
+                            <div className="row w-100 h-100 py-4 headings" >
+                                <div className="col-2 CenterElement TextClass"><h5 className="TextClass">Delete</h5></div>
+                                <div className="col-3 CenterElement"><h5 className="TextClass">Product Name</h5></div>
+                                <div className="col-2 CenterElement"><h5 className="TextClass">Price</h5></div>
+                                <div className="col-2 CenterElement"><h5 className="TextClass">Stock Status</h5></div>
+                                <div className="col-3 CenterElement"><h5 className="TextClass">Cart</h5></div>
                             </div>
                         </div>
-                    ))
+
+                        <div style={{ width: '1500px' }}>
+                            <div className="row w-100 h-100">
+                                {wishlist.map((item) => (
+                                    <div className="wishlist-row " style={{ border: '1px solid #DBDBDB' }} key={item.id}>
+                                        <div className="col-2 CenterElement">
+                                            <a className="text-danger TextClass" onClick={() => handleRemoveItem(item.id)}>❌ Remove</a>
+                                        </div>
+                                        <div className="col-3 d-flex" onClick={() => handleProductClick(item.id)}>
+                                            <div className="wishlist-item-image">
+                                                <img src={item.images[0]} alt={item.name} />
+                                            </div>
+                                            <div className="Detail ms-2">
+                                                <h6>{item.name}</h6>
+                                                <div className="small text-muted d-flex gap-2 Rating">
+                                                    <span><strong>⭐ {item.rating || "4.8"} </strong>| {item.reviews || "128 Reviews"}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className=" col-2 CenterElement TextClass">
+                                            <p className="wishlist-item-price">${item.price}</p>
+                                        </div>
+                                        <div className=" col-2 CenterElement TextClass">
+                                            <p className="">In stock</p>
+                                        </div>
+                                        <div className="wishlist-item-actions col-3 CenterElement">
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    HandleAddToCart(item);
+                                                }}
+                                                className="Add-to-wishlist-btn"
+                                            >
+                                                Move to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 ) : (
-                    <p style={{ fontSize: '25px', fontFamily: 'Quicksand', padding: '10px' }}>Your wishlist is empty. Explore products to add to your wishlist!</p>
+                    <p className="no-items" style={{ fontSize: '25px', fontFamily: 'Quicksand', padding: '10px', fontWeight: 'bold' }}>Your wishlist is empty. Explore products to add to your wishlist!</p>
                 )}
             </div>
-
-            {/* Optionally, you could add a button to proceed to checkout or the cart */}
-            {wishlist.length > 0 && (
-                <div className="wishlist-footer mb-5 mt-5">
-                    <Link to="/cart" className="proceed-to-cart-btn">
-                        Proceed to Cart
-                    </Link>
-                </div>
-            )}
             <ServiceHighlights />
             <Footer />
         </div>

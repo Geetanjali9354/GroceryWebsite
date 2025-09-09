@@ -1,12 +1,12 @@
-import React from "react";
 import './BannerImage.css';
-import NewsletterImage from '../Images/NewsLetterImage.png';
-
+import NewsletterImage from '../Images/newsletterWhiteImage.png';
+import Fruitimage from '../Images/NewsLetterImage.png'
 function BannerImage() {
     return (
         <div>
             <section className="newsletter-proDetail mt-5 p-3">
-                <div className="container-fluid container-fluid-lg Main-proDetail">
+                <div className="container-fluid p-0 Main-proDetail ">
+                    <img src={NewsletterImage} alt="Newsletter" className="img-fluid position-absolute h-75 w-100" style={{ opacity: 0.1 }} />
                     <div className="py-5 px-4 px-md-5  rounded-4 d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap gap-4 ">
                         <div className="max-w-700 Text-proDetail">
                             <div
@@ -37,7 +37,7 @@ function BannerImage() {
                         <div className="d-none d-lg-block "
                         data-aos="zoom-in"
                         >
-                            <img src={NewsletterImage} alt="Thumbnail" className="img-fluid " />
+                            <img src={Fruitimage} alt="Thumbnail" className="img-fluid " />
                         </div>
                     </div>
                 </div>

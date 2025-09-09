@@ -57,7 +57,7 @@ function RecommendedSection() {
                 <div className="col-lg-4 col-sm-12 col-md-12">
                     <CustomText Text="Recommended For You" fontWeight="bold" fontSize="30px" className="text-dark ms-3" />
                 </div>
-                <div className=" d-flex flex-wrap col-lg-8 col-sm-12 col-md-12 justify-content-end">
+                <div className=" d-flex flex-wrap col-lg-7 col-sm-12 col-md-12 CategoryAlign ">
                     {categories.map((item) => (
                         <button
                             key={item}

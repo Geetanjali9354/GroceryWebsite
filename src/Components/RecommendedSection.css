@@ -33,6 +33,7 @@
 }
 
 .shop-now-btn-banner2 {
+
     background-color: white;
     color: black;
     padding: 7px 17px;
@@ -81,15 +82,14 @@
 }
 
 .category-btn {
-    padding: 5px 15px;
+    padding: 5px 20px;
     border: 1px solid transparent;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 16px;
     background-color: transparent;
     color: #6c757d;
     font-family: 'Quicksand';
     font-weight: 600;
-    transition: all 0.3s ease;
 }
 
 .category-btn.active {
@@ -101,6 +101,18 @@
     border: #1c799b 1px solid;
 }
 
+.CategoryAlign {
+    display: flex;
+    margin-left: 15px;
+    padding: 10px;
+}
+
+@media (min-width: 1024px) {
+    .CategoryAlign {
+        justify-content: flex-end;
+        /* background-color: red; */
+    }
+}
 
 .sale-badge {
     background-color: red;

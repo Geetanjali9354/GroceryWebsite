@@ -140,7 +140,7 @@ function TopBar() {
 
                             {/* Language Dropdown */}
                             <div className="dropdown custom-dropdown">
-                                <p className="text-white dropdown-toggle" style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
+                                <p className="text-white dropdown-toggle fw-semibold " style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
                                     Eng
                                 </p>
                                 <ul className="dropdown-menu">
@@ -155,7 +155,7 @@ function TopBar() {
 
                             {/* Currency Dropdown */}
                             <div className="dropdown custom-dropdown">
-                                <p className="text-white dropdown-toggle" style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
+                                <p className="text-white dropdown-toggle fw-semibold" style={{ fontFamily: 'Quicksand', cursor: 'pointer' }}>
                                     USD
                                 </p>
 

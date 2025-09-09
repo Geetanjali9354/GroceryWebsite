@@ -1,12 +1,12 @@
-.product-detail-img {
-    height: 300px;
-    object-fit: cover;
-}
-
 .imagediv {
     border: 1px solid #DBDBDB;
     height: 500px;
     border-radius: 20px;
+}
+
+.product-detail-img {
+    height: 300px;
+    object-fit: cover;
 }
 
 .Small-image-div {
@@ -14,15 +14,13 @@
     border-radius: 15px;
     height: 100px;
 }
-
+.MainDiv {
+    cursor: pointer;
+}
 .Product-name {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     font-size: 25px;
-}
-
-.MainDiv {
-    cursor: pointer;
 }
 
 .Add-To-Cart-Button-Detail {
@@ -56,13 +54,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    transition: background-color 0.2s ease;
-    outline: none;
-    box-shadow: none;
 }
 
-/* Optional hover effect */
 .Quantity-Box-detail button:hover {
     background-color: #e3f4fa;
 }
@@ -94,6 +87,7 @@
 .social-icons-Detail .icon-circle:hover {
     border-color: #1C799B;
 }
+
 .coupon-box {
     border: 2px dotted #1e40af;
     border-radius: 8px;
@@ -222,7 +216,7 @@
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px ;
     border: none;
 }
 
@@ -247,39 +241,6 @@
 
 .offer-time-left {
     font-size: 15px;
-}
-
-.quantity-box-1 {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border: 1px solid #1C799B;
-    border-radius: 20px;
-    background-color: #E3F4FA;
-    color: #1C799B;
-    font-size: 16px;
-    font-family: 'Quicksand';
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.quantity-box-1 button {
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    color: #1C799B;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.quantity-box-1 span {
-    width: 20px;
-    text-align: center;
 }
 
 .product-stock-warning {

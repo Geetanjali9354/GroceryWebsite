@@ -45,13 +45,13 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
         infinite: true,
         arrows: false,
         speed: 600,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
         responsive: [
             { breakpoint: 1200, settings: { slidesToShow: 3 } },
-            { breakpoint: 768, settings: { slidesToShow: 2 } },
+            { breakpoint: 768, settings: { slidesToShow: 3 } },
             { breakpoint: 480, settings: { slidesToShow: 2 } },
         ]
     };
@@ -68,11 +68,11 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
                     {SaleProducts.map((product, idx) => (
                         <div
                             key={product.id}
-                            className="flash-sales-slide"
+                            className="flash-sales-slide "
                             data-aos="fade-up"
                             data-aos-delay={idx * 100}
                         >
-                            <div className="flash-sales-card" onClick={() => handleProductClick(product.id)}>
+                            <div className="flash-sales-card " onClick={() => handleProductClick(product.id)}>
                                 <div
                                     className="wishlist-icon-flash"
                                     onClick={(e) => {

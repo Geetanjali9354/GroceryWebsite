@@ -10,12 +10,12 @@ import { HeartOutline, ShuffleOutline, ShareAndroid, Heart } from '../Images/Svg
 import { FaTruck, FaUndo, FaStore, FaCheck, FaCreditCard, FaShieldAlt, FaBox } from 'react-icons/fa';
 import FlashSales from './FlashSales';
 import BannerImage from './BannerImage';
-import { addToCart, getCart } from '../Utils/cartUtils';
+import { getCart } from '../Utils/cartUtils';
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { toast } from 'react-toastify';
 import CartButton from './CartButton';
-
 const ProductsDetail = () => {
+    
     const [wishlist, setWishlist] = useState([]);
     const [cartItems, setCartItems] = useState(getCart());
     const [timeLeft, setTimeLeft] = useState({
@@ -24,6 +24,7 @@ const ProductsDetail = () => {
         minutes: 29,
         seconds: 34,
     });
+    // for timer countdown
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
@@ -46,24 +47,15 @@ const ProductsDetail = () => {
         }, 1000);
         return () => clearInterval(timer);
     }, []);
+    // Load wishlist from localStorage on component load
     useEffect(() => {
         setWishlist(getWishlist());
     }, []);
     const { id } = useParams();
-    // const allProducts = CategoryCollection.flatMap(category => category.products || []);
     const product = ProductCollection.find(p => p.id === id);
-
-    if (!product) return <h2 className='text-center mt-5'>Product Not Found</h2>;
-    const HandleAddToCart = (product => {
-        addToCart(product);
-        toast.success(`${product.name} added to cart!`);
-    })
-
     return (
-        <>
+        <div>
             <TopBar />
-
-            {/* Breadcrumb + Title */}
             <div className="d-flex justify-content-between align-items-center p-3" style={{
                 height: '80px',
                 backgroundColor: '#E9EEFB',
@@ -107,7 +99,8 @@ const ProductsDetail = () => {
                                         alt={product.name}
                                         className="img-fluid  h-100 w-100"
                                     />
-                                </div>                        </div>
+                                </div>
+                            </div>
                             <div className='col-3 '>
                                 <div className=' Small-image-div'>
                                     <img
@@ -115,7 +108,8 @@ const ProductsDetail = () => {
                                         alt={product.name}
                                         className="img-fluid  h-100 w-100"
                                     />
-                                </div>                            </div>
+                                </div>
+                            </div>
                             <div className='col-3 '>
                                 <div className=' Small-image-div'>
                                     <img
@@ -143,7 +137,7 @@ const ProductsDetail = () => {
                             </div>
                             <button className="mb-3 mt-4 order-whatsapp-btn"><span>Order on WhatsApp</span></button>
                         </div>
-                        {/* Countdown (Static Example) */}
+                        {/* Countdown Timer */}
                         <div className="p-3  rounded mb-3  mt-5 offer-timer" style={{ backgroundColor: '#F3FAF2' }}>
                             <span className="me-2 offer-label">Special Offer:</span>
                             <span className="badge me-1 text-black offer-badge" >{timeLeft.days}</span>:
@@ -166,13 +160,13 @@ const ProductsDetail = () => {
                             {/* Cart Button */}
                             <CartButton
                                 product={product}
-                                setCartItems={setCartItems} // or whatever function updates your cart
+                                setCartItems={setCartItems}
                                 addBtnClass="Add-To-Cart-Button-Detail mb-4 "
-                                qtyBoxClass="qty-input-group mb-4 Quantity-Box-detail" // custom class if needed
+                                qtyBoxClass="qty-input-group mb-4 Quantity-Box-detail"
                                 title="Add To Cart"
                             />
 
-                            {/* ❤️ Wishlist and Social Icons — same as before */}
+                            {/*  Wishlist and Social Icons  */}
                             <div className="social-icons-Detail d-flex gap-2 ms-3 mb-4 justify-content-end">
                                 <div
                                     className="icon-circle"
@@ -195,9 +189,6 @@ const ProductsDetail = () => {
                                         <HeartOutline height="30" width="30" color="#616161" />
                                     )}
                                 </div>
-
-
-
                                 <div className="icon-circle">
                                     <ShuffleOutline height="25" width="25" />
                                 </div>
@@ -302,11 +293,9 @@ const ProductsDetail = () => {
             </div >
             <FlashSales title='You Might Also Like' linkText='All Products' />
             <ServiceHighlights />
-
-            {/* ----------------NewsLETTER IMAGE SECTION--------- */}
             <BannerImage />
             <Footer />
-        </>
+        </div>
     );
 };
 
