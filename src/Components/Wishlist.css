@@ -1,3 +1,11 @@
+.WishlistScrollbar ::-webkit-scrollbar {
+  height: 5px;
+}
+
+.WishlistScrollbar ::-webkit-scrollbar-thumb {
+  background: #ADADAD;
+}
+
 .wishlist-item-image img {
   width: 140px;
   height: 140px;

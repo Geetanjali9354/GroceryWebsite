@@ -72,7 +72,7 @@ function Cart() {
                                 <a href="/" className="btn mt-3 text-white" style={{ backgroundColor: '#1C799B' }}>Continue Shopping</a>
                             </div>
                         ) : (
-                            <div style={{ overflowX: 'auto' }}>
+                            <div style={{ overflowX: 'auto' }} className="myscrollbar">
                                 {/* ✅ Header Row */}
                                 <div  style={{ width: '1500px' }}>
                                     <div className="row w-100 h-100 py-4">

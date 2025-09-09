@@ -28,7 +28,7 @@ function CircleCarousal() {
         arrows: false,
         infinite: true,
         speed: 1500,
-        slidesToShow: 7,
+        slidesToShow: 9,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 1000,
@@ -65,13 +65,12 @@ function CircleCarousal() {
             image: EverydayFreshFruits,
         },
     ];
-
     return (
         <div>
             <div className="circle-carousel-container">
                 <Slider {...settings}>
                     {CategoryCollection.map((item, index) => (
-                        <div key={item.id} className="circle-carousel-item"
+                        <div key={item.id} className="circle-carousel-item mx-1"
                             onClick={() => handleCategoryClick(item.id)}
                         >
                             <div
@@ -93,7 +92,7 @@ function CircleCarousal() {
                 {fourBoxItems.map((item, index) => (
                     <div
                         key={index}
-                        className="box"
+                        className="box "
                         data-aos="fade-up"
                         data-aos-delay={index * 100}
                         data-aos-anchor-placement="top-bottom"

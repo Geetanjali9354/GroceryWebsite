@@ -58,7 +58,7 @@ const Wishlist = () => {
             </div>
 
             {/* Show wishlist items */}
-            <div style={{ overflowX: 'auto' }} className='p-4'>
+            <div style={{ overflowX: 'auto' }} className='p-4 WishlistScrollbar'>
                 {wishlist.length > 0 ? (
                     <div>
                         {/* ✅ Header Row */}
