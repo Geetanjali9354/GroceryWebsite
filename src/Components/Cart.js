@@ -13,7 +13,6 @@ function Cart() {
         const loadCart = () => setCartItems(getCart());
         loadCart();
         window.addEventListener('cartUpdated', loadCart);
-        return () => window.removeEventListener('cartUpdated', loadCart);
     }, []);
 
     const handleRemoveItem = (id) => {

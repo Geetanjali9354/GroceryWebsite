@@ -7,6 +7,13 @@
     display: 'flex';
 }
 
+.dropdown-item:active,
+.dropdown-item:focus {
+    background-color: #C4C4C4 !important;
+    color: black !important;
+}
+
+
 .badgeeee {
     position: absolute;
     top: -25px;

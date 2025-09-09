@@ -389,11 +389,8 @@ function TopBar() {
 
 
                         {/* DESKTOP NAV - only visible on large+ */}
-                        <div className="col d-none d-lg-flex  align-items-center"
-
-                        >
-                            <div className="nav-link dropdown nav-link-hover"
-                            >
+                        <div className="col d-none d-lg-flex  align-items-center">
+                            <div className="nav-link dropdown nav-link-hover">
                                 <a href="#" > <span className="Heading">Home</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
@@ -440,8 +437,8 @@ function TopBar() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">
-                                            Contact
+                                        <a className="dropdown-item" href="#" onClick={handleWishlistClick}>
+                                            Wishlist
                                         </a>
                                     </li>
                                 </ul>

@@ -15,7 +15,7 @@ const Wishlist = () => {
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
-    const HandleAddToCart = (product) => {
+    const MoveToCart = (product) => {
         //  Cart mein add hora hai
         const UpdateCart = addToCart(product);
         setCartItems(UpdateCart);
@@ -23,7 +23,6 @@ const Wishlist = () => {
         //  Wishlist se remove hora hai 
         const updatedWishlist = removeFromWishlist(product.id);
         setWishlist(updatedWishlist);
-        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
 
         //  toast message
         toast.success(`${product.name} has been added to your cart !`);
@@ -100,7 +99,7 @@ const Wishlist = () => {
                                             <button
                                                 onClick={(e) => {
                                                     e.stopPropagation();
-                                                    HandleAddToCart(item);
+                                                    MoveToCart(item);
                                                 }}
                                                 className="Add-to-wishlist-btn"
                                             >

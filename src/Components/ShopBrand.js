@@ -3,10 +3,8 @@ import './ShopBrand.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from "react-slick";
-import CustomText from "./CustomText";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CategoryCollection from "./CategoryCollection";
 import ShopCarousal1 from '../Images/ShopCarousal1.png'
 import ShopCarousal2 from '../Images/ShopCarousal2.png'
 import ShopCarousal3 from '../Images/ShopCarousal3.png'
