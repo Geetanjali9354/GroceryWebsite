@@ -73,7 +73,7 @@ function ShopBrand() {
         <div className="circle-carousel-container-shop ">
             <div className="Shop-brand-header mt-5">
                 <h3>Shop By Brands</h3>
-                <a href="#">View All Deals</a>
+                <a href="#all-deals">View All Deals</a>
             </div>
             <Slider {...settings}>
                 {ShopBrandName.map((item, index) => (
@@ -81,7 +81,7 @@ function ShopBrand() {
                         data-aos="fade-up"
                         data-aos-delay={index * 100}>
                         <div className="circle-carousel-image-shop">
-                            <img src={item.image}  />
+                            <img src={item.image} alt="img" />
                         </div>
                     </div>
                 ))

@@ -10,15 +10,15 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ProductCollection } from "./CategoryCollection";
 import { useNavigate } from 'react-router-dom';
-import { addToCart, getCart } from '../Utils/cartUtils';
+import { getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import CartButton from "./CartButton";
 
 function HotDeals() {
     const navigate = useNavigate();
-    const [wishlist, setWishlist] = useState([]);
-    const [cartItems, setCartItems] = useState(getCart());
+    const [setWishlist] = useState([]);
+    const [setCartItems] = useState(getCart());
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
         hours: 8,
@@ -102,7 +102,7 @@ function HotDeals() {
             <div className="container-fluid ">
                 <div className="hotdeals-header">
                     <CustomText Text="Hot Deals Todays" fontWeight="bold" fontSize="30px" />
-                    <a href="#">View All Deals</a>
+                    <a href="#all-deals">View All Deals</a>
                 </div>
                 <div className="row p-3 ">
                     {/* LEFT SECTION */}

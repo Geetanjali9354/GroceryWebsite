@@ -58,7 +58,7 @@ function Blog() {
                     <div className="col-lg-8">
                         <div className="card border-0  p-3 bg-white">
                             {/* Blog Image */}
-                            <img src={BlogMainImg} alt="Tech Image" className="img-fluid rounded mb-4" />
+                            <img src={BlogMainImg} alt="Blog Image" className="img-fluid rounded mb-4" />
 
                             {/* Tag */}
                             <span className="px-3 py-2 mb-3 Gadget-btn" >

@@ -89,7 +89,7 @@ function Cart() {
                                         {cartItems.map((item) => (
                                             <div className="cart-row cart-item" key={item.id}>
                                                 <div className="col-2 CenterElement">
-                                                    <a className="text-danger TextClass" onClick={() => handleRemoveItem(item.id)}>❌ Remove</a>
+                                                    <a href="#remove" className="text-danger TextClass" onClick={() => handleRemoveItem(item.id)}>❌ Remove</a>
                                                 </div>
 
                                                 <div className="col-3 d-flex">

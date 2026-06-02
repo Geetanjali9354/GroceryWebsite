@@ -5,15 +5,15 @@ import NewsletterImage from '../Images/NewsLetterImage.png';
 import CustomText from './CustomText';
 import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, getCart } from '../Utils/cartUtils';
+import { getCart } from '../Utils/cartUtils';
 import { toast } from 'react-toastify';
 import { HeartOutline } from "../Images/SvgImages";
 import { addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { useState,useEffect } from 'react';
 import CartButton from './CartButton';
 const DailyBestSale = () => {
-    const [wishlist, setWishlist] = useState([]);
-    const [cartItems, setCartItems] = useState(getCart());
+    const [setWishlist] = useState([]);
+    const [setCartItems] = useState(getCart());
     const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState({
         days: 832,

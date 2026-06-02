@@ -50,12 +50,12 @@ const Footer = () => {
                     >
                         <CustomText Text="Information" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
-                            <li><a href="#">Become a Vendor</a></li>
-                            <li><a href="#">Affiliate Program</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Suppliers</a></li>
-                            <li><a href="#">Extended Plan</a></li>
-                            <li><a href="#">Community</a></li>
+                            <li><a href="#vendors">Become a Vendor</a></li>
+                            <li><a href="#affiliate">Affiliate Program</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#suppliers">Our Suppliers</a></li>
+                            <li><a href="#extended">Extended Plan</a></li>
+                            <li><a href="#community">Community</a></li>
                         </ul>
                     </div>
 
@@ -65,12 +65,12 @@ const Footer = () => {
                         data-aos-delay="150">
                         <CustomText Text="Customer Support" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Report Abuse</a></li>
-                            <li><a href="#">Submit and Dispute</a></li>
-                            <li><a href="#">Policies & Rules</a></li>
-                            <li><a href="#">Online Shopping</a></li>
+                            <li><a href="#help-center">Help Center</a></li>
+                            <li><a href="#contact-us">Contact Us</a></li>
+                            <li><a href="#report-abuse">Report Abuse</a></li>
+                            <li><a href="#submit-dispute">Submit and Dispute</a></li>
+                            <li><a href="#policies-rules">Policies & Rules</a></li>
+                            <li><a href="#online-shopping">Online Shopping</a></li>
                         </ul>
                     </div>
 
@@ -80,12 +80,12 @@ const Footer = () => {
                         data-aos-delay="200">
                         <CustomText Text="My Account" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Compare</a></li>
-                            <li><a href="#">Help Ticket</a></li>
-                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#my-account">My Account</a></li>
+                            <li><a href="#order-history">Order History</a></li>
+                            <li><a href="#shopping-cart">Shopping Cart</a></li>
+                            <li><a href="#compare">Compare</a></li>
+                            <li><a href="#help-ticket">Help Ticket</a></li>
+                            <li><a href="#wishlist">Wishlist</a></li>
                         </ul>
                     </div>
 
@@ -95,12 +95,12 @@ const Footer = () => {
                         data-aos-delay="250">
                         <CustomText Text="Daily Groceries" fontSize="22px" fontWeight="bold" className="mb-1" />
                         <ul className="list-unstyled">
-                            <li><a href="#">Dairy & Eggs</a></li>
-                            <li><a href="#">Meat & Seafood</a></li>
-                            <li><a href="#">Breakfast Food</a></li>
-                            <li><a href="#">Household Supplies</a></li>
-                            <li><a href="#">Bread & Bakery</a></li>
-                            <li><a href="#">Pantry Staples</a></li>
+                            <li><a href="#dairy-eggs">Dairy & Eggs</a></li>
+                            <li><a href="#meat-seafood">Meat & Seafood</a></li>
+                            <li><a href="#breakfast-food">Breakfast Food</a></li>
+                            <li><a href="#household-supplies">Household Supplies</a></li>
+                            <li><a href="#bread-bakery">Bread & Bakery</a></li>
+                            <li><a href="#pantry-staples">Pantry Staples</a></li>
                         </ul>
                     </div>
                     {/* Shop on The Go Column */}
@@ -114,11 +114,11 @@ const Footer = () => {
                             <img src={QrImg} alt="QR Code" width="80" className="me-3 mt-2" />
                             {/* App Download Buttons */}
                             <div className="d-flex flex-column">
-                                <a href="#" className="d-flex align-items-center mb-2 px-3 py-2 shadow-sm app-download-btn">
+                                <a href="#apple-store" className="d-flex align-items-center mb-2 px-3 py-2 shadow-sm app-download-btn">
                                     <img src={AppleImg} alt="Apple Store" width="20" className="me-2" />
                                     <span style={{ fontSize: '14px' }}>Apple Store</span>
                                 </a>
-                                <a href="#" className=" d-flex align-items-center px-3 py-2 shadow-sm app-download-btn">
+                                <a href="#google-play" className=" d-flex align-items-center px-3 py-2 shadow-sm app-download-btn">
                                     <img src={PlaystoreImg} alt="Google Play" width="20" className="me-2" />
                                     <span style={{ fontSize: '14px' }}>Google Play</span>
                                 </a>
@@ -146,22 +146,22 @@ const Footer = () => {
 
                     <div className="social-icons d-flex gap-3">
                         {/* Facebook */}
-                        <a href="#" className="icon-circle" aria-label="Facebook">
+                        <a href="#facebook" className="icon-circle" aria-label="Facebook">
                             <BaselineFacebook height="18" width="18" />
                         </a>
 
                         {/* Twitter */}
-                        <a href="#" className="icon-circle" aria-label="Twitter">
+                        <a href="#twitter" className="icon-circle" aria-label="Twitter">
                             <TwitterSolid height="18" width="18" />
                         </a>
 
                         {/* Instagram */}
-                        <a href="#" className="icon-circle" aria-label="Instagram">
+                        <a href="#instagram" className="icon-circle" aria-label="Instagram">
                             <Instagram height="18" width="18" />
                         </a>
 
                         {/* LinkedIn */}
-                        <a href="#" className="icon-circle" aria-label="LinkedIn">
+                        <a href="#linkedin" className="icon-circle" aria-label="LinkedIn">
                             <LinkedinBoxLine height="18" width="18" />
 
                         </a>

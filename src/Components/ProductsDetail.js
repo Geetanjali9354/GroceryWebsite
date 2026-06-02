@@ -16,8 +16,8 @@ import { toast } from 'react-toastify';
 import CartButton from './CartButton';
 const ProductsDetail = () => {
     
-    const [wishlist, setWishlist] = useState([]);
-    const [cartItems, setCartItems] = useState(getCart());
+    const [setWishlist] = useState([]);
+    const [setCartItems] = useState(getCart());
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
         hours: 8,
@@ -206,7 +206,7 @@ const ProductsDetail = () => {
                                 <span className="coupon-icon">＋</span>
                                 <span className="ms-2">Mfr. coupon. <strong>$3.00 off 5</strong></span>
                             </div>
-                            <a href="#" className="view-details-link">View Details</a>
+                            <a href="#coupon-details" className="view-details-link">View Details</a>
                         </div>
 
                         {/* Offer List */}

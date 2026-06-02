@@ -16,8 +16,8 @@ import CartButton from './CartButton';
 
 const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
     const navigate = useNavigate();
-    const [wishlist, setWishlist] = useState([]);
-    const [cartItems, setCartItems] = useState(getCart());
+    const [setWishlist] = useState([]);
+    const [setCartItems] = useState(getCart());
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
@@ -61,7 +61,7 @@ const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }
             <div className="flash-sales-container">
                 <div className="flash-sales-header">
                     <CustomText Text={title} className='text-dark' fontWeight='bold' fontSize='30px' />
-                    <a href="#" onClick={handleLinkClick}>{linkText}</a>
+                    <a href="#all-deals" onClick={handleLinkClick}>{linkText}</a>
                 </div>
 
                 <Slider {...settings}>

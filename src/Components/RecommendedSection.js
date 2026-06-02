@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './FlashSales.css';
 import { ProductCollection } from './CategoryCollection';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, getCart } from '../Utils/cartUtils';
+import { getCart } from '../Utils/cartUtils';
 import { HeartOutline } from "../Images/SvgImages";
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "../Utils/Wishlist";
 import { toast } from 'react-toastify';
@@ -28,14 +28,14 @@ function RecommendedSection() {
     ];
 
     const selectedCategoryIds = ["yummycandy", "desserts", "fruit", "drinks"];
-    const [cartItems, setCartItems] = useState(getCart());
+    const [setCartItems] = useState(getCart());
     const [active, setActive] = useState('All');
 
     // 🔹 Un categories ke products collect kar lo
     const selectedProducts = ProductCollection.filter(
         (product) => selectedCategoryIds.includes(product.categoryId)
     );
-    const [wishlist, setWishlist] = useState([]);
+    const [setWishlist] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {

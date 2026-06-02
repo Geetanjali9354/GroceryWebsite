@@ -16,8 +16,8 @@ import CartButton from "./CartButton";
 
 const ProductsPage = ({ title, breadcrumb, products }) => {
   const navigate = useNavigate();
-  const [cartItems, setCartItems] = useState(getCart());
-  const [wishlist, setWishlist] = useState([]);
+  const [setCartItems] = useState(getCart());
+  const [setWishlist] = useState([]);
 
   useEffect(() => {
     setWishlist(getWishlist());
@@ -52,7 +52,9 @@ const ProductsPage = ({ title, breadcrumb, products }) => {
             Home
           </a>
           <span className="mx-1">{">"}</span>
-          <a className="text-primary" href="#" style={{ textDecoration: "none" }}>{breadcrumb}</a>
+          <a className="text-primary" href={`#${breadcrumb.toLowerCase().replace(/ /g, '-')}`} style={{ textDecoration: "none" }}>
+            {breadcrumb}
+          </a>
         </div>
       </div>
 
