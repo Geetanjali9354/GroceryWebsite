@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 const Wishlist = () => {
     const navigate = useNavigate();
     const [wishlist, setWishlist] = useState([]);
-    const [cartItems, setCartItems] = useState([]);
+    const [setCartItems] = useState([]);
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
@@ -76,7 +76,7 @@ const Wishlist = () => {
                                 {wishlist.map((item) => (
                                     <div className="wishlist-row " style={{ border: '1px solid #DBDBDB' }} key={item.id}>
                                         <div className="col-2 CenterElement">
-                                            <a className="text-danger TextClass" onClick={() => handleRemoveItem(item.id)}>❌ Remove</a>
+                                            <a href="/cart" className="text-danger TextClass" onClick={() => handleRemoveItem(item.id)}>❌ Remove</a>
                                         </div>
                                         <div className="col-3 d-flex" onClick={() => handleProductClick(item.id)}>
                                             <div className="wishlist-item-image">

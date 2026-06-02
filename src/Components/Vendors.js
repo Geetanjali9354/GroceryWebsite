@@ -78,7 +78,7 @@ function Vendors() {
                             <div className="d-flex justify-content-center gap-3 mt-3 flex-wrap">
                                 {[VendorProduct1, VendorProduct2, VendorProduct3, VendorProduct4, VendorProduct3].map((img, i) => (
                                     <div key={i} className="product-circle-wrapper">
-                                        <img src={img} className="product-image-inside" />
+                                        <img src={img} className="product-image-inside" alt="vendor"/>
                                     </div>
                                 ))}
                             </div>
