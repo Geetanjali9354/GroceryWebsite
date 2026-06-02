@@ -28,14 +28,14 @@ function RecommendedSection() {
     ];
 
     const selectedCategoryIds = ["yummycandy", "desserts", "fruit", "drinks"];
-    const [setCartItems] = useState(getCart());
+    const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState(getCart());
     const [active, setActive] = useState('All');
 
     // 🔹 Un categories ke products collect kar lo
     const selectedProducts = ProductCollection.filter(
         (product) => selectedCategoryIds.includes(product.categoryId)
     );
-    const [setWishlist] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {

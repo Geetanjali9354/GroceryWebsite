@@ -16,8 +16,8 @@ import CartButton from "./CartButton";
 
 const ProductsPage = ({ title, breadcrumb, products }) => {
   const navigate = useNavigate();
-  const [setCartItems] = useState(getCart());
-  const [setWishlist] = useState([]);
+const [wishlist, setWishlist] = useState([]);
+const [cartItems, setCartItems] = useState(getCart());
 
   useEffect(() => {
     setWishlist(getWishlist());

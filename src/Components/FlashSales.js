@@ -16,8 +16,8 @@ import CartButton from './CartButton';
 
 const FlashSales = ({ title = "Flash Sales Today", linkText = "View All Deals" }) => {
     const navigate = useNavigate();
-    const [setWishlist] = useState([]);
-    const [setCartItems] = useState(getCart());
+    const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState(getCart());
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);

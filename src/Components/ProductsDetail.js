@@ -15,9 +15,9 @@ import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist } from "..
 import { toast } from 'react-toastify';
 import CartButton from './CartButton';
 const ProductsDetail = () => {
-    
-    const [setWishlist] = useState([]);
-    const [setCartItems] = useState(getCart());
+
+    const [wishlist, setWishlist] = useState([]);
+    const [cartItems, setCartItems] = useState(getCart());
     const [timeLeft, setTimeLeft] = useState({
         days: 832,
         hours: 8,
