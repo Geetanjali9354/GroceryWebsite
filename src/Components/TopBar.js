@@ -130,12 +130,12 @@ function TopBar() {
                         <div className="header-links d-flex gap-4 align-items-center">
                             {/* Order Tracking */}
                             <p className="d-none d-lg-flex mb-0">
-                                <a href="#" className="text-white" style={{ fontFamily: 'Quicksand' }}>Order Tracking</a>
+                                <a href="#order-tracking" className="text-white" style={{ fontFamily: 'Quicksand' }}>Order Tracking</a>
                             </p>
 
                             {/* About Us */}
                             <p className="d-none d-lg-flex mb-0">
-                                <a href="#" className="text-white" style={{ fontFamily: 'Quicksand' }}>About Us</a>
+                                <a href="#about-us" className="text-white" style={{ fontFamily: 'Quicksand' }}>About Us</a>
                             </p>
 
                             {/* Language Dropdown */}
@@ -144,12 +144,12 @@ function TopBar() {
                                     Eng
                                 </p>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">English</a></li>
-                                    <li><a className="dropdown-item" href="#">Japanese</a></li>
-                                    <li><a className="dropdown-item" href="#">French</a></li>
-                                    <li><a className="dropdown-item" href="#">German</a></li>
-                                    <li><a className="dropdown-item" href="#">Bangla</a></li>
-                                    <li><a className="dropdown-item" href="#">Korean</a></li>
+                                    <li><a className="dropdown-item" href="#eng">English</a></li>
+                                    <li><a className="dropdown-item" href="#jpn">Japanese</a></li>
+                                    <li><a className="dropdown-item" href="#fra">French</a></li>
+                                    <li><a className="dropdown-item" href="#deu">German</a></li>
+                                    <li><a className="dropdown-item" href="#ben">Bangla</a></li>
+                                    <li><a className="dropdown-item" href="#kor">Korean</a></li>
                                 </ul>
                             </div>
 
@@ -191,16 +191,16 @@ function TopBar() {
                                     style={{ height: '50px' }}
                                 />
                                 <button type="button" style={{ backgroundColor: '#1C799B', border: 'none' }} className="btn btn-outline-secondary">
-                                    <img src={Search} style={{ height: '20px', width: '20px' }} />
+                                    <img src={Search} style={{ height: '20px', width: '20px' }}alt="search" />
                                 </button>
                             </div>
                         </div>
                         <div className="w-auto  col-lg-3 col-md-6 col-sm-6 d-flex justify-content-end align-items-center gap-3 pe-3 ProfileDiv">
                             <div className="d-lg-none cursor-pointer">
-                                <img src={SearchBlack} style={{ height: '20px', width: '20px' }} />
+                                <img src={SearchBlack} style={{ height: '20px', width: '20px' }} alt="search" />
                             </div>
                             <div className="d-flex align-items-center gap-1 cursor-pointer" onClick={handleProfileClick}>
-                                <img src={User} style={{ height: '20px', width: '20px' }} />
+                                <img src={User} style={{ height: '20px', width: '20px' }} alt="user" />
                                 <span className="d-none d-lg-flex">Profile</span>
                             </div>
                             <div
@@ -324,64 +324,64 @@ function TopBar() {
                                 <ul className="nav flex-column">
                                     {/* HOME */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <a href="#home" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                             Home
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="/">Home Page</a></li>
-                                            <li><a className="dropdown-item" href="#">Grocery</a></li>
+                                            <li><a className="dropdown-item" href="/Home">Home Page</a></li>
+                                            <li><a className="dropdown-item" href="/grocery">Grocery</a></li>
                                         </ul>
                                     </li>
 
                                     {/* SHOP with NEW badge */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <a href="#shop" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                             shop
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
-                                            <li><a className="dropdown-item" href="#">Shop 2</a></li>
+                                            <li><a className="dropdown-item" href="#shop1" onClick={handleShopClick}>Shop 1</a></li>
+                                            <li><a className="dropdown-item" href="#shop2" onClick={handleShopClick}>Shop 2</a></li>
                                         </ul>
                                     </li>
 
                                     {/* PAGES with NEW badge */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle position-relative" data-bs-toggle="dropdown">
+                                        <a href="#pages" className="nav-link dropdown-toggle position-relative" data-bs-toggle="dropdown">
                                             Pages
                                             <span className="badgeeee badgeeee-yellow mt-3 ms-3 bulb">New</span>
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#" onClick={handleCartClick}>Cart</a></li>
-                                            <li><a className="dropdown-item" href="#" >Contact</a></li>
+                                            <li><a className="dropdown-item" href="#cart" onClick={handleCartClick}>Cart</a></li>
+                                            <li><a className="dropdown-item" href="#contact" onClick={handleContactClick}>Contact</a></li>
                                         </ul>
                                     </li>
 
                                     {/* VENDORS */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle " data-bs-toggle="dropdown">
+                                        <a href="#vendors" className="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                                             Vendors
                                             <span className="badgeeee badgeeee-blue mt-3 ms-4 bulb">New</span>
 
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#" onClick={handleVendorsClick}>Vendor 1</a></li>
-                                            <li><a className="dropdown-item" href="#">Vendor 2</a></li>
+                                            <li><a className="dropdown-item" href="#vendor1" onClick={handleVendorsClick}>Vendor 1</a></li>
+                                            <li><a className="dropdown-item" href="#vendor2" onClick={handleVendorsClick}>Vendor 2</a></li>
                                         </ul>
                                     </li>
                                     {/* blog */}
                                     <li className="nav-item dropdown border-bottom py-2">
-                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <a href="#blog" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                             Blog
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#" onClick={handleBlogDetailClick}>Blog Details</a></li>
-                                            <li><a className="dropdown-item" href="#">Blog </a></li>
+                                            <li><a className="dropdown-item" href="#blog-details" onClick={handleBlogDetailClick}>Blog Details</a></li>
+                                            <li><a className="dropdown-item" href="#blog">Blog </a></li>
                                         </ul>
                                     </li>
 
                                     {/* CONTACT */}
                                     <li className="nav-item py-2">
-                                        <a href="#" className="nav-link" onClick={handleContactClick}>Contact Us</a>
+                                        <a href="#contact" className="nav-link" onClick={handleContactClick}>Contact Us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -391,7 +391,7 @@ function TopBar() {
                         {/* DESKTOP NAV - only visible on large+ */}
                         <div className="col d-none d-lg-flex  align-items-center">
                             <div className="nav-link dropdown nav-link-hover">
-                                <a href="#" > <span className="Heading">Home</span>
+                                <a href="#home" > <span className="Heading">Home</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
@@ -399,12 +399,12 @@ function TopBar() {
                                     />
                                 </a>
                                 <ul className="dropdown-menu ">
-                                    <li><a className="dropdown-item" href="/">Home Page</a></li>
-                                    <li><a className="dropdown-item" href="#">Grocery</a></li>
+                                    <li><a className="dropdown-item" href="#home">Home Page</a></li>
+                                    <li><a className="dropdown-item" href="#grocery">Grocery</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown nav-link-hover">
-                                <a href="#" >
+                                <a href="#shop" >
                                     <span>Shop</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
@@ -414,12 +414,12 @@ function TopBar() {
                                 </a>
 
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#" onClick={handleShopClick}>Shop 1</a></li>
-                                    <li><a className="dropdown-item" href="#">Shop 2</a></li>
+                                    <li><a className="dropdown-item" href="#shop1" onClick={handleShopClick}>Shop 1</a></li>
+                                    <li><a className="dropdown-item" href="#shop2" onClick={handleShopClick}>Shop 2</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown nav-link-hover ">
-                                <a href="#">
+                                <a href="#pages">
                                     <span className="position-relative">
                                         Pages
                                         <span className="badgeeee badgeeee-yellow bulb">New</span>
@@ -432,12 +432,12 @@ function TopBar() {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item" href="#" onClick={handleCartClick}>
+                                        <a className="dropdown-item" href="#cart" onClick={handleCartClick}>
                                             Cart
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#" onClick={handleWishlistClick}>
+                                        <a className="dropdown-item" href="#wishlist" onClick={handleWishlistClick}>
                                             Wishlist
                                         </a>
                                     </li>
@@ -445,7 +445,7 @@ function TopBar() {
                             </div>
 
                             <div className="nav-link dropdown nav-link-hover">
-                                <a href="#">
+                                <a href="#vendors">
                                     <span className="position-relative">
                                         Vendors
                                         <span className="badgeeee badgeeee-blue bulb">New</span>
@@ -460,21 +460,21 @@ function TopBar() {
                                     <li>
                                         <a
                                             className="dropdown-item"
-                                            href="#"
+                                            href="#vendor1"
                                             onClick={handleVendorsClick}
                                         >
                                             Vendor 1
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">
+                                        <a className="dropdown-item" href="#vendor2" onClick={handleVendorsClick}>
                                             Vendor 2
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div className="nav-link dropdown nav-link-hover">
-                                <a href="#" > <span >Blog</span>
+                                <a href="#blog" > <span >Blog</span>
                                     <BaselineKeyboardArrowDown
                                         height="20"
                                         width="20"
@@ -482,12 +482,12 @@ function TopBar() {
 
                                     /></a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#" onClick={handleBlogDetailClick}>Blog Details</a></li>
-                                    <li><a className="dropdown-item" href="#">Blog</a></li>
+                                    <li><a className="dropdown-item" href="#blog-details" onClick={handleBlogDetailClick}>Blog Details</a></li>
+                                    <li><a className="dropdown-item" href="#blog">Blog</a></li>
                                 </ul>
                             </div>
                             <div className="nav-link">
-                                <a href="#" className="text-dark" onClick={handleContactClick}>Contact Us</a>
+                                <a href="#contact" className="text-dark" onClick={handleContactClick}>Contact Us</a>
                             </div>
                         </div>
 
